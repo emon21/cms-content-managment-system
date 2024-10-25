@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder
 {
@@ -20,13 +21,13 @@ class CategorySeeder extends Seeder
         // $category->save();
         // Create Category
 
-        
+
         Category::Create([
-            'name' => 'Development',
-            'type' => 'Blog',
-            'status' => 'Publish',
+            'name' => 'Laravel Development',
+            'slug' => Str::slug('Laravel Development'),
+            'type' => 'blog',
+            'status' => 'publish',
             'image' => 'default.png',
         ]);
-
     }
 }

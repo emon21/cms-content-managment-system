@@ -1,0 +1,9 @@
+.dropdown-menu.dropdown-menu-lg.dropdown-menu-right.show {
+   margin-top: 10px;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+   background-color: #097267;
+   color: #fff;
+}

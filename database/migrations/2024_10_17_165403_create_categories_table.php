@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->enum('type',['Blog','Service','PricePlan','Gallery'])->default('Blog');
-            $table->enum('status',['Publish','Draff'])->default('Publish');
+            $table->enum('type',['blog','service','priceplan','gallery'])->default('blog');
+            $table->enum('status',['publish','draft'])->default('publish');
             $table->string('image')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
