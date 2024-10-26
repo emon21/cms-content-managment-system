@@ -21,6 +21,8 @@ class CategorySeeder extends Seeder
         // $category->save();
         // Create Category
 
+        
+
 
         Category::Create([
             'name' => 'Laravel Development',

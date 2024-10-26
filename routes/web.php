@@ -76,6 +76,8 @@ Route::get('/blog/show/{blog:slug}', [BlogController::class, 'show'])->name('blo
 
 # Price Plan Route API
 Route::resource('PricePlan', PricePlanController::class);
+// Route::resource('/blog', BlogController::class);
+
 
 
 // route prefix
