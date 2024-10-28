@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashBoardController;
 use App\Http\Controllers\admin\PricePlanController;
+use App\Http\Controllers\admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,13 +72,16 @@ Route::get('/blog/show/{blog:slug}', [BlogController::class, 'show'])->name('blo
 
 
 
-# Service Route API
 
 
 # Price Plan Route API
-Route::resource('PricePlan', PricePlanController::class);
+Route::resource('price-plan', PricePlanController::class);
 // Route::resource('/blog', BlogController::class);
 
+# Service Route API
+route::resource('service', ServiceController::class);
+
+// route::get('/service/show/{service}', [ServiceController::class, 'show'])->name('service.show');
 
 
 // route prefix

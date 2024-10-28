@@ -52,7 +52,7 @@ class PricePlanController extends Controller
         $PricePlan->status = $request->status;
         $PricePlan->save();
 
-        return redirect()->route('PricePlan.index');
+        return redirect()->route('price-plan.index');
     }
 
     /**
@@ -93,7 +93,7 @@ class PricePlanController extends Controller
         $PricePlan->status = $request->status;
         $PricePlan->save();
 
-        return redirect()->route('PricePlan.index');
+        return redirect()->route('price-plan.index');
     }
 
     /**
@@ -123,7 +123,7 @@ class PricePlanController extends Controller
 
         // PricePlan::destroy($PricePlan->id);
 
-        return redirect()->route('PricePlan.index');
+        return redirect()->route('price-plan.index');
         
     }
 }

@@ -28,13 +28,13 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title pt-2">Price Plan</h3>
-                                <a href="{{ route('PricePlan.index') }}" class="btn btn-primary float-right"> Price Plan
+                                <a href="{{ route('price-plan.index') }}" class="btn btn-primary float-right"> Price Plan
                                     List</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <form action="{{ route('PricePlan.update', $PricePlan->id) }}" method="POST"
+                                <form action="{{ route('price-plan.update', $PricePlan->id) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')

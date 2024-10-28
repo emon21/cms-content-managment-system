@@ -1,5 +1,5 @@
 @extends('layouts.admin-app')
-@section('title', 'Price Plan')
+@section('title', 'Service Page')
 @section('content')
 
     <div class="content-wrapper">
@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>item</h1>
+                        <h1>Service</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">item</li>
+                            <li class="breadcrumb-item active">Service</li>
                         </ol>
                     </div>
                 </div>
@@ -28,17 +28,8 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">item</h3>
-
-                            {{-- <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;"></div>
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div> --}}
-
-                            <a href="{{ route('price-plan.create') }}" class="btn btn-primary float-right">Add Plan</a>
+                            <h3 class="card-title pt-2">Service</h3>
+                            <a href="{{ route('service.create') }}" class="btn btn-primary float-right">Create Service</a>
 
                         </div>
                         <!-- /.card-header -->
@@ -47,28 +38,28 @@
                                 <thead>
                                     <tr>
                                         <th># Sl No</th>
+                                        <th>Icon</th>
                                         <th>Title</th>
-                                        <th>Category</th>
-                                        <th>Price</th>
+                                        <th>Ctegory</th>
                                         <th>Plan</th>
+                                        <th>Image</th>
                                         <th>Status</th>
                                         <th>Ation</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($pricePlan as  $item)
+                                    @forelse ($service as  $item)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
+                                            <td>{{ $item->icon }}</td>
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->category->name }}</td>
-                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->plan->title }}</td>
+                                          
                                             <td>
-                                                @if ($item->type == 'monthly')
-                                                    <span class="badge bg-success">Monthly</span>
-                                                @else
-                                                    <span class="badge bg-info">Yearly</span>
-                                                @endif
+                                                <img @if ($item->image) src="{{ asset($item->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
+                                                    width="120" height="80">
                                             </td>
                                             <td>
                                                 @if ($item->status == 'publish')
@@ -77,25 +68,22 @@
                                                     <span class="badge bg-danger">Draft</span>
                                                 @endif
                                             </td>
-
                                             <td class="d-flex justify-content-between">
-                                                <a href="{{ route('price-plan.show', $item->id) }}"
+                                                <a href="{{ route('service.show', $item->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                 </a>
 
-                                                <a href="{{ route('price-plan.edit', $item->id) }}"
+                                                <a href="{{ route('service.edit', $item->id) }}"
                                                     class="btn btn-info btn-sm">
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
-                                                {{-- <a href="{{ route('item.destroy',$item->id) }}" class="btn btn-danger btn-sm">
-                                              <i class="fas fa-trash-alt"></i>
-                                               </a> --}}
-
-                                                <form action="{{ route('price-plan.destroy', $item->id) }}" method="POST">
+                                                <form action="{{ route('service.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
+                                                    {{-- <input type="hidden" value="DELETE" name="_method"> --}}
+                                                    {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> --}}
                                                     <button type="submit"
                                                         onclick="return confirm('Are you sure you want to delete this item?')"
                                                         class="btn btn-danger btn-sm"><i
@@ -104,7 +92,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <td colspan="5" class="text-center">
+                                        <td colspan="6" class="text-center">
                                             <span class="text-danger text-bold">
                                                 No Data Found
                                             </span>
@@ -128,18 +116,6 @@
         <!-- /.content -->
     </div>
 
-    <script>
-        function previewImage(event) {
-            var input = event.target;
-            var image = document.getElementById('previewImg');
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    image.src = e.target.result;
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
+
 
 @endsection

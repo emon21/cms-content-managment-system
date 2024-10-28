@@ -28,13 +28,13 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title pt-2">Price Plan</h3>
-                                <a href="{{ route('PricePlan.index') }}" class="btn btn-primary float-right"> Price Plan
+                                <a href="{{ route('price-plan.index') }}" class="btn btn-primary float-right"> Price Plan
                                     List</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <form action="{{ route('PricePlan.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('price-plan.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="d-flex ga-4 align-item-center">
                                         <div class="form-group col-sm-6">

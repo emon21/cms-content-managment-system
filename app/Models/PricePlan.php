@@ -22,4 +22,8 @@ class PricePlan extends Model
     public function category(){
         return $this->belongsTo(Category::class,'cat_id');
     }
+
+    public function service(){ // plan_id => Service Model
+        return $this->hasMany(Service::class,'plan_id');
+    }
 }

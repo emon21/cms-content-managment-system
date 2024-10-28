@@ -76,10 +76,18 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('PricePlan.index') }}"
-                        class="nav-link {{ request()->routeIs('PricePlan.index') ? 'active' : '' }}">
+                    <a href="{{ route('price-plan.index') }}"
+                        class="nav-link {{ request()->routeIs('price-plan.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-list"></i>
                         PricePlan
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('service.index') }}"
+                        class="nav-link {{ request()->routeIs('service.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list"></i>
+                        Service
                     </a>
                 </li>
 
