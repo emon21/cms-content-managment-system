@@ -91,6 +91,14 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('faq.index') }}"
+                        class="nav-link {{ request()->routeIs('faq.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list"></i>
+                        Faq
+                    </a>
+                </li>
+
 
                 <li class="nav-header">LABELS</li>
                 <li class="nav-item">

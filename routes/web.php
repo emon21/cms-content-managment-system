@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashBoardController;
+use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\admin\PricePlanController;
 use App\Http\Controllers\admin\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -82,6 +83,12 @@ Route::resource('price-plan', PricePlanController::class);
 route::resource('service', ServiceController::class);
 
 // route::get('/service/show/{service}', [ServiceController::class, 'show'])->name('service.show');
+
+
+# Faq Route API
+// route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('faq.index');
+
+route::resource('faq', FaqController::class);
 
 
 // route prefix
