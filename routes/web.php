@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashBoardController;
 use App\Http\Controllers\admin\PricePlanController;
+use App\Http\Controllers\admin\TeamMemberController;
 use App\Http\Controllers\admin\TestimonialController;
 
 /*
@@ -102,6 +103,10 @@ Route::resource('/testimonial', TestimonialController::class);
 # Partner Route API
 
 Route::resource('/partner', PartnerController::class);
+
+#Team Member Route API
+
+Route::resource('/team-member', TeamMemberController::class);
 
 
 
