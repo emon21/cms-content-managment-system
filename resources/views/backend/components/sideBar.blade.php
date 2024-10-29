@@ -100,6 +100,15 @@
                 </li>
 
 
+                <li class="nav-item">
+                    <a href="{{ route('testimonial.index') }}"
+                        class="nav-link {{ request()->routeIs('testimonial.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list"></i>
+                        Testimonial
+                    </a>
+                </li>
+
+
                 <li class="nav-header">LABELS</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">

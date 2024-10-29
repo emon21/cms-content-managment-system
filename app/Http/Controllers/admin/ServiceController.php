@@ -62,7 +62,7 @@ class ServiceController extends Controller
         # Image upload with Helper Function
         // helper::imageUpload($request,'image','uploads/service/');
         // uploadImage($request,'image','uploads/service/');
-
+        
         // if($request->hasFile('image')) {
         //     $UploadFile = uploadImage($request->image,'service/');
         //     $service->image = $UploadFile;
@@ -145,8 +145,8 @@ class ServiceController extends Controller
 
         // if ($request->hasFile('image')) {
 
-
         
+
         if ($request->hasFile('image')) {
 
             deleteImage($Service->image);
