@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\admin\PartnerController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashBoardController;
@@ -92,10 +93,17 @@ route::resource('service', ServiceController::class);
 route::resource('faq', FaqController::class);
 
 
-// # Testimonial Route API
+# Testimonial Route API
+
 // Route::get('/testimonial', [App\Http\Controllers\TestimonialController::class, 'index'])->name('admin.testimonial');
 
 Route::resource('/testimonial', TestimonialController::class);
+
+# Partner Route API
+
+Route::resource('/partner', PartnerController::class);
+
+
 
 // route prefix
 Route::group(['prefix' => 'admin'], function () {

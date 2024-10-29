@@ -108,6 +108,14 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('partner.index') }}"
+                        class="nav-link {{ request()->routeIs('partner.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list"></i>
+                        Partner
+                    </a>
+                </li>
+
 
                 <li class="nav-header">LABELS</li>
                 <li class="nav-item">
