@@ -123,6 +123,14 @@
                         Team Member
                     </a>
                 </li>
+                
+                <li class="nav-item">
+                    <a href="{{ route('gallery.index') }}"
+                        class="nav-link {{ request()->routeIs('gallery.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list"></i>
+                        Gallery
+                    </a>
+                </li>
 
                 <li class="nav-header">LABELS</li>
                 <li class="nav-item">
