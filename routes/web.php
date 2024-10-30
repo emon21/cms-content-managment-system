@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\PartnerController;
 use App\Http\Controllers\admin\ServiceController;
@@ -113,6 +114,9 @@ Route::resource('/team-member', TeamMemberController::class);
 
 Route::resource('/gallery', GalleryController::class);
 
+# Contract US Route API
+
+ROute::resource('/contact',ContactController::class);
 
 // route prefix
 Route::group(['prefix' => 'admin'], function () {
