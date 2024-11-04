@@ -46,6 +46,8 @@ class ServiceController extends Controller
     public function store(Request $request, Service $service)
     {
         //
+       
+        // $service= Service::where()->with('category')->get();
 
         $service->title = $request->title;
         $service->slug = Str::slug($request->title);
@@ -54,42 +56,26 @@ class ServiceController extends Controller
         $service->plan_id = $request->plan;
         $service->status = $request->status;
         $service->icon = $request->icon;
-
         $service->description = $request->description;
-        // $service->image = $request->image;
-
-        // $service->image = $request->image;
-        # Image upload with Helper Function
-        // helper::imageUpload($request,'image','uploads/service/');
-        // uploadImage($request,'image','uploads/service/');
         
-        // if($request->hasFile('image')) {
-        //     $UploadFile = uploadImage($request->image,'service/');
-        //     $service->image = $UploadFile;
-        // }
-        // else{
-        //     $UploadFile = uploadImage($request->image,'service/');
-        //     $service->image = $UploadFile;
-        // }
-
-        // $UploadFile = uploadImage($request->FileUpload, 'service');
-
+        // Image Upload With Helper Function
         $url = uploadImage($request->file('image'), 'service');
-        // $service->image = $url;
-
-            // $url = uploadImage($request->image, 'service');
-            $service->image = $url;
-
-
-        // $service->save();
-
+        $service->image = $url;
+  
         $service->meta_title = $request->meta_title;
         $service->meta_keywords = $request->meta_keywords;
         $service->meta_description = $request->meta_description;
 
         $service->save();
 
-          return redirect()->route('service.index')->with('success', 'Service Created Successfully');
+        $notification = array(
+            'message' => 'Service Created successfully',
+            'alert-type' => 'success',
+            'data' => 'Created',
+        );
+        return redirect()->route('service.index')->with($notification);
+
+         
     }
 
     /**
@@ -134,42 +120,26 @@ class ServiceController extends Controller
         $Service->meta_keywords = $request->meta_keywords;
         $Service->meta_description = $request->meta_description;
 
-
-        # Image Delete on Update
-        // if (File::exists($cms->login_page_image)) {
-        //     File::delete($cms->login_page_image);
-        // }
-
-        # IF You want to change the OLD Image and Keep the NEW Image on Update
-        // if ($request->hasFile('image')) {
-
-        // if ($request->hasFile('image')) {
-
-        
-
+        # IF You Change image
         if ($request->hasFile('image')) {
 
+            // delete old image with Helper Function
             deleteImage($Service->image);
+
+            # Image upload with Helper Function
             $url = uploadImage($request->file('image'), 'service');
             $Service->image = $url;
         }
 
-        // if ($request->hasFile('image')) {
-            
-        // }
-        // }
-
-
-        // $url = uploadImage($request->login_page_image, 'login');
-        // $cms->login_page_image = $url;
-
-        # Image upload with Helper Function
-        // helper::imageUpload($request,'image','uploads/service/');
-        // $service->image = $url;
-
         $Service->save();
 
-        return redirect()->route('service.index')->with('success', 'Service Updated Successfully');
+        $notification = array(
+                'message' => 'Service Updated successfully',
+                'alert-type' => 'success',
+                'data' => 'Updated',
+            );
+            
+        return redirect()->route('service.index')->with($notification);
     }
 
     /**
@@ -179,12 +149,19 @@ class ServiceController extends Controller
     {
         //
 
-        # Image Delete on Destroy  
+        # Image Delete on Destroy
         
         deleteImage($Service->image);
 
         // $Service->delete();
         Service::destroy($Service->id);
-        return redirect()->route('service.index')->with('success', 'Service Deleted Successfully');
+        $notification = array(
+                'message' => 'Service Deleted successfully',
+                'alert-type' => 'success',
+                'data' => 'Deleted',
+            );
+        return redirect()->route('service.index')->with($notification);
+
+        
     }
 }

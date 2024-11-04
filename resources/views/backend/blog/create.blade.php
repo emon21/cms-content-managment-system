@@ -51,8 +51,16 @@
                                             <select name="cat_id" id="type" class="form-control">
                                                 <option value=""> >>
                                                     Chouse Category << </option>
-                                                        @foreach ($category as $item)
+                                                        {{-- @foreach ($category as $item)
+                                                <option value="{{ $item->id }}">{{ $item->type == 'blog' }}</option>
+                                                @endforeach --}}
+
+                                                @foreach ($category as $item)
+
+                                                  @if ($item->type == 'blog')
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endif
+
                                                 @endforeach
 
                                             </select>

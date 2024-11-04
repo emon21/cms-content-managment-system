@@ -34,6 +34,20 @@
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
+  <!-- Sweet Alert 2 -->
+  <link rel="stylesheet" href="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.min.css">
+
+<!-- toastify CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+
+<!-- toaster -->
+<link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/plugins/toastr/toastr.min.css">
+
+<!-- dropify -->
+<link rel="stylesheet" href="{{ asset('backend') }}/dropify/dropify.min.css">
+{{-- <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css"> --}}
+
   <!-- Custom CSS -->
    <link rel="stylesheet" href="{{ asset('backend') }}/dist/css/style.css">
 </head>

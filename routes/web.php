@@ -12,6 +12,8 @@ use App\Http\Controllers\admin\DashBoardController;
 use App\Http\Controllers\admin\PricePlanController;
 use App\Http\Controllers\admin\TeamMemberController;
 use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\admin\WebsiteSettingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,14 +47,15 @@ Route::get('/', function () {
 
 # Category Route API
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
-Route::post('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
 // Route::get('/category/create', [CategoryController::class, 'create']);
 
 Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::put('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 
-// Route::get('/category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
-Route::delete('/category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+Route::get('/category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+// Route::delete('/category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 // Single Data show in Category
 Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
@@ -122,3 +125,9 @@ ROute::resource('/contact',ContactController::class);
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [DashBoardController::class, 'index'])->name('admin.dashboard');
 });
+
+
+
+# Website Setting Route API
+
+Route::resource('website-setting',WebsiteSettingController::class);

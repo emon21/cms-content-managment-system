@@ -14,7 +14,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        //
+        
         $partner = Partner::all();   
         return view('backend.partner.index',compact('partner'));
     }
@@ -24,7 +24,7 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        //
+        
         return view('backend.partner.create');
     }
 
@@ -38,20 +38,9 @@ class PartnerController extends Controller
         // $request->validate([
         //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
-
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
-        //     $destinationPath = public_path('/uploads/partner');
-        //     $url = 'uploads/partner/' . $image_name;
-        //     $image->move($destinationPath, $image_name);
-        //     $partner->image =  $url;
-        // }
-
-
+      
 
         # Img upload  in database
-
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -60,15 +49,17 @@ class PartnerController extends Controller
             $partner->save();
         }
 
-
-        
         $partner->title = $request->title;
         $partner->url = $request->url;
         $partner->status = $request->status;
-
         $partner->save();
 
-        return redirect()->route('partner.index');
+        $notification = array(
+            'message' => 'Partner Created successfully',
+            'alert-type' => 'success',
+            'data' => 'Success',
+        );
+        return redirect()->route('partner.index')->with($notification);
     }
 
     /**
@@ -115,7 +106,14 @@ class PartnerController extends Controller
         }
 
         $partner->save();
-        return redirect()->route('partner.index');
+
+
+        $notification = array(
+            'message' => 'Partner Update successfully',
+            'alert-type' => 'success',
+            'data' => 'Update',
+        );
+        return redirect()->route('partner.index')->with($notification);
     }
 
     /**
@@ -143,6 +141,13 @@ class PartnerController extends Controller
         }
 
         Partner::destroy($partner->id);
-        return redirect()->route('partner.index');
+
+        $notification = array(
+            'message' => 'Partner Deleted successfully',
+            'alert-type' => 'error',
+            'data' => 'Deleted',
+        );
+        return redirect()->route('partner.index')->with($notification);
+       
     }
 }

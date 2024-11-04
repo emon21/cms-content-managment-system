@@ -89,15 +89,15 @@
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
-                                                {{-- <a href="{{ route('item.destroy',$item->id) }}" class="btn btn-danger btn-sm">
-                                              <i class="fas fa-trash-alt"></i>
-                                               </a> --}}
+                                                {{-- <a href="{{ route('price-plan.destroy', $item->id) }}"
+                                                    class="btn btn-danger btn-sm" onclick="confirmation(ev)">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a> --}}
 
                                                 <form action="{{ route('price-plan.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')"
+                                                    <button onclick="confirmation(event)" type="submit"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>
@@ -127,19 +127,5 @@
         </section>
         <!-- /.content -->
     </div>
-
-    <script>
-        function previewImage(event) {
-            var input = event.target;
-            var image = document.getElementById('previewImg');
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    image.src = e.target.result;
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
 
 @endsection

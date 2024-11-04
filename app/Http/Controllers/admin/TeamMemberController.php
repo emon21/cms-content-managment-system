@@ -35,19 +35,8 @@ class TeamMemberController extends Controller
      */
     public function store(Request $request, TeamMember $TeamMember)
     {
-        //
-
-        // if ($request->hasFile('image')) {
-        //     # Image Upload
-        //     $image = $request->file('image');
-        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->move(public_path('uploads/team'), $image_name);
-        //     $url= 'uploads/team/' . $image_name;
-        //     $TeamMember->image = $url;
-        // }
-
-
-        # Img upload  in database
+        
+        # If you want to upload Image
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -65,20 +54,14 @@ class TeamMemberController extends Controller
         $TeamMember->linkedin = $request->linkedin;
         $TeamMember->status = $request->status;
 
-
-        // # If you want to upload Image
-        // if ($request->hasFile('image')) {
-        //     // Image Upload
-        //     $image = $request->file('image');
-        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->move(public_path('uploads/team'), $image_name);
-        //     $TeamMember->image = 'uploads/team/' . $image_name;
-        //     $TeamMember->image = $image_name;
-        // }
-
         $TeamMember->save();
 
-        return redirect()->route('team-member.index');
+        $notification = array(
+            'message' => 'Team Created successfully',
+            'alert-type' => 'success',
+            'data' => 'Created',
+        );
+        return redirect()->route('team-member.index')->with($notification);
     }
 
     /**
@@ -109,7 +92,7 @@ class TeamMemberController extends Controller
 
         // $TeamMember->update($request->all());
 
-        # IF Yoy CHange Image with Update
+        # IF Yoy Change Image with Update
         if ($request->hasFile('image')) {
             // delete old image
             if (File::exists($TeamMember->image)) {
@@ -135,8 +118,12 @@ class TeamMemberController extends Controller
         $TeamMember->status = $request->status;
         $TeamMember->save();
 
-
-        return redirect()->route('team-member.index');
+        $notification = array(
+            'message' => 'Team Updated successfully',
+            'alert-type' => 'success',
+            'data' => 'Updated',
+        );
+        return redirect()->route('team-member.index')->with($notification);
     }
 
     /**
@@ -157,6 +144,12 @@ class TeamMemberController extends Controller
         // $TeamMember->delete();
 
         TeamMember::destroy($TeamMember->id);
-        return redirect()->route('team-member.index');
+
+        $notification = array(
+            'message' => 'Team Deleted successfully',
+            'alert-type' => 'error',
+            'data' => 'Deleted',
+        );
+        return redirect()->route('team-member.index')->with($notification);
     }
 }

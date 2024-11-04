@@ -63,7 +63,7 @@
                     <a href="{{ route('category') }}"
                         class="nav-link {{ request()->routeIs('category') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-list"></i>
-                        Category
+                        Category  ( {{ $categorylist->count() }} )
                     </a>
                 </li>
 
@@ -94,7 +94,8 @@
                 <li class="nav-item">
                     <a href="{{ route('faq.index') }}"
                         class="nav-link {{ request()->routeIs('faq.index') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-list"></i>
+                        <i class="fa-solid fa-list"></i>
+                        
                         Faq
                     </a>
                 </li>
@@ -103,31 +104,32 @@
                 <li class="nav-item">
                     <a href="{{ route('testimonial.index') }}"
                         class="nav-link {{ request()->routeIs('testimonial.index') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-list"></i>
+                        <i class="fa-solid fa-question"></i>
                         Testimonial
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('partner.index') }}"
-                        class="nav-link {{ request()->routeIs('partner.index') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-list"></i>
+                        class="nav-link d-flex gap-4 align-items-center {{ request()->routeIs('partner.index') ? 'active' : '' }}">
+                        <ion-icon class="nav-icon" name="grid-outline"></ion-icon>
                         Partner
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('team-member.index') }}"
-                        class="nav-link {{ request()->routeIs('team-member.index') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-list"></i>
+                        class="nav-link d-flex gap-4 align-items-center {{ request()->routeIs('team-member.index') ? 'active' : '' }}">
+                        <ion-icon class="nav-icon" name="logo-microsoft"></ion-icon>
                         Team Member
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('gallery.index') }}"
-                        class="nav-link {{ request()->routeIs('gallery.index') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-list"></i>
+                        class="nav-link d-flex align-items-center {{ request()->routeIs('gallery.index') ? 'active' : '' }}">
+                        {{-- <i class="nav-icon fas fa-list"></i> --}}
+                        <ion-icon class="nav-icon" name="image-outline"></ion-icon>
                         Gallery
                     </a>
                 </li>
@@ -140,19 +142,7 @@
                     </a>
                 </li>
 
-                <li class="nav-header">LABELS</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text">Important</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Warning</p>
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>

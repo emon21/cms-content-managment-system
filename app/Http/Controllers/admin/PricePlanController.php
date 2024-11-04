@@ -17,11 +17,7 @@ class PricePlanController extends Controller
     {
         //
         // PricePlan::where('status', 0)->delete();
-        // return $PricePlan;
-
         $pricePlan = PricePlan::all();
-        //  return $Plan;
-        // return $Plan;
         return view('backend.PricePlan.index', compact('pricePlan'));
     }
 
@@ -52,7 +48,15 @@ class PricePlanController extends Controller
         $PricePlan->status = $request->status;
         $PricePlan->save();
 
-        return redirect()->route('price-plan.index');
+        $notification = array(
+            'message' => 'Price Plan Created successfully',
+            'alert-type' => 'success',
+            "success" => true
+        );
+
+        return redirect()->route('price-plan.index')->with($notification);
+
+        // return redirect()->route('price-plan.index')->with('success', 'Price Plan created');
     }
 
     /**
@@ -72,7 +76,7 @@ class PricePlanController extends Controller
         //
         // return $PricePlan;
         $category = Category::all();
-        return view('backend.PricePlan.edit', compact('PricePlan','category'));
+        return view('backend.PricePlan.edit', compact('PricePlan', 'category'));
     }
 
     /**
@@ -80,11 +84,7 @@ class PricePlanController extends Controller
      */
     public function update(Request $request, PricePlan $PricePlan)
     {
-        //
-
-        // return $request->all();
-        // return $PricePlan;
-
+        
         $PricePlan->title = $request->title;
         $PricePlan->price = $request->price;
         $PricePlan->type = $request->plan;
@@ -93,7 +93,13 @@ class PricePlanController extends Controller
         $PricePlan->status = $request->status;
         $PricePlan->save();
 
-        return redirect()->route('price-plan.index');
+        $notification = array(
+            'message' => 'Price Plan Updated successfully',
+            'alert-type' => 'success',
+            'data' => 'Success',
+        );
+
+        return redirect()->route('price-plan.index')->with($notification);
     }
 
     /**
@@ -117,13 +123,19 @@ class PricePlanController extends Controller
         // }
 
         // delete from database
+        
         // $PricePlan->delete();
 
-        // return redirect()->route('PricePlan.index');
-
+       
         // PricePlan::destroy($PricePlan->id);
 
-        return redirect()->route('price-plan.index');
+        $notification = array(
+            'error' => 'Price Plan Deleted successfully',
+            'alert-type' => 'error',
+            'delete' => 'Deleted'
+          
+        );
         
+        return redirect()->route('price-plan.index')->with($notification);
     }
 }

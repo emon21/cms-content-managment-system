@@ -42,32 +42,22 @@ class TestimonialController extends Controller
         $testimonial->description = $request->description;
         // $testimonial->status = $request->status;
 
-        # Image Upload with Helper Function
-
-        // if ($request->hasFile('image')) {
-        //     $file = $request->file('image');
-        //     $extension = $file->getClientOriginalExtension();
-        //     $filename = time() . '.' . $extension;
-        //     $file->move('uploads/testimonial/', $filename);
-        //     $testimonial->image = $filename;
-        // }
-
-
-
+        # If You want to Upload Image
 
         if ($request->hasFile('image')) {
             $UploadFile = uploadImage($request->image, 'testimonial');
             $testimonial->image = $UploadFile;
         }
 
-        // $url = uploadImage($request->image, 'testimonial');
-
-        // $url = uploadImage($request->hasFile('image'), 'testimonial');
-        // $testimonial->image = $UploadFile;
-
         $testimonial->save();
 
-        return redirect()->route('testimonial.index')->with('success', 'Testimonial Created Successfully');
+        $notification = array(
+            'message' => 'Testimonial Created successfully',
+            'alert-type' => 'success',
+            'data' => 'Created',
+        );
+
+        return redirect()->route('testimonial.index')->with($notification);
     }
 
     /**
@@ -92,12 +82,13 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
-        //
+
         $testimonial->client_name = $request->client_name;
         $testimonial->designation = $request->designation;
         $testimonial->description = $request->description;
 
 
+        # If you want to upload Image
         if ($request->hasFile('image')) {
 
             # Old Image Delete on Helper Function
@@ -108,24 +99,16 @@ class TestimonialController extends Controller
             $testimonial->image = $url;
         }
 
-
-
-
-        # Old Image Delete on Helper Function
-        // if ($request->hasFile('image')) {
-        //     deleteImage($testimonial->image);
-        //     $file = $request->file('image');
-        //     $extension = $file->getClientOriginalExtension();
-        //     $filename = time() . '.' . $extension;
-        //     $file->move('uploads/testimonial/', $filename);
-        //     $testimonial->image = $filename;
-        // }
-
         $testimonial->status = $request->status;
-
         $testimonial->save();
 
-        return redirect()->route('testimonial.index')->with('success', 'Testimonial Updated Successfully');
+        $notification = array(
+            'message' => 'Testimonial Updated successfully',
+            'alert-type' => 'success',
+            'data' => 'Updated',
+        );
+
+        return redirect()->route('testimonial.index')->with($notification);
     }
 
     /**
@@ -135,8 +118,7 @@ class TestimonialController extends Controller
     {
         # Delete Image with Helper Function
 
-        # old img delete 
-
+        # old img delete
         if ($testimonial->image) {
             deleteImage($testimonial->image);
         }
@@ -159,6 +141,13 @@ class TestimonialController extends Controller
 
 
         $testimonial->delete();
-        return redirect()->route('testimonial.index')->with('success', 'Testimonial Deleted Successfully');
+
+        $notification = array(
+            'message' => 'Testimonial Deleted successfully',
+            'alert-type' => 'error',
+            'data' => 'Deleted',
+        );
+
+        return redirect()->route('testimonial.index')->with($notification);
     }
 }

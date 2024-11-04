@@ -1,12 +1,12 @@
-
 <!-- jQuery -->
 <script src="{{ asset('backend') }}/plugins/jquery/jquery.min.js"></script>
-{{-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> --}}
+{{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('backend') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('backend') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -48,26 +48,183 @@
 <!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('backend') }}/dist/js/pages/dashboard.js"></script>
+
+<!-- Ionicons -->
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+
+<!-- DataTables  & Plugins -->
+<script></script>
+
+<!-- Toastify js -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    // Data Insert Toast
+    @if (Session::has('success'))
+        Toastify({
+            text: "{{ Session::get('success') }}",
+            close: true,
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                padding: "20px",
+                textTransform: "capitalize",
+                fontSize: "18px",
+            },
 
+        }).showToast();
+    @endif
+</script>
 
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": true,
-            "responsive": true,
+<!-- toaster -->
+<script src="{{ asset('backend') }}/plugins/toastr/toastr.min.js"></script>
+<script>
+    @if (Session::has('message'))
+        let type = "{{ Session::get('alert-type') }}";
+        switch (type) {
+            case "success":
+                // toastr.success("{{ Session::get('message') }}");
+                toastr.success(
+                    "{{ Session::get('message') }}",
+                    "{{ Session::get('data') }}",
+                    "{{ Session::get('alert-type') }}", {
+                        timeOut: 2000,
+                        progressBar: true,
+                        closeButton: true,
+                        positionClass: "toast-top-right",
+                        hideDuration: "1000",
+                    }
+                );
+                break;
+
+            case "error":
+                toastr.error(
+                    "{{ Session::get('message') }}",
+                    "{{ Session::get('data') }}",
+                    "{{ Session::get('alert-type') }}", {
+                        timeOut: 2000,
+                        progressBar: true,
+                        closeButton: true,
+                        positionClass: "toast-top-right",
+                        hideDuration: "1000",
+                    }
+                );
+                break;
+
+            case "warning":
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+
+            case "info":
+                toastr.info("{{ Session::get('message') }}");
+                break;
+        }
+    @endif
+</script>
+
+<!-- Sweet Alert 2 -->
+<script src="{{ asset('backend') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+<script>
+    // <!--  Sweet Alert 2 useing Data Delete Alert Message --->
+    function confirmDelete(ev) {
+        ev.preventDefault();
+        let urlToRedirect = ev.currentTarget.getAttribute('href');
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+            timer: 2000
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "danger",
+                    timer: 1000,
+                    showConfirmButton: true,
+                }).then((result) => {
+                    if (result.isConfirmed || result.isDismissed === true) {
+                        window.location.href = urlToRedirect;
+                    }
+                });
+            }
         });
+    }
+
+    // <!-- Sweet Alert 2 useing Data Delete Message into form sumit -->
+
+    function confirmationDelete(ev) {
+        ev.preventDefault();
+        let urlToRedirect = ev.currentTarget.getAttribute('href');
+        // console.log(urlToRedirect);
+
+        // sweet alert js code
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+            timer: 2000
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "danger",
+                    timer: 1000,
+                    showConfirmButton: true,
+                }).then((result) => {
+                    if (result.isConfirmed || result.isDismissed === true) {
+                        window.location.href = urlToRedirect;
+                    }
+                });
+            }
+        });
+    }
+
+    
+    // @if (Session::has('success'))
+    // Swal.fire({
+    // position: "top-end",
+    // icon: "success",
+    // title: "{{ Session::get('success') }}",
+    // showConfirmButton: false,
+    // timer: 1500
+    // });
+    // @endif
+
+</script>
+
+
+<!-- dropify -->
+<script src="{{ asset('backend') }}/dropify/dropify.min.js"></script>
+
+<!-- Custom JS -->
+
+<script>
+    // $(".dropify").dropify();
+    $('.dropify').dropify({
+        messages: {
+            'default': 'Drag and drop a file here or click',
+            'replace': 'Drag and drop or click to replace',
+            'remove': 'Remove',
+            'error': 'Ooops, something wrong happended.'
+        }
     });
 </script>
+
+<script src="{{ asset('Backend') }}/dist/js/custom.js"></script>
+
 </body>
+
 </html>

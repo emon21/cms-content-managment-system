@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Contact;
+use App\Models\PricePlan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,8 +22,22 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        // PricePlan::factory()->count(3)->create();
+       Contact::factory()->count(3)->create();
+
+
         $this->call([
-            CategorySeeder::class
+            CategorySeeder::class,
+            BlogSeeder::class,
+            FaqSeeder::class,
+            GallerySeeder::class,
+            PartnerSeeder::class,
+            PricePlanSeeder::class,
+            ServiceSeeder::class,
+            TeamSeeder::class,
+            TestimonialSeeder::class,
+            
+
         ]);
     }
 

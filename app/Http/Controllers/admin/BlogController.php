@@ -17,9 +17,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+     
         $blog = Blog::all();
-
         return view('backend.blog.index', compact('blog'));
     }
 
@@ -28,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        
         $category = Category::all();
         return view('backend.blog.create', compact('category'));
     }
@@ -41,10 +40,10 @@ class BlogController extends Controller
         //
 
         // $blog = New Blog(); // Object Create 
-        // $blog->title = $request->title;
-
+        
         $data = []; // array
         // $data = array();
+
         $data['title'] = $request->title;
         $data['slug'] = Str::slug($request->title);
         $data['cat_id'] = $request->cat_id;
@@ -52,8 +51,10 @@ class BlogController extends Controller
         $data['description'] = $request->description;
         $data['author'] = $request->author;
         $data['publish_date'] = $request->publish_date;
+
         // $date = date('D-m-y');
         // $data['publish_date'] = now($request->publish_date);
+
         $data['status'] = $request->status;
         $data['meta_title'] = $request->meta_title;
         $data['meta_keywords'] = $request->meta_keywords;
@@ -72,7 +73,13 @@ class BlogController extends Controller
         // DB::table('blogs')->create($data);
         // Blog::create($data);
 
-        return redirect()->route('blog.index');
+
+        $notification = array(
+            'message' => 'Blog Created Successfully Done..!!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('blog.index')->with($notification);
     }
 
     /**
@@ -82,11 +89,6 @@ class BlogController extends Controller
     {
         //
         $blogList = Blog::where('cat_id', $blog->cat_id)->get();
-        // $category = Blog::where('cat_id',$blog->cat_id)
-        // ->Join()
-        // ->LeftJoin()
-        // ->get();
-        // return $blog;
         return view('backend.blog.single-blog', compact('blog'));
     }
 
@@ -95,10 +97,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
-        // return $blog;
+        
         $category = Category::all();
-
         return view('backend.blog.edit', compact('blog', 'category'));
     }
 
@@ -123,9 +123,8 @@ class BlogController extends Controller
         //     'meta_title' => $request->meta_title,
         //     'meta_keywords' => $request->meta_keywords,
         //     'meta_description' => $request->meta_description,
-
-
         // ]);
+
 
         if($request->hasFile('FileUpload')) {
 
@@ -142,6 +141,7 @@ class BlogController extends Controller
             // $file->move('uploads/car', $filename);
             // $url = uploadImage($request->file('image'), 'car');
             $blog->image = $url;
+
             $blog->title = $request->title;
             $blog->slug = Str::slug($request->title);
             $blog->cat_id = $request->cat_id;
@@ -173,11 +173,13 @@ class BlogController extends Controller
 
         }
 
-       
+        $notification = array(
+            'message' => 'Blog Updated Successfully Done..!!',
+            'alert-type' => 'success',
+        );  
 
+        return redirect()->route('blog.index')->with($notification);
 
-
-        return redirect()->route('blog.index');
     }
 
     /**
@@ -194,7 +196,7 @@ class BlogController extends Controller
 
         # 2nd way Eloquent ORM
 
-        //    Blog::where('id', $blog->id)->delete();
+        //   $DeleteID = Blog::where('id', $blog->id)->delete();
         //   $list = Blog::destroy($DeleteID->id);
         //   $list = Blog::destroy($DeleteID);
         //   return $DeleteID->title;
@@ -203,9 +205,15 @@ class BlogController extends Controller
         if (File::exists($blog->image)) {
             File::delete($blog->image);
         }
-        Blog::whereId($blog->id)->delete();
-        //    return $ll;
 
-        return redirect()->route('blog.index')->with('status', 'Blog Deleted Successfully Done..!!');
+        Blog::whereId($blog->id)->delete();
+        
+        $notification = array(
+            'message' => 'Blog Deleted Successfully',
+            'alert-type' => 'error',
+        );
+
+        return redirect()->route('blog.index')->with($notification);
+
     }
 }

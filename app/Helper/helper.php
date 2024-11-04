@@ -75,3 +75,14 @@ function deleteImage($image)
 
 
 */
+
+
+
+# Toaster Notification on Data Insert
+
+function ToasterNotification(){
+
+
+}
+
+

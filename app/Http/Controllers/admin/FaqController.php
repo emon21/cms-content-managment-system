@@ -40,10 +40,14 @@ class FaqController extends Controller
         $Faq->slug = Str::slug($request->title);
         $Faq->status = $request->status;
         $Faq->description = $request->description;
-
         $Faq->save();
 
-        return redirect()->route('faq.index')->with('success', 'Faq Created Successfully');
+        $notification = array(
+            'message' => 'FAQ Created successfully',
+            'alert-type' => 'success',
+            'data' => 'Created',
+        );
+        return redirect()->route('faq.index')->with($notification);
     }
 
     /**
@@ -60,8 +64,7 @@ class FaqController extends Controller
      */
     public function edit(Faq $faq)
     {
-        //
-        // return $faq;
+        
         return view('backend.faq.edit', compact('faq'));
     }
 
@@ -75,10 +78,15 @@ class FaqController extends Controller
         $faq->slug = Str::slug($request->title);
         $faq->status = $request->status;
         $faq->description = $request->description;
-
         $faq->save();
 
-        return redirect()->route('faq.index')->with('success', 'Faq Updated Successfully');
+        $notification = array(
+            'message' => 'FAQ Updated successfully',
+            'alert-type' => 'success',
+            'data' => 'Update',
+        );
+
+        return redirect()->route('faq.index')->with($notification);
     }
 
     /**
@@ -86,12 +94,15 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        //
-
+        
         // $faq->delete();
-
         Faq::destroy($faq->id);
+        $notification = array(
+            'message' => 'FAQ Deleted successfully',
+            'alert-type' => 'error',
+            'data' => 'Delete',
+        );
 
-        return redirect()->route('faq.index')->with('success', 'Faq Deleted Successfully');
+        return redirect()->route('faq.index')->with($notification);
     }
 }

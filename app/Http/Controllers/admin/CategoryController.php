@@ -25,10 +25,33 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create()
     {
+      
+        return view('backend.category.create');
+    }
 
-        // return $request->all();
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        # Validation
+        $request->validate([
+            'CategoryName' => 'required|unique:categories,name',
+                'type' => 'required',
+                'status' => 'required'
+        ],
+
+        # Custom Validation
+
+            [
+                'CategoryName.required' => 'Category Name is Required',
+                'CategoryName.unique' => 'Category Name Already Exist',
+                'type.required' => 'Type is Required',
+                'status.required' => 'Status is Required'
+            ]);
+
 
         $cat = Category::create([
             'name' => $request->input('CategoryName'),
@@ -46,17 +69,13 @@ class CategoryController extends Controller
             $url = $image->move('uploads/category/', $filename);
             $cat->image = $url;
             $cat->save();
-        }
-        else{
+        } else {
 
             $cat->save();
         }
 
         // $cat = Category::create($request->all());
 
-    // ===================================== dsdgdgdfgh ===================== 
-
-        
         // $category = New Category();
         // $category->name = $request->input('CategoryName');
         // $category->slug = Str::slug($request->CategoryName);
@@ -67,21 +86,17 @@ class CategoryController extends Controller
 
         // return response()->json(['success' => true]);
         // return response()->json(['success' => 'Category Create Successfully ... !!']);
-
-        // return response($cat);
-        return redirect()->route('category');
+        
+        $notification = array(
+            'message' => 'Category Created successfully',
+            'alert-type' => 'success',
+            'data' => 'Created',
+        );
+        return redirect()->route('category')->with($notification);
 
         // $data = [];
 
         // return response()->json($data);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -91,7 +106,6 @@ class CategoryController extends Controller
     {
         //
         $category = DB::table('categories')->where('id', $id)->first();
-        // return $category;
         return view('backend.category.show', compact('category'));
     }
 
@@ -105,51 +119,48 @@ class CategoryController extends Controller
         return view('backend.category.edit', compact('category'));
     }
 
-     
+
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
 
-        // return $request->all();
+        $request->validate(
+            [
+                'CategoryName' => 'required',
+                'type' => 'required',
+                'status' => 'required'
+            ],
 
-        //update category
+            # Custom Validation
+            [
+                'CategoryName.required' => 'Category Name is Required',
+                'type.required' => 'Type is Required',
+                'status.required' => 'Status is Required'
+            ]
+        );
 
-        // $cat = Category::findOrFail($id);
-        // $cat = Category::find($id);
-        // $cat = new Category();
-      
+
         if ($request->hasFile('FileUpload')) {
 
             # old img delete
-            $oldImg = Category::where('id',$id)->first();
+            $oldImg = Category::where('id', $id)->first();
             // return $oldImg;
 
             if (File::exists($oldImg->image)) {
                 File::delete($oldImg->image);
             }
-           
-            # Image upload
-            // $image = $request->file('FileUpload');
-            // $file = $request->file('image');
-            // $filename = time() . '.' . $file->getClientOriginalExtension();
-            // $url = $file->move(public_path('uploads/car'), $filename);
-            // $url = $file->move('uploads/category', $filename);
-            // $url = $image->move('uploads/category/', $filename);
-
-                // $file->move('uploads/car', $filename);
-                // $url = uploadImage($request->file('image'), 'car');
 
             # Image upload
             $file = $request->file('FileUpload');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             // $url = $file->move(public_path('uploads/car'), $filename);
 
-            $url = $file->move('uploads/category/',$filename);
+            $url = $file->move('uploads/category/', $filename);
 
             // $file->move('uploads/car', $filename);
-            
+
             Category::where('id', $id)->update([
                 'name' => $request->input('CategoryName'),
                 'slug' => Str::slug($request->CategoryName),
@@ -157,9 +168,7 @@ class CategoryController extends Controller
                 'status' => $request->input('status'),
                 'image' => $url
             ]);
-           
         } else {
-
 
             Category::where('id', $id)->update([
                 'name' => $request->input('CategoryName'),
@@ -168,26 +177,19 @@ class CategoryController extends Controller
                 'status' => $request->input('status')
             ]);
 
-         
+
             // $car->CarImage = 'uploads/default.jpg';
-          
+
         }
 
-        
-        return redirect()->route('category');
+        $notification = array(
+            'message' => 'Category Updated successfully',
+            'alert-type' => 'success',
+            'data' => 'Update',
+        );
 
-        // $cat->update($request->all());
-        // return response()->json(['success' => 'Category Update Successfully ... !!']);
+        return redirect()->route('category')->with($notification);
 
-        // $cat = Category::find($id);
-
-        // $cat = Category::where('id', $id);
-        // ->update($request->all());
-
-        // return $cat;
-
-        // $cat->update($request->all());
-        return response()->json(['success' => 'Category Update Successfully ... !!']);
     }
 
     /**
@@ -205,8 +207,20 @@ class CategoryController extends Controller
         // return $cat;
 
         $cat->delete();
-        return redirect('category');
-        // return response()->json(['success' => 'Category Delete Successfully ... !!']);
+
+        // return redirect('category');
+        $notification = array(
+            'message' => 'Category Deleted successfully',
+            'alert-type' => 'error',
+            'data' => 'Delete',
+        );
+
+        return redirect()->route('category')->with($notification);
+
+
+        // return redirect()->route('category')->with('delete', 'Category Delete Successfully ... !!');
+
+        // return response()->json(['delete' => 'Category Delete Successfully ... !!']);
+
     }
 }
- 

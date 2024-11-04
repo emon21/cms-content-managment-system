@@ -29,7 +29,6 @@ class GalleryController extends Controller
     {
         //
         $category = Category::all();
-
         return view('backend.gallery.create',compact('category'));
     }
 
@@ -60,7 +59,12 @@ class GalleryController extends Controller
         $gallery->status = $request->status;
         $gallery->save();
 
-        return redirect()->route('gallery.index');
+        $notification = array(
+            'message' => 'Gallery Created successfully',
+            'alert-type' => 'success',
+            'data' => 'Created',
+        );
+        return redirect()->route('gallery.index')->with($notification);
 
 
 
@@ -139,7 +143,12 @@ class GalleryController extends Controller
         $gallery->status = $request->status;
         $gallery->save();
 
-        return redirect()->route('gallery.index');
+        $notification = array(
+                'message' => 'Gallery Updated successfully',
+                'alert-type' => 'success',
+                'data' => 'Updated',
+            );
+        return redirect()->route('gallery.index')->with($notification);
     }
 
     /**
@@ -147,17 +156,20 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        
         # Delete on Image
-
+        
         if (File::exists($gallery->image)) {
             File::delete($gallery->image);
         }
 
-        # Delete the team member
-
-
         $gallery->delete();
-        return redirect()->route('gallery.index');
+
+        $notification = array(
+            'message' => 'Gallery Deleted successfully',
+            'alert-type' => 'error',
+            'data' => 'Deleted',
+        );
+        return redirect()->route('gallery.index')->with($notification);
     }
 }

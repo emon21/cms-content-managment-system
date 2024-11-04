@@ -1,5 +1,5 @@
 @extends('layouts.admin-app')
-@section('title', 'Category')
+@section('title', 'Show Category')
 @section('content')
 
     <div class="content-wrapper">
@@ -29,7 +29,7 @@
                         <div class="card-header bg-dark">
                             <h3 class="card-title pt-2">Single Category</h3>
                             <a href="{{ route('category') }}" class="btn btn-outline-warning float-right">
-                                <i class="fas fa-undo-alt"></i> Back
+                                <i class="fas fa-undo-alt"></i> Go Back
                                 
                            </a>
                         </div>
@@ -37,7 +37,7 @@
                         <div class="card-body">
                             <img  @if ($category->image) src="{{ asset($category->image) }}" @else src="{{ asset('uploads/category/no-image.png') }}" @endif
                                                 width="250px" height="180px">
-                            <table class="table table-bordered table-striped table-hover">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Image</th>
