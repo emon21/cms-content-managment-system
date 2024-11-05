@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // PricePlan::factory()->count(3)->create();
-       Contact::factory()->count(3)->create();
+       Contact::factory()->count(5)->create();
 
 
         $this->call([

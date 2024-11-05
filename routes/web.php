@@ -120,7 +120,7 @@ Route::resource('/gallery', GalleryController::class);
 
 # Contract US Route API
 
-ROute::resource('/contact',ContactController::class);
+ROute::resource('/contact', ContactController::class);
 
 // route prefix
 Route::group(['prefix' => 'admin'], function () {
@@ -131,20 +131,33 @@ Route::group(['prefix' => 'admin'], function () {
 
 # Website Setting Route API
 
-Route::resource('website-setting',WebsiteSettingController::class);
+Route::resource('website-setting', WebsiteSettingController::class);
 
 
 # Frontend Route API
 
-Route::get('/',[FrontendController::class,'index'])->name('home'); 
-Route::get('/about',[FrontendController::class,'about'])->name('about-us'); 
-Route::get('/blog',[FrontendController::class,'blog'])->name('blog'); 
-Route::get('/gallery',[FrontendController::class,'gallery'])->name('gallery'); 
-// Route::get('/service',[FrontendController::class, 'service'])->name('service'); 
-Route::get('/contact',[FrontendController::class,'contact'])->name('contact-us'); 
-Route::get('/privacy-policy',[FrontendController::class,'PrivacyPolicy'])->name('privacy-policy'); 
-Route::get('/terms-and-conditions',[FrontendController::class, 'TermsCondition'])->name('terms-and-conditions'); 
+Route::get('/', [FrontendController::class, 'index'])->name('website');
+Route::group(['prefix' => 'website'], function () {
+Route::get('/', [FrontendController::class, 'index'])->name('website.home');
 
+    Route::get('/about-us', [FrontendController::class, 'about'])->name('website.about-us');
+    Route::get('/blog', [FrontendController::class, 'blog'])->name('website.blog');
+    Route::get('/gallery', [FrontendController::class, 'gallery'])->name('website.gallery');
+    // Route::get('/service',[FrontendController::class, 'service'])->name('service'); 
+    Route::get('/contact-us', [FrontendController::class, 'contact'])->name('website.contact-us');
+    Route::get('/privacy-policy', [FrontendController::class, 'PrivacyPolicy'])->name('website.privacy-policy');
+    Route::get('/terms-and-conditions', [FrontendController::class, 'TermsCondition'])->name('website.terms-and-conditions');
+});
+
+
+// Route::prefix('website')->group(function () {
+//     // Route::get('/users', function () {
+//     //     // Matches The "/admin/users" URL
+//     // });
+
+//     Route::get('/', [FrontendController::class, 'index'])->name('website.home');
+
+// });
 
 // Route::get('/about',[WebsiteController::class,'about'])->name('about');
 // Route::get('/service',[WebsiteController::class,'service'])->name('service');

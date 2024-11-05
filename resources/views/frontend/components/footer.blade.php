@@ -73,16 +73,16 @@
                       <h3 class="">Pages</h3>
                       <ul class="pxa_footer_links">
                           <li>
-                              <a class="" href="{{ route('about-us') }}">About</a>
+                              <a class="" href="{{ route('website.about-us') }}">About</a>
                           </li>
                           <li>
-                              <a class="" href="{{ route('blog') }}">Blog</a>
+                              <a class="" href="{{ route('website.blog') }}">Blog</a>
                           </li>
                           <li>
                               <a class="" href="#">Services</a>
                           </li>
                           <li>
-                              <a class="" href="{{ route('gallery') }}">Gallery</a>
+                              <a class="" href="{{ route('website.gallery') }}">Gallery</a>
                           </li>
                       </ul>
                   </div>
@@ -92,13 +92,13 @@
                       <h3 class="">Policy Pages</h3>
                       <ul class="pxa_footer_links">
                           <li>
-                              <a class="" href="{{ route('privacy-policy') }}">Privacy Policy</a>
+                              <a class="" href="{{ route('website.privacy-policy') }}">Privacy Policy</a>
                           </li>
                           <li>
-                              <a class="" href="{{ route('terms-and-conditions') }}">Terms And Conditions</a>
+                              <a class="" href="{{ route('website.terms-and-conditions') }}">Terms And Conditions</a>
                           </li>
                           <li>
-                              <a class="" href="{{ route('contact-us') }}">Contact us</a>
+                              <a class="" href="{{ route('website.contact-us') }}">Contact us</a>
                           </li>
                       </ul>
                   </div>

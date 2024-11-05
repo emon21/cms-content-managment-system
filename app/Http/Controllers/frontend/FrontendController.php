@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
 {
@@ -14,6 +15,7 @@ class FrontendController extends Controller
     public function index()
     {
         //
+        return 11111;
         return view('pages.frontend');
     }
     
@@ -44,7 +46,31 @@ class FrontendController extends Controller
     public function gallery()
     {
         //
-        return view('frontend.pages.gallery');
+
+
+        $categoryList = \App\Models\Category::with('gallery')->get();
+        // $categoryList = DB::table('categories')->inRandomOrder()->take(2)->limit(1)->get();
+        // $categoryList = DB::table('categories')->where('id', $gallery->cat_id)->first();
+        // $gallery = \App\Models\Gallery::where('cat_id', $categoryList->id)->inRandomOrder()->take(2)->limit(1)->get();
+
+        // // $categoryID= $categoryList->type;
+        // return $categoryList;
+
+        // // return $randCat = \App\Models\Category::where('cat_id', $categoryList->id)->inRandomOrder()->first();
+
+        // $randCat = \App\Models\Gallery::where('cat_id', $categoryList->id)->inRandomOrder()->first();
+        // return $randCat;
+
+        // $gallery = \App\Models\Gallery::where('cat_id', $categoryList->id)->with('category')->get();
+        $gallery = \App\Models\Gallery::with('category')->get();
+
+        //Random Data Show
+ 
+
+
+        // return $gallery;
+
+        return view('frontend.pages.gallery',compact('categoryList','gallery'));
     }
     
     /**

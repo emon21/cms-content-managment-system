@@ -2,7 +2,7 @@
         <div class="pxa_header_full">
             <div class="pxa_header_flex">
                 <div class="pxa_header_logo">
-                    <a href="{{ route('home') }}" class="">
+                    <a href="{{ route('website.home') }}" class="">
                         <img class="" src="{{ asset('frontend') }}/public/pages/assets/images/pxa_logo.png"
                             alt="Logo" height="40" width="158">
                     </a>
@@ -10,11 +10,11 @@
                 <div class="pxa_header_nav">
                     <ul class="pxa_menu_list pxa_dropdown_flex pxa-tabs">
                         <li class="navActive">
-                            <a class="" href="{{ route('home') }}">Home</a>
+                            <a class="" href="{{ route('website.home') }}">Home</a>
                         </li>
 
                         <li>
-                            <a class="" href="{{ route('about-us') }}">About</a>
+                            <a class="" href="{{ route('website.about-us') }}">About</a>
                         </li>
 
                         <li class="pxa_megamenu_list">
@@ -197,9 +197,9 @@
                             </div>
                         </li>
 
-                        <li><a class="" href="{{ route('blog') }}">Blog</a></li>
-                        <li><a class="" href="{{ route('gallery') }}">Gallery</a></li>
-                        <li><a class="" href="{{ route('contact-us') }}">Contact</a></li>
+                        <li><a class="" href="{{ route('website.blog') }}">Blog</a></li>
+                        <li><a class="" href="{{ route('website.gallery') }}">Gallery</a></li>
+                        <li><a class="" href="{{ route('website.contact-us') }}">Contact</a></li>
                     </ul>
                 </div>
                 <div class="pxa_header_toggle">
