@@ -13,7 +13,8 @@ use App\Http\Controllers\admin\PricePlanController;
 use App\Http\Controllers\admin\TeamMemberController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\WebsiteSettingController;
-
+use App\Http\Controllers\frontend\FrontendController;
+use App\Http\Controllers\frontend\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,9 @@ use App\Http\Controllers\admin\WebsiteSettingController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 # // ============= Admin Routes =============
@@ -131,3 +132,30 @@ Route::group(['prefix' => 'admin'], function () {
 # Website Setting Route API
 
 Route::resource('website-setting',WebsiteSettingController::class);
+
+
+# Frontend Route API
+
+Route::get('/',[FrontendController::class,'index'])->name('home'); 
+Route::get('/about',[FrontendController::class,'about'])->name('about-us'); 
+Route::get('/blog',[FrontendController::class,'blog'])->name('blog'); 
+Route::get('/gallery',[FrontendController::class,'gallery'])->name('gallery'); 
+// Route::get('/service',[FrontendController::class, 'service'])->name('service'); 
+Route::get('/contact',[FrontendController::class,'contact'])->name('contact-us'); 
+Route::get('/privacy-policy',[FrontendController::class,'PrivacyPolicy'])->name('privacy-policy'); 
+Route::get('/terms-and-conditions',[FrontendController::class, 'TermsCondition'])->name('terms-and-conditions'); 
+
+
+// Route::get('/about',[WebsiteController::class,'about'])->name('about');
+// Route::get('/service',[WebsiteController::class,'service'])->name('service');
+// Route::get('/contact',[WebsiteController::class,'contact'])->name('contact');
+// Route::get('/blog',[WebsiteController::class,'blog'])->name('blog');
+// Route::get('/blog/{slug}',[WebsiteController::class,'blogSingle'])->name('blog.single');
+// Route::get('/category/{slug}',[WebsiteController::class,'categoryPost'])->name('category.post');
+// Route::get('/faq',[WebsiteController::class,'faq'])->name('faq');
+// Route::get('/testimonial',[WebsiteController::class,'testimonial'])->name('testimonial');
+// Route::get('/price-plan',[WebsiteController::class,'pricePlan'])->name('pricePlan');
+// Route::get('/service/{slug}',[WebsiteController::class,'serviceSingle'])->name('service.single');
+// Route::get('/team-member/{slug}',[WebsiteController::class,'teamMemberSingle'])->name('teamMember.single');
+// Route::get('/partner',[WebsiteController::class,'partner'])->name('partner');
+// Route::get('/gallery',[WebsiteController::class,'gallery'])->name('gallery');

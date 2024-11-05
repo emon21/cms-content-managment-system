@@ -226,5 +226,4 @@
 <script src="{{ asset('Backend') }}/dist/js/custom.js"></script>
 
 </body>
-
 </html>
