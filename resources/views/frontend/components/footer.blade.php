@@ -149,9 +149,10 @@
   <script src="{{ asset('frontend') }}/public/user_theme/custom_assets/common.js"></script>
   <script src="{{ asset('frontend') }}/public/common/js/swiper-bundle.min.js"></script>
 
-  <script src="{{ asset('frontend') }}/public/pages/assets/js/page.js"></script>
+  {{-- <script src="{{ asset('frontend') }}/public/pages/assets/js/page.js"></script> --}}
   <script src="{{ asset('frontend') }}/public/pages/assets/js/common.js"></script>
   <script src="{{ asset('frontend') }}/public/pages/assets/js/custom_plugin.js"></script>
+  
   <script src="{{ asset('frontend') }}/public/common/js/fontawesome-iconpicker.min.js"></script>
   <script src="{{ asset('frontend') }}/public/common/js/iconpicker.js"></script>
 

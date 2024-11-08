@@ -8,7 +8,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6 pl-3">
-                        <h3>Edit Category</h3>
+                        <h3>
+                            <i class="fas fa-edit"></i></i>Edit Category
+                        </h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -23,16 +25,22 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                
+
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Edit Category</h3>
-                            <a href="{{ route('category') }}" class="btn btn-success 
+                            <h3 class="card-title pt-2">
+                                <i class="fas fa-edit pr-1"></i>
+                                Edit Category
+                            </h3>
+                            <a href="{{ route('category') }}"
+                                class="btn btn-success 
                             {{-- {{ $color }} --}}
                             float-right">
 
-                                <i class="fas fa-undo-alt pt-1 pr-1"></i>
+                                {{-- <i class="fas fa-undo-alt pt-1 pr-1"></i> --}}
+                                <i class="fas fa-list pr-1"></i>
+                                {{-- <i class="fas fa-backspace"></i> --}}
                                 Category List
                             </a>
                         </div>
@@ -43,18 +51,15 @@
                                 @csrf
                                 @method('PUT')
 
-
-
-
                                 <div class="d-flex">
-                                   
+
                                     <div class="col-sm-8">
-                                         <div class="form-group">
-                                        <label for="CategoryName">Category Name:</label>
-                                        <input type="text" name="CategoryName" class="form-control"
-                                            placeholder="Enter CategoryName..." id="CategoryName"
-                                            value="{{ $category->name }}">
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="CategoryName">Category Name:</label>
+                                            <input type="text" name="CategoryName" class="form-control"
+                                                placeholder="Enter CategoryName..." id="CategoryName"
+                                                value="{{ $category->name }}">
+                                        </div>
                                         <div class="form-group">
                                             <label for="type">Type:</label>
                                             <select name="type" id="type" class="form-control">
@@ -99,7 +104,8 @@
 
                                         <div class="form-group">
                                             <img @if ($category->image) src="{{ asset($category->image) }}" @else src="{{ asset('uploads/category/no-image.png') }}" @endif
-                                                alt="" width="320px" height="210px" id="previewImg" class="mt-1 rounded">
+                                                alt="" width="320px" height="210px" id="previewImg"
+                                                class="mt-1 rounded">
 
                                             {{-- <img src="https://cdn.vectorstock.com/i/500p/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"
                                                 alt="" > --}}
@@ -107,10 +113,16 @@
 
                                     </div>
                                 </div>
-                                
-                                    <div class="form-group ">
-                                        <button type="submit" class="btn btn-success d-flex mx-auto">Change Category</button>
-                                    </div>
+
+                                <div class="form-group ">
+
+                                    {{-- <i class="fas fa-undo-alt pt-1 pr-1"></i> --}}
+                                    <button type="submit" class="btn btn-success d-flex mx-auto">
+                                        <i class="fas fa-edit py-1 pr-1"></i>
+                                        Change Category
+                                    </button>
+
+                                </div>
                             </form>
 
                         </div>

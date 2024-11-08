@@ -8,11 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Faq create</h1>
+                        <h1>Faq Create</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('admin.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active">Faq</li>
                         </ol>
                     </div>
@@ -27,9 +28,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"><i class="fas fa-list"></i> Faq List</h3>
-                                <a href="{{ route('faq.index') }}" class="btn btn-primary float-right"><i
-                                        class="fas fa-list"></i> Faq
+                                <h3 class="card-title pt-2">
+                                    <i class="fas fa-list pr-1"></i> Faq Create</h3>
+                                <a href="{{ route('faq.index') }}" class="btn btn-success float-right">
+                                    <i class="fas fa-list pr-1"></i> Faq
                                     List</a>
                             </div>
                             <!-- /.card-header -->
@@ -56,11 +58,13 @@
 
                                     <div class="form-group">
                                         <label for="tags">Description:</label>
-                                        <textarea name="description" id="" class="form-control" cols="10" rows="5"></textarea>
+                                        <textarea name="description" id="sumernote" class="form-control" cols="10" rows="5"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i>
-                                            Create</button>
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-save pr-1"></i>
+                                            Create
+                                        </button>
                                     </div>
                             </div>
 

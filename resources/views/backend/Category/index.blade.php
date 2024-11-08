@@ -28,7 +28,8 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Category</h3>
+                            <h3 class="card-title pt-2">
+                                <i class="fas fa-list mr-2"></i>All Category</h3>
                             {{-- <button type="button" class="btn btn-primary float-right" data-toggle="modal"
                                 data-target="#CreateCtegory">
                                 Add Category

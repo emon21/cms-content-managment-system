@@ -12,7 +12,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('admin.dashboard') }}">Home</a>
+                            </li>
                             <li class="breadcrumb-item active">Partner</li>
                         </ol>
                     </div>
@@ -27,9 +29,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"><i class="fas fa-list"></i> Partner List</h3>
-                                <a href="{{ route('partner.index') }}" class="btn btn-primary float-right"><i
-                                        class="fas fa-list"></i> Partner
+                                <h3 class="card-title pt-2"><i class="fas fa-plus pr-1"></i> Create Partner</h3>
+                                <a href="{{ route('partner.index') }}" class="btn btn-success float-right">
+                                    <i class="fas fa-list pr-1"></i> Partner
                                     List</a>
                             </div>
                             <!-- /.card-header -->
@@ -70,7 +72,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i>
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-save pr-1"></i>
                                             Create</button>
                                     </div>
                             </div>

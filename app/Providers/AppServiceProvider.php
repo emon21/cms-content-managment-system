@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,6 +31,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
+         if (!app()->runningInConsole() || app()->runningUnitTests()) {
+            $general_setting = DB::table('categories')->latest()->first();
+            //...
+        }
 
         $categorylist = Category::all();
         $blog = Blog::all();

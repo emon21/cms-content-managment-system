@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Category</h1>
+                        <h1>Blog</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Category</li>
+                            <li class="breadcrumb-item active">Blog</li>
                         </ol>
                     </div>
                 </div>
@@ -27,9 +27,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2">Category</h3>
-                                <a href="#" class="btn btn-primary float-right" id="CreateCtegory"
-                                    data-toggle="modal">Add Category</a>
+                                <h3 class="card-title pt-2"><i class="fas fa-plus pr-2"></i>Edit Blog</h3>
+                                <a href="{{ route('blog.index') }}" class="btn btn-success float-right" ><i class="fas fa-list pr-2"></i>All Blog</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -48,9 +47,9 @@
                                         </div>
 
                                         <div class="form-group col-sm-3">
-                                            <label for="type">Category:</label>
+                                            <label for="type">Blog:</label>
                                             <select name="cat_id" id="type" class="form-control">
-                                                <option value=""> >> Chouse Category << </option>
+                                                <option value=""> >> Chouse Blog << </option>
                                                         @foreach ($category as $item)
                                                 <option value="{{ $item->id }}"
                                                     {{ $item->id == $blog->cat_id ? 'selected' : '' }}>{{ $item->name }}
@@ -72,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="tags">Description:</label>
-                                        <textarea name="description" id="" class="form-control" cols="30" rows="10"
+                                        <textarea name="description" id="summernote" class="form-control" cols="30" rows="10"
                                             value="{{ $blog->description }}">{{ $blog->description }}</textarea>
                                     </div>
 
@@ -151,7 +150,7 @@
 
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success">Update</button>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-edit pr-2"></i>Update</button>
                                     </div>
                                 </form>
                             </div>

@@ -28,8 +28,9 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Service</h3>
-                            <a href="{{ route('service.create') }}" class="btn btn-primary float-right">Create Service</a>
+                            <h3 class="card-title pt-2"><i class="fas fa-list pr-1"></i>Service List</h3>
+                            <a href="{{ route('service.create') }}" class="btn btn-success float-right"><i
+                                    class="fas fa-plus pr-1"></i>Create Service</a>
 
                         </div>
                         <!-- /.card-header -->
@@ -38,7 +39,6 @@
                                 <thead>
                                     <tr>
                                         <th># Sl No</th>
-                                        <th>Icon</th>
                                         <th>Title</th>
                                         <th>Ctegory</th>
                                         <th>Plan</th>
@@ -52,11 +52,10 @@
                                     @forelse ($service as  $item)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
-                                            <td>{{ $item->icon }}</td>
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->category->name }}</td>
                                             <td>{{ $item->plan->title }}</td>
-                                          
+
                                             <td>
                                                 <img @if ($item->image) src="{{ asset($item->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
                                                     width="120" height="80">

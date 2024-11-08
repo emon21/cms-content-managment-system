@@ -1,0 +1,20 @@
+ {{-- @if ($cat->type == 'blog')
+                                        
+                                        <li class="pxa_cat_item {{ request('category') == $cat->id ? 'active' : '' }}">
+                                            
+                                            <a class=" " href="{{ route('website.blog') }}?category={{ $cat->id }}">{{ $cat->name }}
+                                                - {{ $cat->blogs->count() }}</a>
+                                        </li>
+                                        {{-- @elseif(request('category') == $cat->id)
+
+                                        <li class="pxa_cat_item {{ request('category') == $cat->id ? 'active' : '' }}">
+                                            <a class=" " href="{{ route('website.blog') }}?category={{ $cat->id }}">{{ $cat->name }}
+                                                - {{ $cat->blogs->count() }}</a>
+                                        </li> --}}
+                                        @elseif ($cat->type == 'gallery' )
+                                        
+                                       <li>
+                                        <a href="">{{ $cat->name }}</a>
+                                       </li>
+
+                                    @endif --}}

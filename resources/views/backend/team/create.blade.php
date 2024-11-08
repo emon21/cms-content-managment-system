@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Partner Create</h1>
+                        <h1>Team Create</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Partner</li>
+                            <li class="breadcrumb-item active">Team</li>
                         </ol>
                     </div>
                 </div>
@@ -27,10 +27,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"><i class="fas fa-list"></i> Team List</h3>
-                                <a href="{{ route('team-member.index') }}" class="btn btn-primary float-right"><i
-                                        class="fas fa-list"></i> Team
-                                    List</a>
+                                <h3 class="card-title pt-2">
+                                    <i class="fas fa-plus pr-1"></i>Create Team</h3>
+                                <a href="{{ route('team-member.index') }}" class="btn btn-success float-right">
+                                    <i class="fas fa-list pr-1"></i> Team List</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

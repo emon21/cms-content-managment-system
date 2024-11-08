@@ -27,9 +27,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"> <i class="fas fa-plus"></i> Create Service</h3>
-                                <a href="{{ route('service.index') }}" class="btn btn-primary float-right"> <i
-                                        class="fas fa-arrow-left"></i> Back Service</a>
+                                <h3 class="card-title pt-2"> <i class="fas fa-edit pr-1"></i> Edit Service</h3>
+                                <a href="{{ route('service.index') }}" class="btn btn-success float-right"> <i
+                                        class="fas fa-list pr-1"></i> Service List</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -65,10 +65,11 @@
                                                             {{-- <option value="{{ $item->id }}">{{ ($item->name == '') ? $item->name : ucfirst($item->name) }}</option> --}}
                                                            
 
-                                                            {{-- @if ($item->type == 'service')
+                                                            @if ($item->type == 'service')
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endif --}}
-                                                <option value="{{ $item->id }}"  {{ $item->id == $service->cat_id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                                @endif
+
+                                                {{-- <option value="{{ $item->id }}"  {{ $item->id == $service->cat_id ? 'selected' : '' }}>{{ $item->name }}</option> --}}
                                                 @endforeach
 
                                             </select>
@@ -124,7 +125,7 @@
                                     <div class="d-flex">
                                         <div class="form-group col-sm-8">
                                             <label for="tags">Description:</label>
-                                            <textarea name="description" id="" class="form-control" cols="30" rows="10">{{ $service->description }}</textarea>
+                                            <textarea name="description" id="summernote" class="form-control" cols="30" rows="10">{{ $service->description }}</textarea>
                                         </div>
 
                                         <div class="form-group col-sm-4">
@@ -164,8 +165,10 @@
 
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i>
-                                                Update</button>
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="fas fa-edit"></i>
+                                                Update
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

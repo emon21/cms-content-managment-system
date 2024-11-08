@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/daterangepicker/daterangepicker.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('backend') }}/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/summernote/summernote-bs4.min.css">
 
@@ -47,6 +50,7 @@
 <!-- dropify -->
 <link rel="stylesheet" href="{{ asset('backend') }}/dropify/dropify.min.css">
 {{-- <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css"> --}}
+
 
   <!-- Custom CSS -->
    <link rel="stylesheet" href="{{ asset('backend') }}/dist/css/style.css">

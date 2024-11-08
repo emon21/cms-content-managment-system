@@ -28,10 +28,10 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Faq List</h3>
-                            <a href="{{ route('faq.create') }}" class="btn btn-primary float-right"><i
-                                    class="fas fa-plus"></i> Create FAQ</a>
-
+                            <h3 class="card-title pt-2">
+                                <i class="fas fa-list pr-1"></i> Faq List</h3>
+                            <a href="{{ route('faq.create') }}" class="btn btn-success float-right">
+                                <i class="fas fa-plus pr-1"></i> Create FAQ</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

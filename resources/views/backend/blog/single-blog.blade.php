@@ -60,7 +60,7 @@
                                     </tr><tr>
                                         <th>description</th>
                                         <th>:</th>
-                                        <td>{{ $blog->description }}</td>
+                                        <td>{!! $blog->description !!}</td>
                                     </tr><tr>
                                         <th>author</th>
                                         <th>:</th>

@@ -28,7 +28,13 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Contact List</h3>
+                            <h3 class="card-title pt-2">
+                                <i class="fas fa-list pr -2"></i> Contact List</h3>
+
+                                {{-- <a href="#" class="btn btn-sm btn-primary" style="float: right;">
+                                    <i class="fas fa-plus"></i> Add New</a> --}}
+
+                                {{-- <a href="#" class="btn btn-sm btn-danger" style="float: right;"><i class="fas fa-trash-alt"></i> Trash List</a> --}}
                             </div>
                         <!-- /.card-header -->
                         <div class="card-body">

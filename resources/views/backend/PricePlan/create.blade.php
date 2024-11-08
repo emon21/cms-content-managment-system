@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Price Plan create</h1>
+                        <h1>Create Plan</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Price Plan</li>
+                            <li class="breadcrumb-item active">Plan</li>
                         </ol>
                     </div>
                 </div>
@@ -27,8 +27,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2">Price Plan</h3>
-                                <a href="{{ route('price-plan.index') }}" class="btn btn-primary float-right"> Price Plan
+                                <h3 class="card-title pt-2"><i class="fas fa-plus pr-1"></i>Create Plan</h3>
+                                <a href="{{ route('price-plan.index') }}" class="btn btn-success float-right"> <i class="fas fa-list"></i> Plan
                                     List</a>
                             </div>
                             <!-- /.card-header -->
@@ -39,8 +39,12 @@
                                     <div class="d-flex ga-4 align-item-center">
                                         <div class="form-group col-sm-6">
                                             <label for="title">Title:</label>
-                                            <input type="text" name="title" class="form-control"
+                                            <input type="text" name="title"
+                                                class="form-control @error('title') is-invalid @enderror"
                                                 placeholder="Enter Title..." id="title">
+                                            @error('title')
+                                                <span class="text-danger pt-2">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
 
@@ -87,12 +91,21 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-sm-3">
+                                        <div class="form-group col-sm-4">
                                             <label for="status">Status:</label>
-                                            <select name="status" id="status" class="form-control">
+                                            {{-- <select name="status" id="status" class="form-control select2">
                                                 <option value=""> >> chouse Status<< </option>
                                                 <option value="publish">Publish</option>
                                                 <option value="draft">Draft</option>
+                                            </select> --}}
+                                            <select class="form-control select2bs4" style="width: 100%;">
+                                                <option selected="selected">Alabama</option>
+                                                <option>Alaska</option>
+                                                <option>California</option>
+                                                <option>Delaware</option>
+                                                <option>Tennessee</option>
+                                                <option>Texas</option>
+                                                <option>Washington</option>
                                             </select>
                                         </div>
 
@@ -101,10 +114,10 @@
 
                                     <div class="form-group">
                                         <label for="tags">Features:</label>
-                                        <textarea name="features" id="" class="form-control" cols="30" rows="10"></textarea>
+                                        <textarea name="features" id="summernote" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success">Create</button>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-plus pr-1"></i>Create</button>
                                     </div>
                             </div>
 

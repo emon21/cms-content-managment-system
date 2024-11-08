@@ -27,9 +27,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"><i class="fas fa-edit"></i> Edit Team</h3>
-                                <a href="{{ route('team-member.index') }}" class="btn btn-primary float-right"><i
-                                        class="fas fa-list"></i> Team
+                                <h3 class="card-title pt-2">
+                                    <i class="fas fa-edit pr-1"></i> Edit Team</h3>
+                                <a href="{{ route('team-member.index') }}" class="btn btn-success float-right">
+                                    <i class="fas fa-list pr-1"></i> Team
                                     List</a>
                             </div>
                             <!-- /.card-header -->

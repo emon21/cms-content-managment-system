@@ -269,7 +269,8 @@ function isInView(id) {
    
 }
 
-$(window).bind("load", function() {
+$(window).bind("load", function () {
+    
     isInView("service_category") && updateHeaderServicesCatList("#service_category", "get-services-cat");
     isInView("testimonail_data") && updateTestimonialList("#testimonail_data", "get-testimonial");
     isInView("teams_data") && updateTeamList("#teams_data", "get-teams");
@@ -278,6 +279,7 @@ $(window).bind("load", function() {
     isInView("services_data") && updateServicesList("#services_data", "get-services");
     isInView("price_plan_data") && updatePlanList("#price_plan_data", "get-price-plan");
     isInView("faq_data") && updateFAQList("#faq_data", "get-faq");
+    
 });
 
 $(window).scroll(function () {

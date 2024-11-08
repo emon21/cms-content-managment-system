@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Price Plan create</h1>
+                        <h1>Create Plan</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Price Plan</li>
+                            <li class="breadcrumb-item active">Plan</li>
                         </ol>
                     </div>
                 </div>
@@ -27,8 +27,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2">Price Plan</h3>
-                                <a href="{{ route('price-plan.index') }}" class="btn btn-primary float-right"> Price Plan
+                                <h3 class="card-title pt-2">
+                                     <i class="fas fa-plus pr-1"></i>Create Plan</h3>
+
+                                <a href="{{ route('price-plan.index') }}" class="btn btn-success float-right"><i class="fas fa-list"></i>  Plan
                                     List</a>
                             </div>
                             <!-- /.card-header -->
@@ -47,10 +49,26 @@
 
 
 
-                                        <div class="form-group col-sm-6">
+                                        <div class="form-group col-sm-3">
                                             <label for="price">Price:</label>
                                             <input type="number" name="price" class="form-control"
                                                 value="{{ $PricePlan->price }}" placeholder="Enter Price..." id="price">
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="type">Position
+                                                :</label>
+                                            <select name="position" id="type" class="form-control">
+
+                                                <option value="">Chouse Position</option>
+                                                <option value="left" @if ($PricePlan->position == 'left') selected @endif>
+                                                    Left</option>
+                                                    <option value="center" @if ($PricePlan->position == 'center') selected @endif>
+                                                    Center</option>
+                                                <option value="right" @if ($PricePlan->position == 'right') selected @endif>
+                                                    Right</option>
+
+
+                                            </select>
                                         </div>
 
                                     </div>
@@ -103,10 +121,10 @@
 
                                     <div class="form-group">
                                         <label for="tags">Features:</label>
-                                        <textarea name="features" id="" class="form-control" cols="30" rows="10">{{ $PricePlan->feature }}</textarea>
+                                        <textarea name="features" id="summernote" class="form-control" cols="30" rows="10">{{ $PricePlan->feature }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success">Update Plan</button>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-list pr-1"></i>Update</button>
                                     </div>
                             </div>
 

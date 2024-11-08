@@ -38,6 +38,14 @@ class PricePlanController extends Controller
     {
         //
 
+        # Validation 
+
+        $request->validate([
+
+            'title' => 'required|',
+            'title' => 'required|',
+        ]);
+
         $PricePlan = new PricePlan();
         $PricePlan->title = $request->title;
         // $PricePlan->slug = Str::slug($request->title);
@@ -91,6 +99,7 @@ class PricePlanController extends Controller
         $PricePlan->cat_id = $request->cat_id;
         $PricePlan->feature = $request->features;
         $PricePlan->status = $request->status;
+        $PricePlan->position = $request->position;
         $PricePlan->save();
 
         $notification = array(
@@ -130,7 +139,7 @@ class PricePlanController extends Controller
         // PricePlan::destroy($PricePlan->id);
 
         $notification = array(
-            'error' => 'Price Plan Deleted successfully',
+            'message' => 'Price Plan Deleted successfully',
             'alert-type' => 'error',
             'delete' => 'Deleted'
           

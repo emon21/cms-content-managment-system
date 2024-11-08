@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Contact;
 use App\Models\PricePlan;
+use App\Models\Service;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +24,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // PricePlan::factory()->count(3)->create();
-       Contact::factory()->count(5)->create();
+      
 
 
         $this->call([
@@ -33,12 +34,15 @@ class DatabaseSeeder extends Seeder
             GallerySeeder::class,
             PartnerSeeder::class,
             PricePlanSeeder::class,
-            ServiceSeeder::class,
+            // ServiceSeeder::class,
             TeamSeeder::class,
             TestimonialSeeder::class,
             
 
         ]);
+
+        Contact::factory()->count(5)->create();
+        Service::factory()->count(5)->create();
     }
 
 }

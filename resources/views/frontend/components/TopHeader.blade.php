@@ -21,8 +21,20 @@
                             <a href="#">Service</a>
                             <div class="pxa_header_Subnav pxa_drop_menu" style="display: none;">
                                 <div class="pxa_megamenu_grid" id="service_category">
+                                   {{-- @foreach($service as $item) --}}
                                     <ul class="pxa_megamenu_item pxa_header_Subnav_01">
-                                        <h2 class="pxa_sc_title">Web Developer</h2>
+                                        {{-- <h2 class="pxa_sc_title">{{ $item->title }}</h2> --}}
+                                        <li>
+                                            <a href="#">
+                                                <span>
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                                </span>
+                                                <h4 class="pxa_megamenu_details">
+                                                    
+                                                </h4>
+                                            </a>
+                                        </li>
+{{--                                         
                                         <li>
                                             <a href="#">
                                                 <span>
@@ -52,147 +64,9 @@
                                                     Cyber Security
                                                 </h4>
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
-                                    <ul class="pxa_megamenu_item pxa_header_Subnav_01">
-                                        <h2>Web Developer</h2>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="pxa_megamenu_item pxa_header_Subnav_01">
-                                        <h2>Web Developer</h2>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="pxa_megamenu_item pxa_header_Subnav_01">
-                                        <h2>Web Developer</h2>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                                </span>
-                                                <h4 class="pxa_megamenu_details">
-                                                    Cyber Security
-                                                </h4>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                   {{-- @endforeach --}}
                                 </div>
                             </div>
                         </li>

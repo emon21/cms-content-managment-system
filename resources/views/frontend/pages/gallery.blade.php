@@ -27,6 +27,8 @@
                         <div class="pxa_project_gallery">
                             <div class="gallery_nav">
                                 <ul>
+
+                        
                                     <li>
                                         <a data-filter="*" class="gallery_active">All Categories {{ $gallery->count() }}</a>
                                     </li>
@@ -35,8 +37,10 @@
                                             {{-- <option value="{{ $category->id }}">{{ $category->name }}</option> --}}
 
                                             <li>
-                                                <a data-filter=".{{ $category->id }}"> {{ $category->name }} {{ $category->gallery->count() }} </a>
+                                                <a data-filter=".{{ $category->id }}"> {{ $category->name }}
+                                                    {{ $category->gallery->count() }} </a>
                                             </li>
+                                             
                                         @endif
                                     @endforeach
                                     {{-- <li><a data-filter=".category-15"> IT Development </a></li>
@@ -51,7 +55,7 @@
                                     @foreach ($gallery as $item)
                                         <div class="grid-item fancy-gallery {{ $item->cat_id }}">
                                             <a href="{{ asset($item->image) }}" class="mb-4 col-6 col-sm-4 img-fluid"
-                                                data-fancybox="images" data-caption="Galery 01">
+                                                data-fancybox="images" data-caption="{{ $item->title }}">
                                                 <img class="" src="{{ asset($item->image) }}" alt=""
                                                     class="img-fluid" width="100%" height="280px" />
                                             </a>
@@ -75,4 +79,6 @@
         </div>
         <!--===  Gallery End ===-->
     </div>
+
+   
 @endsection

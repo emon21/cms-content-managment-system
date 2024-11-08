@@ -49,6 +49,8 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('backend') }}/dist/js/pages/dashboard.js"></script>
 
+<!-- Select2 -->
+<script src="{{ asset('backend') }}/plugins/select2/js/select2.full.min.js"></script>
 <!-- Ionicons -->
 
 <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
@@ -60,7 +62,7 @@
 
 <!-- Toastify js -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script>
+{{-- <script>
     // Data Insert Toast
     @if (Session::has('success'))
         Toastify({
@@ -75,7 +77,7 @@
 
         }).showToast();
     @endif
-</script>
+</script> --}}
 
 <!-- toaster -->
 <script src="{{ asset('backend') }}/plugins/toastr/toastr.min.js"></script>
@@ -94,8 +96,7 @@
                         closeButton: true,
                         positionClass: "toast-top-right",
                         hideDuration: "1000",
-                    }
-                );
+                    });
                 break;
 
             case "error":
@@ -160,9 +161,10 @@
 
     // <!-- Sweet Alert 2 useing Data Delete Message into form sumit -->
 
-    function confirmationDelete(ev) {
+    function DeleteConfirm(ev) {
         ev.preventDefault();
-        let urlToRedirect = ev.currentTarget.getAttribute('href');
+        let form = ev.currentTarget.closest('form');
+        // let urlToRedirect = ev.currentTarget.getAttribute('href');
         // console.log(urlToRedirect);
 
         // sweet alert js code
@@ -176,23 +178,33 @@
             confirmButtonText: "Yes, delete it!",
             timer: 2000
         }).then((result) => {
+
+
             if (result.isConfirmed) {
+
                 Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "danger",
-                    timer: 1000,
-                    showConfirmButton: true,
-                }).then((result) => {
-                    if (result.isConfirmed || result.isDismissed === true) {
-                        window.location.href = urlToRedirect;
-                    }
-                });
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "danger",
+                        timer: 1000,
+                        showConfirmButton: true,
+
+                    })
+
+                    .then((result) => {
+                        if (result.isConfirmed || result.isDismissed === true) {
+                            // window.location.href = urlToRedirect;
+
+                            form.submit();
+                        }
+                    });
             }
+
+
         });
     }
 
-    
+
     // @if (Session::has('success'))
     // Swal.fire({
     // position: "top-end",
@@ -202,7 +214,6 @@
     // timer: 1500
     // });
     // @endif
-
 </script>
 
 
@@ -219,11 +230,47 @@
             'replace': 'Drag and drop or click to replace',
             'remove': 'Remove',
             'error': 'Ooops, something wrong happended.'
-        }
+        },
+        height:250
+
     });
+</script>
+
+<script>
+    $(function() {
+
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        // //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+        // Summernote
+        $('#summernote').summernote({
+            placeholder: 'write here...',
+            height: 250, // set editor height
+            // minHeight: 600, // set minimum height of editor
+            // maxHeight: 600,
+            disableResizeEditor: true,
+            // width:'450px'
+
+        });
+
+        // CodeMirror
+        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+        });
+
+
+        
+    })
 </script>
 
 <script src="{{ asset('Backend') }}/dist/js/custom.js"></script>
 
 </body>
+
 </html>

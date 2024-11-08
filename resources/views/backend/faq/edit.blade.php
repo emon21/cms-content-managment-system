@@ -27,10 +27,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"><i class="fas fa-edit"></i> Faq Edit</h3>
-                                <a href="{{ route('faq.index') }}" class="btn btn-primary float-right"><i
-                                        class="fas fa-list"></i> Faq
-                                    List</a>
+                                <h3 class="card-title pt-2">
+                                    <i class="fas fa-edit pr-1"></i> Faq Edit</h3>
+                                <a href="{{ route('faq.index') }}" class="btn btn-success float-right">
+                                    <i class="fas fa-list pr-1"></i> Faq List</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -62,10 +62,11 @@
 
                                     <div class="form-group">
                                         <label for="tags">Description:</label>
-                                        <textarea name="description" id="" class="form-control" cols="10" rows="5">{{ $faq->description }}</textarea>
+                                        <textarea name="description" id="summernote" class="form-control" cols="10" rows="5">{{ $faq->description }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-update"></i>
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-edit"></i>
                                             Update</button>
                                     </div>
                             </div>

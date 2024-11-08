@@ -59,11 +59,19 @@ class Category extends Model
 
 
     // public function blogs(){
-    //     return $this->hasMany(Blog::class);
+    //     return $this->belongsTo(Blog::class);
     // }
 
     public function gallery(){
         return $this->hasMany(Gallery::class,'cat_id');
+    }
+
+    public function blogs(){
+        return $this->hasMany(Blog::class,'cat_id');
+    }
+
+    public function services(){
+        return $this->hasMany(Service::class,'cat_id');
     }
 
 

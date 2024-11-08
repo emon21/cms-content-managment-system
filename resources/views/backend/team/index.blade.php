@@ -28,9 +28,10 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Team Member List</h3>
-                            <a href="{{ route('team-member.create') }}" class="btn btn-primary float-right"><i
-                                    class="fas fa-plus"></i> Create Team</a>
+                            <h3 class="card-title pt-2">
+                                <i class="fas fa-users pr-1"></i> Team List</h3>
+                            <a href="{{ route('team-member.create') }}" class="btn btn-success float-right">
+                                <i class="fas fa-plus"></i> Create Team</a>
 
                         </div>
                         <!-- /.card-header -->

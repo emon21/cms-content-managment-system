@@ -7,8 +7,8 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Category</h1>
+                    <div class="col-sm-6">       
+                        <h1>Create Category</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -24,17 +24,19 @@
             <div class="container-fluid">
                 <div class="row"></div>
                 <div class="col-12">
+
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Category</h3>
+                            <h3 class="card-title pt-2">
+                                <i class="fas fa-plus"></i>
+                                Create Category</h3>
                             <a href="{{ route('category') }}"
                                 class="btn btn-outline-success float-right d-flex gap-3 align-item-center">
-                                <i class="fas fa-undo-alt pt-1 pr-1"></i>
+                                <i class="fas fa-list pt-1 pr-1"></i>
                                 Category List
                             </a>
-
-
                         </div>
+                        
                         <!-- /.card-header -->
                         <div class="card-body">
                             <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
@@ -97,7 +99,10 @@
                                 {{-- <div class="container" style="width:364px;">
                                     <input name="imgUpload" type="file" class="dropify" data-default-file="url_of_your_file" data-height="100" />
                                 </div> --}}
-                                <button type="submit" class="btn btn-success">Create</button>
+                                
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-save"></i> Create
+                                </button>
                             </form>
                         </div>
                         <!-- /.card-body -->

@@ -28,13 +28,16 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">Blog</h3>
+                            <h3 class="card-title pt-2">
+                                <i class="fas fa-list pr-2"></i>All Blog
+                            </h3>
                             {{-- <button type="button" class="btn btn-primary float-right" data-toggle="modal"
                                 data-target="#CreateCtegory">
                                 Add item
                             </button> --}}
 
-                            <a href="{{ route('blog.create') }}" class="btn btn-primary float-right">Create Blog</a>
+                            <a href="{{ route('blog.create') }}" class="btn btn-success float-right">
+                                <i class="fas fa-plus pr-2"></i>Create Blog</a>
 
                         </div>
                         <!-- /.card-header -->

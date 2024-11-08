@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cat_id');
             $table->text('feature');
             $table->enum('status',['publish','draft']);
+            $table->string('position')->nullable();
 
             // RelationShip
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');

@@ -27,9 +27,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"> <i class="fas fa-plus"></i> Create Service</h3>
-                                <a href="{{ route('service.index') }}" class="btn btn-primary float-right"> <i
-                                        class="fas fa-arrow-left"></i> Back Service</a>
+                                <h3 class="card-title pt-2"> 
+                                    <i class="fas fa-plus"></i> Create Service</h3>
+                                <a href="{{ route('service.index') }}" class="btn btn-success float-right"> <i
+                                        class="fas fa-list pr-1"></i> Service List</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -110,7 +111,7 @@
                                     <div class="d-flex">
                                         <div class="form-group col-sm-8">
                                             <label for="tags">Description:</label>
-                                            <textarea name="description" id="" class="form-control" cols="30" rows="10"></textarea>
+                                            <textarea name="description" id="sumernote" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
 
                                         <div class="form-group col-sm-4">
@@ -147,7 +148,7 @@
 
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-success">Create</button>
+                                            <button type="submit" class="btn btn-success"> <i class="fas fa-save pr-1"></i>Create</button>
                                         </div>
                                     </div>
                                 </form>

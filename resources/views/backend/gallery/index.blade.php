@@ -28,9 +28,9 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h3 class="card-title pt-2">gallery List</h3>
-                            <a href="{{ route('gallery.create') }}" class="btn btn-primary float-right"><i
-                                    class="fas fa-plus"></i> Create Gallery</a>
+                            <h3 class="card-title pt-2"><i class="fas fa-images pr-1 text-success text-lg"></i>Gallery List</h3>
+                            <a href="{{ route('gallery.create') }}" class="btn btn-success float-right">
+                                <i class="fas fa-plus pr-1"></i> Create Gallery</a>
 
                         </div>
                         <!-- /.card-header -->

@@ -27,9 +27,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"><i class="fas fa-pencil-alt"></i> Edit Gallery</h3>
-                                <a href="{{ route('gallery.index') }}" class="btn btn-primary float-right"><i
-                                        class="fas fa-backward"></i> Gallery
+                                <h3 class="card-title pt-2">
+                                    <i class="fas fa-edit pr-1"></i> Edit Gallery</h3>
+                                <a href="{{ route('gallery.index') }}" class="btn btn-success float-right">
+                                    <i class="fas fa-list pr-1"></i> Gallery List
                                 </a>
                             </div>
                             <!-- /.card-header -->
@@ -102,7 +103,7 @@
                                                 width="250px" height="150px" alt="" class="img-fluid rounded"> --}}
 
                                                   <img class="img-thumbnail" @if ($gallery->image) src="{{ asset($gallery->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
-                                                    width="100" alt="">
+                                                    width="250"  alt="">
                                            
                                         </div>
 

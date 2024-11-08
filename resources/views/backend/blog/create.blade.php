@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Category</h1>
+                        <h1>Blog</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Category</li>
+                            <li class="breadcrumb-item active">Blog</li>
                         </ol>
                     </div>
                 </div>
@@ -27,9 +27,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2">Category</h3>
-                                <a href="#" class="btn btn-primary float-right" id="CreateCtegory"
-                                    data-toggle="modal">Add Category</a>
+                                <h3 class="card-title pt-2"><i class="fas fa-plus pr-2"></i>Create Blog</h3>
+                                <a href="{{ route('blog.index') }}" class="btn btn-success float-right" ><i class="fas fa-list pr-2"></i>All Blog</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -48,7 +47,7 @@
 
                                         <div class="form-group col-sm-3">
                                             <label for="type">Category:</label>
-                                            <select name="cat_id" id="type" class="form-control">
+                                            <select name="cat_id" id="type" class="form-control select2bs4 py-2 mb-2">
                                                 <option value=""> >>
                                                     Chouse Category << </option>
                                                         {{-- @foreach ($category as $item)
@@ -76,7 +75,7 @@
 
                                     <div class="form-group">
                                         <label for="tags">Description:</label>
-                                        <textarea name="description" id="" class="form-control" cols="30" rows="10"></textarea>
+                                        <textarea name="description" id="summernote" class="form-control" cols="30" rows="10"></textarea>
                                     </div>
 
                                     <div class="d-flex">
@@ -128,13 +127,14 @@
                                     <!-- Page Seo  -->
 
 
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group">
                                         <label for="FileUpload">Picture:</label>
-                                        <input type="file" name="FileUpload" class="form-control"
+                                        <input type="file" name="FileUpload" class="form-control dropify"
                                             placeholder="Enter Title..." id="FileUpload">
 
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-success">Create</button>
+                                        <div class="form-group mt-2">
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="fas fa-save pr-2"></i>Create</button>
                                         </div>
                                 </form>
                             </div>
