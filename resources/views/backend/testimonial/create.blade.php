@@ -27,9 +27,11 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title pt-2"><i class="fas fa-list"></i> Testimonial List</h3>
-                                <a href="{{ route('testimonial.index') }}" class="btn btn-primary float-right"><i
-                                        class="fas fa-list"></i> Testimonial
+                                <h3 class="card-title pt-2">
+                                    <i class="fas fa-plus"></i> Create Testimonial
+                                 </h3>
+                                <a href="{{ route('testimonial.index') }}" class="btn btn-success float-right">
+                                    <i class="fas fa-list"></i> Testimonial
                                     List</a>
                             </div>
                             <!-- /.card-header -->
@@ -41,14 +43,20 @@
                                     <div class="d-flex align-item-center">
                                         <div class="form-group col-sm-6">
                                             <label for="title">Client Name:</label>
-                                            <input type="text" name="client_name" class="form-control"
-                                                placeholder="Enter Title..." id="title">
+                                            <input type="text" name="client_name" class="form-control @error('client_name') is-invalid @enderror"
+                                                placeholder="Enter Title..." id="title" value="{{ old('client_name') }}">
+                                                @error('client_name')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
 
                                         <div class="form-group col-sm-6">
                                             <label for="title">Designation:</label>
-                                            <input type="text" name="designation" class="form-control"
-                                                placeholder="Enter Title..." id="title">
+                                            <input type="text" name="designation" class="form-control @error('designation') is-invalid @enderror"
+                                                placeholder="Enter Title..." id="title" value="{{ old('designation') }}">
+                                                @error('designation')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
                                        
                                     </div>
@@ -57,8 +65,12 @@
 
                                         <div class="form-group col-sm-8">
                                             <label for="tags">Description:</label>
-                                            <textarea name="description" id="" class="form-control" cols="10" rows="5"></textarea>
+                                            <textarea name="description" id="summernote" class="form-control" cols="10" rows="5"></textarea>
+                                            @error('description')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
+
                                         <div class="form-group col-sm-4">
                                             <label for="">Image</label>
                                             <input type="file" name="image" class="form-control">

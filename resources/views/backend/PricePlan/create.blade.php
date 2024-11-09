@@ -28,7 +28,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title pt-2"><i class="fas fa-plus pr-1"></i>Create Plan</h3>
-                                <a href="{{ route('price-plan.index') }}" class="btn btn-success float-right"> <i class="fas fa-list"></i> Plan
+                                <a href="{{ route('price-plan.index') }}" class="btn btn-success float-right"> <i
+                                        class="fas fa-list"></i> Plan
                                     List</a>
                             </div>
                             <!-- /.card-header -->
@@ -41,7 +42,7 @@
                                             <label for="title">Title:</label>
                                             <input type="text" name="title"
                                                 class="form-control @error('title') is-invalid @enderror"
-                                                placeholder="Enter Title..." id="title">
+                                                placeholder="Enter Title..." id="title" value="{{ old('title') }}">
                                             @error('title')
                                                 <span class="text-danger pt-2">{{ $message }}</span>
                                             @enderror
@@ -51,8 +52,12 @@
 
                                         <div class="form-group col-sm-6">
                                             <label for="price">Price:</label>
-                                            <input type="number" name="price" class="form-control"
-                                                placeholder="Enter Price..." id="price">
+                                            <input type="number" name="price"
+                                                class="form-control @error('price') is-invalid @enderror"
+                                                placeholder="Enter Price..." id="price" value="{{ old('price') }}">
+                                            @error('price')
+                                                <span class="text-danger pt-2">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                     </div>
@@ -61,52 +66,59 @@
                                         <div class="form-group col-sm-4">
                                             <label for="type">Choose Price Plan
                                                 :</label>
-                                            <select name="plan" id="type" class="form-control">
+                                            <select name="plan" id="type"
+                                                class="form-control @error('plan') is-invalid @enderror">
 
                                                 <option value="">Chouse Plan</option>
-                                                <option value="monthly">Monthly</option>
-                                                <option value="yearly">Yearly</option>
+                                                <option value="monthly"
+                                                    @if (old('plan') == 'monthly') ? selected : '' @endif>Monthly
+                                                </option>
+                                                <option value="yearly"
+                                                    @if (old('plan') == 'yearly') ? selected : '' @endif>Yearly</option>
 
 
                                             </select>
+                                            @error('plan')
+                                                <span class="text-danger pt-2">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-4">
                                             <label for="type">Category:</label>
-                                            <select name="cat_id" id="type" class="form-control">
+                                            <select name="cat_id" id="type"
+                                                class="form-control @error('cat_id') is-invalid @enderror">
                                                 <option value=""> >>
                                                     Select Category << </option>
                                                         @foreach ($category as $item)
-                                                            {{-- <option value="{{ $item->id }}">{{ $item->name }}</option> --}}
-
-                                                            {{-- <option value="">{{ $item->type == 'Uncategoried' ? 'Uncategoried' : ' > '.$item->name }}</option> --}}
-
                                                             @if ($item->type == 'priceplan')
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endif
-                                                {{-- <option value="{{ $item->id }}">
-                                                    {{ ($item->type == 'priceplan')  $item->name }}</option> --}}
+                                                         <option value="{{ $item->id }}" @if (old('cat_id') == $item->id) ? selected : '' @endif>
+                                                            {{ $item->name }}</option>
+                                                             @endif
                                                 @endforeach
 
                                             </select>
+                                            @error('cat_id')
+                                                <span class="text-danger pt-2">{{ $message }}</span>
+                                            @enderror
+
                                         </div>
 
                                         <div class="form-group col-sm-4">
                                             <label for="status">Status:</label>
-                                            {{-- <select name="status" id="status" class="form-control select2">
+                                            <select name="status" id="status"
+                                                class="form-control select2bs4 @error('status') is-invalid @enderror">
                                                 <option value=""> >> chouse Status<< </option>
-                                                <option value="publish">Publish</option>
-                                                <option value="draft">Draft</option>
-                                            </select> --}}
-                                            <select class="form-control select2bs4" style="width: 100%;">
-                                                <option selected="selected">Alabama</option>
-                                                <option>Alaska</option>
-                                                <option>California</option>
-                                                <option>Delaware</option>
-                                                <option>Tennessee</option>
-                                                <option>Texas</option>
-                                                <option>Washington</option>
+                                                <option value="publish"
+                                                    @if (old('status') == 'publish') ? selected : '' @endif>Publish
+                                                </option>
+                                                <option value="draft"
+                                                    @if (old('status') == 'draft') ? selected : '' @endif>Draft</option>
                                             </select>
+                                            @error('status')
+                                                <span class="text-danger pt-2">{{ $message }}</span>
+                                            @enderror
+
+
                                         </div>
 
                                     </div>
@@ -114,10 +126,14 @@
 
                                     <div class="form-group">
                                         <label for="tags">Features:</label>
-                                        <textarea name="features" id="summernote" class="form-control"></textarea>
+                                        <textarea name="features" id="summernote" class="form-control @error('features') is-invalid @enderror"></textarea>
+                                        @error('features')
+                                            <span class="text-danger pt-2">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-plus pr-1"></i>Create</button>
+                                        <button type="submit" class="btn btn-success"><i
+                                                class="fas fa-save pr-1"></i>Create</button>
                                     </div>
                             </div>
 

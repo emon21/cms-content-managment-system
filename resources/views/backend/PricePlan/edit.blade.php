@@ -124,7 +124,7 @@
                                         <textarea name="features" id="summernote" class="form-control" cols="30" rows="10">{{ $PricePlan->feature }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-list pr-1"></i>Update</button>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-edit pr-1"></i>Update</button>
                                     </div>
                             </div>
 

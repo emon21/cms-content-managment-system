@@ -35,6 +35,8 @@ class Service extends Model
     //     return Str::limit($this->description,Service::LIMIT);
     // }
 
+    
+
 
     // Relationship
     public function category() // cat_id => category model

@@ -26,17 +26,16 @@
                 <div class="row"></div>
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header bg-dark">
+                        <div class="card-header">
                             <h3 class="card-title pt-2">Show gallery</h3>
-                            <a href="{{ route('gallery.index') }}" class="btn btn-outline-warning float-right">
-                                <i class="fas fa-undo-alt"></i> Back
-
+                            <a href="{{ route('gallery.index') }}" class="btn btn-outline-success float-right">
+                                <i class="fas fa-list"></i> Gallery List
                             </a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <img @if ($gallery->image) src="{{ asset($gallery->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
-                                width="250px" height="180px">
+                                width="250px" height="180px" class="mb-4">
                             <table class="table table-bordered table-striped table-hover">
                                 <tbody>
                                     <tr>

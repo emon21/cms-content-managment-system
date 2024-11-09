@@ -23,38 +23,23 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row"></div>
+                <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header bg-dark">
-                            <h3 class="card-title pt-2">Single Category</h3>
-                            <a href="{{ route('category') }}" class="btn btn-outline-warning float-right">
-                                <i class="fas fa-undo-alt"></i> Go Back
+                        <div class="card-header">
+                            <h3 class="card-title pt-2">
                                 
+                                Single Category</h3>
+                            <a href="{{ route('category') }}" class="btn btn-outline-success float-right">
+                                <i class="fas fa-list"></i> Category List
                            </a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <img  @if ($category->image) src="{{ asset($category->image) }}" @else src="{{ asset('uploads/category/no-image.png') }}" @endif
-                                                width="250px" height="180px">
+                                                width="250px" height="180px" class="mb-4">
                             <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <td>:</td>
-                                        <th>
-                                        
-                                            {{-- <img src="{{ asset($category->image) }}" alt=""> --}}
-
-                                            
-
-                                            {{-- <img src="{{ asset('upload/student/' . $student->image) }}" alt=""
-                                                @if ($student->image) src="{{ asset('upload/student/' . $student->image) }}" @else src="{{ asset('upload/no-image.png') }}" @endif
-                                                width="350px" height="450px" class=" rounded" id="previewImg"> --}}
-                                                {{-- @if ($category->image) {{ asset('uploads/category/'.$category->image) }} @else {{ asset('uploads/category/'.$category->image) }} @endif --}}
-                                        </th>
-                                    </tr>
-                                </thead>
+                               
                                 <tbody>
                                     <tr>
                                         <th>Name</th>

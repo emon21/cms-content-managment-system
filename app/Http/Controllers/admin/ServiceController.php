@@ -45,7 +45,20 @@ class ServiceController extends Controller
      */
     public function store(Request $request, Service $service)
     {
-        //
+        //validation
+        $request->validate([
+            'title' => 'required',
+            'heading' => 'required',
+            'cat_id' => 'required',
+            'plan' => 'required',
+            'status' => 'required',
+            'icon' => 'required',
+            'description' => 'required',
+            'meta_title' => 'required',
+            'meta_keywords' => 'required',
+            'meta_description' => 'required',
+        ]);
+
        
         // $service= Service::where()->with('category')->get();
 
@@ -57,10 +70,15 @@ class ServiceController extends Controller
         $service->status = $request->status;
         $service->icon = $request->icon;
         $service->description = $request->description;
+
         
-        // Image Upload With Helper Function
-        $url = uploadImage($request->file('image'), 'service');
-        $service->image = $url;
+        if ($request->hasFile('image')) {
+
+            // Image Upload With Helper Function
+            $url = uploadImage($request->file('image'), 'service');
+            $service->image = $url;
+        }
+        
   
         $service->meta_title = $request->meta_title;
         $service->meta_keywords = $request->meta_keywords;

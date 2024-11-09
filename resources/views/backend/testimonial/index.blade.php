@@ -29,7 +29,7 @@
 
                         <div class="card-header">
                             <h3 class="card-title pt-2">Testimonial List</h3>
-                            <a href="{{ route('testimonial.create') }}" class="btn btn-primary float-right"><i
+                            <a href="{{ route('testimonial.create') }}" class="btn btn-success float-right"><i
                                     class="fas fa-plus"></i> Create Testimonial</a>
 
                         </div>
@@ -85,7 +85,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')"
+                                                        onclick="DeleteConfirm(event)"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>

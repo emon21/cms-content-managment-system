@@ -35,7 +35,14 @@ class FaqController extends Controller
      */
     public function store(Request $request, Faq $Faq)
     {
-        //
+        //Validation 
+
+        $request->validate([
+            'title' => 'required',
+            'status' => 'required',
+            'description' => 'required',
+        ]);
+
         $Faq->title = $request->title;
         $Faq->slug = Str::slug($request->title);
         $Faq->status = $request->status;
@@ -96,7 +103,10 @@ class FaqController extends Controller
     {
         
         // $faq->delete();
-        Faq::destroy($faq->id);
+        // Faq::destroy($faq->id);
+        $faq->destroy($faq->id);
+
+
         $notification = array(
             'message' => 'FAQ Deleted successfully',
             'alert-type' => 'error',

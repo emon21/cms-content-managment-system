@@ -60,10 +60,11 @@
                                                 @endif
                                             </td>
 
-                                            <td class="d-flex justify-content-between">
-                                                <a href="{{ route('faq.show', $item->id) }}" class="btn btn-warning btn-sm">
+                                            <td class="d-flex gap-4 justify-content-between">
+
+                                                {{-- <a href="{{ route('faq.show', $item->id) }}" class="btn btn-warning btn-sm">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
+                                                </a> --}}
 
                                                 <a href="{{ route('faq.edit', $item->id) }}" class="btn btn-info btn-sm">
                                                     <i class="far fa-edit"></i>
@@ -75,7 +76,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')"
+                                                        onclick="DeleteConfirm(event)"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>

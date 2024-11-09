@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-     
+
         $blog = Blog::all();
         return view('backend.blog.index', compact('blog'));
     }
@@ -27,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        
+
         $category = Category::all();
         return view('backend.blog.create', compact('category'));
     }
@@ -37,10 +37,14 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        # Validation 
+        // $request->validate([
+        //     'title'=> 'required|unique:blogs|max:255',
+        //     'FileUpload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
 
         // $blog = New Blog(); // Object Create 
-        
+
         $data = []; // array
         // $data = array();
 
@@ -60,12 +64,18 @@ class BlogController extends Controller
         $data['meta_keywords'] = $request->meta_keywords;
         $data['meta_description'] = $request->meta_description;
 
-        # Image upload
-        $file = $request->file('FileUpload');
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        // $url = $file->move(public_path('uploads/car'), $filename);
-        $url = $file->move('uploads/blog/', $filename);
-        $data['image'] = $url;
+
+
+        if ($request->file('FileUpload')) {
+
+            # Image upload
+            $file = $request->file('FileUpload');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // $url = $file->move(public_path('uploads/car'), $filename);
+            $url = $file->move('uploads/blog/', $filename);
+            $data['image'] = $url;
+        }
+
 
         // create Blog
 
@@ -87,7 +97,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        
         $blogList = Blog::where('cat_id', $blog->cat_id)->get();
         return view('backend.blog.single-blog', compact('blog'));
     }
@@ -97,7 +107,6 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        
         $category = Category::all();
         return view('backend.blog.edit', compact('blog', 'category'));
     }
@@ -107,26 +116,14 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
-        // return $blog;
-        // return $request->BlogID;
 
-        // Blog::Where('id', $blog->id)->update([
-        //     'title' => $request->title,
-        //     'slug' => Str::slug($request->title),
-        //     'cat_id' => $request->cat_id,
-        //     'tags' => $request->tags,
-        //     'description' => $request->description,
-        //     'author' => $request->author,
-        //     'publish_date' => $request->publish_date,
-        //     'status' => $request->status,
-        //     'meta_title' => $request->meta_title,
-        //     'meta_keywords' => $request->meta_keywords,
-        //     'meta_description' => $request->meta_description,
+        # Validation 
+        // $request->validate([
+        //     'title' => 'required|unique:blogs|max:255',
+        //     'FileUpload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
 
-
-        if($request->hasFile('FileUpload')) {
+        if ($request->hasFile('FileUpload')) {
 
             #img upload and old img delete
             if (File::exists($blog->image)) {
@@ -154,32 +151,29 @@ class BlogController extends Controller
             $blog->meta_keywords = $request->meta_keywords;
             $blog->meta_description = $request->meta_description;
             $blog->save();
-
         }
 
-        else{
-            $blog->title = $request->title;
-            $blog->slug = Str::slug($request->title);
-            $blog->cat_id = $request->cat_id;
-            $blog->tags = $request->tags;
-            $blog->description = $request->description;
-            $blog->author = $request->author;
-            $blog->publish_date = $request->publish_date;
-            $blog->status = $request->status;
-            $blog->meta_title = $request->meta_title;
-            $blog->meta_keywords = $request->meta_keywords;
-            $blog->meta_description = $request->meta_description;
-            $blog->save();
+        $blog->title = $request->title;
+        $blog->slug = Str::slug($request->title);
+        $blog->cat_id = $request->cat_id;
+        $blog->tags = $request->tags;
+        $blog->description = $request->description;
+        $blog->author = $request->author;
+        $blog->publish_date = $request->publish_date;
+        $blog->status = $request->status;
+        $blog->meta_title = $request->meta_title;
+        $blog->meta_keywords = $request->meta_keywords;
+        $blog->meta_description = $request->meta_description;
+        $blog->save();
 
-        }
+
 
         $notification = array(
             'message' => 'Blog Updated Successfully Done..!!',
             'alert-type' => 'success',
-        );  
+        );
 
         return redirect()->route('blog.index')->with($notification);
-
     }
 
     /**
@@ -187,19 +181,6 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
-        // return $blog;
-        // Delete Data From Database
-
-        # 1st way Query Builder
-        // DB::table('blogs')->where('id',$blog->id)->delete(); // Delete Data on Database
-
-        # 2nd way Eloquent ORM
-
-        //   $DeleteID = Blog::where('id', $blog->id)->delete();
-        //   $list = Blog::destroy($DeleteID->id);
-        //   $list = Blog::destroy($DeleteID);
-        //   return $DeleteID->title;
 
         #img upload and old img delete
         if (File::exists($blog->image)) {
@@ -207,13 +188,12 @@ class BlogController extends Controller
         }
 
         Blog::whereId($blog->id)->delete();
-        
+
         $notification = array(
             'message' => 'Blog Deleted Successfully',
             'alert-type' => 'error',
         );
 
         return redirect()->route('blog.index')->with($notification);
-
     }
 }

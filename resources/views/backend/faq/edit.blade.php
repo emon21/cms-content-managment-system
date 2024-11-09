@@ -53,7 +53,7 @@
                                                         {{-- <option value="publish" @if ($faq->status == 'publish') selected @endif>Publish</option> --}}
 
                                                 <option value="publish" {{ $faq->status == 'publish' ? 'selected' : '' }}>
-                                                    Publish"></option>
+                                                    Publish</option>
                                                 <option value="draft" {{ $faq->status == 'draft' ? 'selected' : '' }}>Draft
                                                 </option>
                                             </select>

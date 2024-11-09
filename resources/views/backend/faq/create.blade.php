@@ -29,7 +29,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title pt-2">
-                                    <i class="fas fa-list pr-1"></i> Faq Create</h3>
+                                    <i class="fas fa-plus pr-1"></i> Faq Create</h3>
                                 <a href="{{ route('faq.index') }}" class="btn btn-success float-right">
                                     <i class="fas fa-list pr-1"></i> Faq
                                     List</a>
@@ -43,22 +43,35 @@
                                     <div class="d-flex ga-4 align-item-center">
                                         <div class="form-group col-sm-9">
                                             <label for="title">Title:</label>
-                                            <input type="text" name="title" class="form-control"
-                                                placeholder="Enter Title..." id="title">
+                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                                                placeholder="Enter Title..." id="title" value="{{ old('title') }}">
+                                                @error('title')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
                                         <div class="form-group col-sm-3">
                                             <label for="status">Status:</label>
-                                            <select name="status" id="status" class="form-control">
+                                            <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
                                                 <option value=""> >> chouse Status<< </option>
-                                                <option value="publish">Publish</option>
-                                                <option value="draft">Draft</option>
+                                                <option value="publish" @if (old('status')  == 'publish') ? selected : ''
+                                                    
+                                                @endif>Publish</option>
+                                                <option value="draft" @if (old('status')  == 'draft') ? selected : ''
+                                                    
+                                                @endif>Draft</option>
                                             </select>
+                                            @error('status')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="tags">Description:</label>
-                                        <textarea name="description" id="sumernote" class="form-control" cols="10" rows="5"></textarea>
+                                        <textarea name="description" id="summernote" class="form-control" cols="10" rows="5"></textarea>
+                                        @error('description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success">

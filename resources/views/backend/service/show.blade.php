@@ -26,35 +26,18 @@
                 <div class="row"></div>
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header bg-dark">
-                            <h3 class="card-title pt-2">Single Service</h3>
-                            <a href="{{ route('service.index') }}" class="btn btn-outline-warning float-right">
-                                <i class="fas fa-undo-alt"></i> Back
-
+                        <div class="card-header">
+                            <h3 class="card-title pt-2"><i class="fas fa-eye pr-1"></i>Show Service</h3>
+                            <a href="{{ route('service.index') }}" class="btn btn-outline-success float-right">
+                                <i class="fas fa-list"></i> Service List
                             </a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <img @if ($Service->image) src="{{ asset($Service->image) }}" @else src="{{ asset('uploads/Service/no-image.png') }}" @endif
-                                width="250px" height="180px" class="mb-2 rounded">
+                            <img @if ($Service->image) src="{{ asset($Service->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
+                                width="250px" height="180px" class="mb-4">
                             <table class="table table-bordered table-striped table-hover">
-                                <thead>
-                                    {{-- <tr>
-                                        <th>Image</th>
-                                        <td>:</td>
-                                        <th> --}}
-
-                                            {{-- <img src="{{ asset($Service->image) }}" alt=""> --}}
-
-
-
-                                            {{-- <img src="{{ asset('upload/student/' . $student->image) }}" alt=""
-                                                @if ($student->image) src="{{ asset('upload/student/' . $student->image) }}" @else src="{{ asset('upload/no-image.png') }}" @endif
-                                                width="350px" height="450px" class=" rounded" id="previewImg"> --}}
-                                            {{-- @if ($Service->image) {{ asset('uploads/Service/'.$Service->image) }} @else {{ asset('uploads/Service/'.$Service->image) }} @endif --}}
-                                        {{-- </th>
-                                    </tr> --}}
-                                </thead>
+                               
                                 <tbody>
                                     <tr>
                                         <th>Title</th>

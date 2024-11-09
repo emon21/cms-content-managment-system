@@ -26,17 +26,16 @@
                 <div class="row"></div>
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header bg-dark">
-                            <h3 class="card-title pt-2">Single blog</h3>
-                            <a href="{{ route('blog.index') }}" class="btn btn-outline-warning float-right">
-                                <i class="fas fa-undo-alt"></i> Back
-
+                        <div class="card-header">
+                            <h3 class="card-title pt-2">Single Blog</h3>
+                            <a href="{{ route('blog.index') }}" class="btn btn-outline-success float-right">
+                                <i class="fas fa-list"></i> Blog List
                             </a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <img @if ($blog->image) src="{{ asset($blog->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
-                                width="250px" height="180px">
+                            <img @if ($blog->image) src="{{ asset($blog->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif 
+                                width="250px" height="180px" class="mb-4">
                             <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>

@@ -38,7 +38,7 @@
                             </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-striped table-hover">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th># Sl No</th>
@@ -46,7 +46,7 @@
                                         <th>Email</th>
                                         <th>Subject</th>
                                         <th>Message</th>
-                                        <th>Ation</th>
+                                        
 
                                     </tr>
                                 </thead>
@@ -57,17 +57,9 @@
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->subject }}</td>
-                                            <td>{{ $item->message }}</td>
+                                            <td>{{ Str::limit($item->message, 10) }}</td>
 
-                                            <td class="d-flex justify-content-between">
-                                                <a href="{{ route('contact.edit', $item->id) }}"
-                                                    class="btn btn-info btn-sm">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-
-
-
-                                            </td>
+                                          
                                         </tr>
                                     @empty
                                         <td colspan="6" class="text-center">

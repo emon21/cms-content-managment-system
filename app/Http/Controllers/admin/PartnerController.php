@@ -35,9 +35,12 @@ class PartnerController extends Controller
     {
         //
 
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required',
+            'url' => 'required',
+            'status' => 'required',
+        ]);
       
 
         # Img upload  in database
@@ -90,15 +93,15 @@ class PartnerController extends Controller
         $partner->url = $request->url;
         $partner->status = $request->status;
 
-        # IF You hange image
+        # IF You change image
         if ($request->hasFile('image')) {
 
-            # Old Image Delete on Helper Function
+            # Old Image Delete
             if (File::exists($partner->image)) {
                 File::delete($partner->image);
             }
 
-            # Image Upload with Helper Function
+            # Image Upload
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $url = $image->move('uploads/partner/', $filename);
@@ -121,26 +124,13 @@ class PartnerController extends Controller
      */
     public function destroy(Partner $partner)
     {
-        // Delete on Database
-
-        # 1st way Query Builder
-        // DB::table('partners')->where('id',$partner->id)->delete(); // Delete Data on Database
-
-        # 2nd way Eloquent ORM
-        // $partner->delete();
-
-        # 3rd way Query Builder
-        // DB::table('partners')->where('id',$partner->id)->delete(); // Delete Data on Database
-
-        # 4th way Eloquent ORM
-        // $partner->delete();
-
-        # Img upload and old img delete
+        
+        # old img delete
         if (File::exists($partner->image)) {
             File::delete($partner->image);
         }
 
-        Partner::destroy($partner->id);
+        $partner->destroy($partner->id);
 
         $notification = array(
             'message' => 'Partner Deleted successfully',

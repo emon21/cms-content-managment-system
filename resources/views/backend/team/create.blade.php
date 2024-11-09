@@ -42,14 +42,20 @@
                                     <div class="d-flex align-item-center">
                                         <div class="form-group col-sm-6">
                                             <label for="title">Name:</label>
-                                            <input type="text" name="name" class="form-control"
-                                                placeholder="Enter Name..." id="title">
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                                placeholder="Enter Name..." id="title" value="{{ old('name') }}">
+                                                @error('name')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
 
                                         <div class="form-group col-sm-6">
                                             <label for="title">Desagnation:</label>
-                                            <input type="text" name="designation" class="form-control"
-                                                placeholder="Enter Designation..." id="title">
+                                            <input type="text" name="designation" class="form-control @error('designation') is-invalid @enderror"
+                                                placeholder="Enter Designation..." id="title" value="{{ old('designation') }}">
+                                                @error('designation')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
 
                                     </div>
@@ -58,37 +64,53 @@
 
                                         <div class="form-group col-sm-6">
                                             <label for="">Status</label>
-                                            <select name="status" class="form-control">
+                                            <select name="status" class="form-control @error('status') is-invalid @enderror">
                                                 <option value=""> Select Status</option>
-                                                <option value="publish">Publish</option>
-                                                <option value="draft">Draft</option>
+                                                <option value="publish" @if(old('status')== 'publish') ? selected : '' @endif>Publish</option>
+                                                <option value="draft" @if(old('status')== 'draft') ? selected : '' @endif>Draft</option>
                                             </select>
+                                            @error('status')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="">Image</label>
                                             <input type="file" name="image" class="form-control">
+                                            
                                         </div>
                                     </div>
 
                                     <div class="d-flex">
                                         <div class="form-group col-sm-3">
                                             <label for="">Facebook :</label>
-                                            <input type="text" name="facebook" class="form-control" placeholder="Enter Facebook...">
+                                            <input type="text" name="facebook" class="form-control @error('facebook') is-invalid @enderror" placeholder="Enter Facebook..." value="{{ old('facebook') }}">
+                                            @error('facebook')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-3">
                                             <label for="">Twitter :</label>
-                                            <input type="text" name="twitter" class="form-control" placeholder="Enter Twitter...">
+                                            <input type="text" name="twitter" class="form-control @error('twitter') is-invalid @enderror" placeholder="Enter Twitter..." value="{{ old('twitter') }}">
+                                            @error('twitter')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-3">
                                             <label for="">Instragram :</label>
-                                            <input type="text" name="instagram" class="form-control" placeholder="Enter Instragram...">
+                                            <input type="text" name="instagram" class="form-control @error('instagram') is-invalid @enderror" placeholder="Enter Instragram..." value="{{ old('instagram') }}">
+                                            @error('instagram')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-3">
                                             <label for="">Linkdin :</label>
-                                            <input type="text" name="linkedin" class="form-control" placeholder="Enter Linkdin...">
+                                            <input type="text" name="linkedin" class="form-control @error('linkedin') is-invalid @enderror" placeholder="Enter Linkdin..." value="{{ old('linkedin') }}">
+                                            @error('linkedin')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -36,7 +36,16 @@ class TestimonialController extends Controller
      */
     public function store(Request $request, Testimonial $testimonial)
     {
-        //
+        //validation
+
+        $request->validate([
+            'client_name' => 'required',
+            'designation' => 'required',
+            'description' => 'required',
+
+        ]);
+
+
         $testimonial->client_name = $request->client_name;
         $testimonial->designation = $request->designation;
         $testimonial->description = $request->description;
@@ -88,7 +97,7 @@ class TestimonialController extends Controller
         $testimonial->description = $request->description;
 
 
-        # If you want to upload Image
+        # If you want change image and keep the old image on Update and Delete the old image
         if ($request->hasFile('image')) {
 
             # Old Image Delete on Helper Function

@@ -42,13 +42,19 @@
 
                                         <div class="form-group col-sm-6">
                                             <label for="title">Title:</label>
-                                            <input type="text" name="title" class="form-control"
-                                                placeholder="Enter Title..." id="title">
+                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                                                placeholder="Enter Title..." id="title" value="{{ old('title') }}">
+                                                @error('title')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="title">Heading:</label>
-                                            <input type="text" name="heading" class="form-control"
-                                                placeholder="Enter Heading..." id="title">
+                                            <input type="text" name="heading" class="form-control @error('heading') is-invalid @enderror"
+                                                placeholder="Enter Heading..." id="title" value="{{ old('heading') }}">
+                                                @error('heading')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                         </div>
 
                                     </div>
@@ -56,7 +62,7 @@
                                     <div class="d-flex">
                                         <div class="form-group col-sm-3">
                                             <label for="type">Select Category:</label>
-                                            <select name="cat_id" id="type" class="form-control">
+                                            <select name="cat_id" id="type" class="form-control @error('cat_id') is-invalid @enderror">
                                                 <option value=""> >>
                                                    Please Select Category << </option>
                                                         @foreach ($category as $item)
@@ -65,45 +71,61 @@
 
 
                                                  @if ($item->type == 'service')
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}" @if ($item->id == old('cat_id')) ? selected : '' @endif>
+                                                    
+                                                    {{ ($item->name == '') ? $item->name : ucfirst($item->name) }}
+                                                    
+                                                >{{ $item->name }}</option>
                                                 @endif
                                                 @endforeach
 
                                             </select>
+                                            @error('cat_id')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-3">
                                             <label for="type">Select Plan:</label>
-                                            <select name="plan" id="type" class="form-control">
+                                            <select name="plan" id="type" class="form-control @error('plan') is-invalid @enderror">
                                                 <option value=""> >>
                                                     Chouse Plan << </option>
                                                         @foreach ($plan as $item)
-                                                <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                                <option value="{{ $item->id }}" @if($item->id == old('plan')) ? selected : '' @endif>{{ $item->title }}</option>
                                                 @endforeach
 
                                             </select>
+                                            @error('plan')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-3">
                                             <label for="status">Status:</label>
-                                            <select name="status" id="status" class="form-control">
+                                            <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
                                                 <option value=""> >> Chouse Type << </option>
-                                                <option value="publish">Publish</option>
-                                                <option value="draft">Draft</option>
+                                                <option value="publish" @if(old('status') == 'publish') ? selected : '' @endif>Publish</option>
+                                                <option value="draft" @if(old('status') == 'draft') ? selected : '' @endif>Draft</option>
                                             </select>
+                                            @error('status')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                         </div>
 
                                         <div class="form-group col-sm-3">
                                             <label for="type">Icon:</label>
-                                            <select name="icon" id="type" class="form-control">
+                                            <select name="icon" id="type" class="form-control @error('icon') is-invalid @enderror">
                                                 <option value=""> >>
                                                     Chouse Icon << </option>
                                                         @foreach ($category as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}" @if($item->id == old('icon')) ? selected : '' @endif>{{ $item->name }}</option>
                                                 @endforeach
 
                                             </select>
+                                            @error('icon')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                     </div>
@@ -111,7 +133,10 @@
                                     <div class="d-flex">
                                         <div class="form-group col-sm-8">
                                             <label for="tags">Description:</label>
-                                            <textarea name="description" id="sumernote" class="form-control" cols="30" rows="10"></textarea>
+                                            <textarea name="description" id="sumernote" class="form-control @error('description') is-invalid @enderror" placeholder="Enter Description..." cols="30" rows="10">{{ old('description') }}</textarea>
+                                            @error('description')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-4">
@@ -124,14 +149,20 @@
                                     <div class="d-flex">
                                         <div class="form-group col-sm-6">
                                             <label for="meta_title">Meta Title:</label>
-                                            <input type="text" name="meta_title" class="form-control"
-                                                placeholder="Enter Meta Title..." id="meta_title">
+                                            <input type="text" name="meta_title" class="form-control @error('meta_title') is-invalid @enderror"
+                                                placeholder="Enter Meta Title..." id="meta_title" value="{{ old('meta_title') }}">
+                                                @error('meta_title')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group col-sm-6">
                                             <label for="meta_keywords">Meta Keywords:</label>
-                                            <input type="text" name="meta_keywords" class="form-control"
-                                                placeholder="Enter Meta Keywords..." id="meta_keywords">
+                                            <input type="text" name="meta_keywords" class="form-control @error('meta_keywords') is-invalid @enderror"
+                                                placeholder="Enter Meta Keywords..." id="meta_keywords" value="{{ old('meta_keywords') }}">
+                                                 @error('meta_keywords')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
 
@@ -140,8 +171,11 @@
 
                                     <div class="form-group">
                                         <label for="meta_description">Meta Description:</label>
-                                        <input type="text" name="meta_description" class="form-control"
-                                            placeholder="Enter Meta Description..." id="meta_description">
+                                        <input type="text" name="meta_description" class="form-control @error('meta_description') is-invalid @enderror"
+                                            placeholder="Enter Meta Description..." id="meta_description" value="{{ old('meta_description') }}">
+                                            @error('meta_description')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                     </div>
                                     <!-- Page Seo  -->
 

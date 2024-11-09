@@ -44,14 +44,16 @@
                                     <div class="d-flex align-item-center">
                                         <div class="form-group col-sm-6">
                                             <label for="title">Title:</label>
-                                            <input type="text" name="title" class="form-control"
-                                                placeholder="Enter Title..." id="title">
+                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                                                placeholder="Enter Title..." id="title" value="{{ old('title') }}">
+                                                @error('title')<span class="text-danger">{{$message}}</span>@enderror
                                         </div>
 
                                         <div class="form-group col-sm-6">
                                             <label for="title">URL:</label>
-                                            <input type="text" name="url" class="form-control"
-                                                placeholder="Enter Title..." id="title">
+                                            <input type="text" name="url" class="form-control @error('url') is-invalid @enderror"
+                                                placeholder="Enter Title..." id="title" value="{{ old('url') }}">
+                                                @error('url')<span class="text-danger">{{$message}}</span>@enderror
                                         </div>
 
                                     </div>
@@ -60,15 +62,21 @@
 
                                         <div class="form-group col-sm-6">
                                             <label for="">Status</label>
-                                            <select name="status" class="form-control">
+                                            <select name="status" class="form-control @error('status') is-invalid @enderror">
                                                 <option value=""> Select Status</option>
-                                                <option value="publish">Publish</option>
-                                                <option value="draft">Draft</option>
+                                                <option value="publish" @if (old('status') == 'publish') ? selected : ''
+                                                    
+                                                @endif>Publish</option>
+                                                <option value="draft" @if (old('status') == 'draft') ? selected : ''
+                                                    
+                                                @endif>Draft</option>
                                             </select>
+                                            @error('status')<span class="text-danger">{{$message}}</span>@enderror
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="">Image</label>
-                                            <input type="file" name="image" class="form-control">
+                                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+                                            @error('image')<span class="text-danger">{{$message}}</span>@enderror
                                         </div>
                                     </div>
                                     <div class="form-group">

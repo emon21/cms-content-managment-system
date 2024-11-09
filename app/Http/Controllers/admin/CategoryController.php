@@ -84,9 +84,7 @@ class CategoryController extends Controller
         // $category->save();
 
 
-        // return response()->json(['success' => true]);
-        // return response()->json(['success' => 'Category Create Successfully ... !!']);
-        
+       
         $notification = array(
             'message' => 'Category Created successfully',
             'alert-type' => 'success',

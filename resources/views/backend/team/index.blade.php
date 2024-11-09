@@ -57,35 +57,16 @@
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->designation }}</td>
                                             <td>
-
-                                                {{-- <span class="badge bg-success">{{ $item->social_link }}</span> --}}
-{{-- 
-                                                <span class="badge bg-success">{{ $item->facebook }}</span>,
-
-                                                <span class="badge bg-info">{{ $item->twitter }}</span>
-
-                                                <span class="badge bg-success">{{ $item->instagram }}</span>,
-
-                                                <span class="badge bg-success">{{ $item->linkedin }}</span> --}}
-
-
                                                 <span class="badge bg-success">{{ $item->facebook }}</span>
                                                 <span class="badge bg-info">{{ $item->twitter }}</span>
                                                 <span class="badge bg-warning">{{ $item->linkedin }}</span>
                                                 <span class="badge bg-primary">{{ $item->instagram }}</span>
                                                 
-                                                {{-- <span>Facebook: {{ $item->facebook }}</span>
-                                                <br>
-                                                <span>Twitter: {{ $item->twitter }}</span>
-                                                <br>
-                                                <span>Instagram: {{ $item->instragram }}</span>
-                                                <br>
-                                                <span>Linkdin: {{ $item->linkdin }}</span> --}}
                                             </td>
 
                                             <td>
                                                 <img @if ($item->image) src="{{ asset($item->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
-                                                    width="100" alt="">
+                                                    width="100" height="100" alt="">
                                             </td>
 
                                             <td>
@@ -107,14 +88,12 @@
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
-
-
                                                 <form action="{{ route('team-member.destroy', $item->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')"
+                                                        onclick="DeleteConfirm(event)"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>

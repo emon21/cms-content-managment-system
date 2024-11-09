@@ -29,7 +29,8 @@
 
                         <div class="card-header">
                             <h3 class="card-title pt-2">
-                                <i class="fas fa-list pr-1"></i>Partner List</h3>
+                                <i class="fas fa-list pr-1"></i>Partner List
+                            </h3>
                             <a href="{{ route('partner.create') }}" class="btn btn-success float-right">
                                 <i class="fas fa-plus pr-1"></i> Create Partner</a>
 
@@ -68,10 +69,6 @@
                                             </td>
 
                                             <td class="d-flex justify-content-between">
-                                                {{-- <a href="{{ route('testimonial.show', $item->id) }}"
-                                                    class="btn btn-warning btn-sm">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a> --}}
 
                                                 <a href="{{ route('partner.edit', $item->id) }}"
                                                     class="btn btn-info btn-sm">
@@ -83,8 +80,7 @@
                                                 <form action="{{ route('partner.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')"
+                                                    <button type="submit" onclick="DeleteConfirm(event)"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>

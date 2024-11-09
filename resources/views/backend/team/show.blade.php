@@ -26,17 +26,17 @@
                 <div class="row"></div>
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header bg-dark">
-                            <h3 class="card-title pt-2">Show Team Member</h3>
-                            <a href="{{ route('team-member.index') }}" class="btn btn-outline-warning float-right">
-                                <i class="fas fa-undo-alt"></i> Back
+                        <div class="card-header">
+                            <h3 class="card-title pt-2"><i class="fas fa-eye pr-1"></i> Team Details</h3>
+                            <a href="{{ route('team-member.index') }}" class="btn btn-outline-success float-right">
+                                <i class="fas fa-list"></i> Team List
                                 
                            </a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <img  @if ($teamMember->image) src="{{ asset($teamMember->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
-                                                width="250px" height="180px">
+                                                width="250px" height="180px" class="mb-4">
                             <table class="table table-bordered table-striped table-hover">
                                 <tbody>
                                     <tr>

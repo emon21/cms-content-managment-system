@@ -35,6 +35,17 @@ class TeamMemberController extends Controller
      */
     public function store(Request $request, TeamMember $TeamMember)
     {
+        # Validation
+
+        $request->validate([
+            'name' => 'required',
+            'designation' => 'required',
+            'facebook' => 'required',
+            'twitter' => 'required',
+            'instagram' => 'required',
+            'linkedin' => 'required',
+            'status' => 'required',
+        ]);
         
         # If you want to upload Image
 
@@ -90,8 +101,6 @@ class TeamMemberController extends Controller
     {
         //
 
-        // $TeamMember->update($request->all());
-
         # IF Yoy Change Image with Update
         if ($request->hasFile('image')) {
             // delete old image
@@ -108,7 +117,7 @@ class TeamMemberController extends Controller
         }
 
 
-        // $TeamMember->update($request->all());
+        
         $TeamMember->name = $request->name;
         $TeamMember->designation = $request->designation;
         $TeamMember->facebook = $request->facebook;
@@ -141,10 +150,9 @@ class TeamMemberController extends Controller
 
         # Delete the team member
 
-        // $TeamMember->delete();
+        $TeamMember->delete();
 
-        TeamMember::destroy($TeamMember->id);
-
+       
         $notification = array(
             'message' => 'Team Deleted successfully',
             'alert-type' => 'error',

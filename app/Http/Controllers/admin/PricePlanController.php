@@ -42,8 +42,12 @@ class PricePlanController extends Controller
 
         $request->validate([
 
-            'title' => 'required|',
-            'title' => 'required|',
+            'title' => 'required',
+            'price' => 'required',
+            'plan' => 'required',
+            'cat_id' => 'required',
+            'status' => 'required',
+            'features' => 'required',
         ]);
 
         $PricePlan = new PricePlan();
@@ -64,7 +68,6 @@ class PricePlanController extends Controller
 
         return redirect()->route('price-plan.index')->with($notification);
 
-        // return redirect()->route('price-plan.index')->with('success', 'Price Plan created');
     }
 
     /**
@@ -73,7 +76,9 @@ class PricePlanController extends Controller
     public function show(PricePlan $PricePlan)
     {
         //
-        return $PricePlan;
+        // return $PricePlan;
+        $category = Category::all();
+        return view('backend.PricePlan.show', compact('PricePlan','category'));
     }
 
     /**
@@ -116,28 +121,8 @@ class PricePlanController extends Controller
      */
     public function destroy(PricePlan $PricePlan)
     {
-        //
-        // return $PricePlan;
-
-        // delete from data in database
-        // $PricePlan->delete();//->forceDelete();
-
-        //destroy
-        PricePlan::destroy($PricePlan->id); //->forceDelete();
-        // destroy($PricePlan->image);
-
-        // destroy from folder
-        // if (File::exists($PricePlan->image)) {
-        //     File::delete($PricePlan->image);
-        // }
-
-        // delete from database
         
-        // $PricePlan->delete();
-
-       
-        // PricePlan::destroy($PricePlan->id);
-
+        $PricePlan->delete();
         $notification = array(
             'message' => 'Price Plan Deleted successfully',
             'alert-type' => 'error',
