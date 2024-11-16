@@ -3,7 +3,7 @@
     <a href="index3.html" class="brand-link">
         <img src="{{ asset('backend') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">{{ $website->site_name }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,7 +15,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block " style="color:var(--pxa-title-color)" >Alexander Pierce</a>
             </div>
         </div>
 
@@ -56,6 +56,21 @@
                 </li>
 
 
+                <li class="nav-item">
+                    <a href="{{ route('model-create') }}"
+                        class="nav-link d-flex align-items-center {{ request()->routeIs('model-create') ? 'active' : '' }}">
+
+                        <span class="icon-menu">
+                            <x-backend.icon.category-icon name="category" />
+                        </span>
+                        <span class="menu-text">
+                            Create Model 
+                        </span>
+                        {{-- <span class="pl-1">Category ( {{ $categorylist->count() }} ) </span> --}}
+                    </a>
+                </li> 
+                
+                
                 <li class="nav-item">
                     <a href="{{ route('admin.category') }}"
                         class="nav-link d-flex align-items-center {{ request()->routeIs('admin.category') ? 'active' : '' }}">

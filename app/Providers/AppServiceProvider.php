@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\PricePlan;
 use App\Models\TeamMember;
 use App\Models\Testimonial;
+use App\Models\WebsiteSetting;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -40,29 +41,11 @@ class AppServiceProvider extends ServiceProvider
         //
 
          if (!app()->runningInConsole() || app()->runningUnitTests()) {
-            $general_setting = DB::table('categories')->latest()->first();
+            // $general_setting = DB::table('categories')->latest()->first();
             //...
         }
 
-        $categorylist = Category::all();
-        // $blog = Blog::all();
-
-        // // dd($data->count());
-
-        // // $data = [
-        // //     'category' => $category,
-        // //     'blog' => $blog,
-           
-        // // ];
-
-        // // dd($data);
-
-        // // return $data->category;
-
-        // // View->()share('menu', $data);
-        view()->share('categorylist', $categorylist);
-
-
+       
         // $serviceCategory = Service::latest()->take(4)->with('category')->get();
         // view()->share('serviceCategory', $serviceCategory);
 
@@ -82,6 +65,13 @@ class AppServiceProvider extends ServiceProvider
         $faq = Faq::all();
         $category = Category::get();
         $TotalBlog = Blog::all();
+
+        $categorylist = Category::all();
+
+        $website = WebsiteSetting::first();
+
+        view()->share('categorylist', $categorylist);
+
 
 
         // $serviceCategory = Service::latest()->take(4)->get();
@@ -109,7 +99,7 @@ class AppServiceProvider extends ServiceProvider
 
         // View::share(['data' => $data]);
 
-        View::share(['category' => $category, 'TotalBlog' => $TotalBlog,'pricePlan' => $pricePlan, 'serviceCategory' => $serviceCategory, 'service' => $service, 'blog' => $blog, 'partner' => $partner, 'team' => $team, 'testimonial' => $testimonial, 'faq' => $faq]);
+        View::share(['category' => $category, 'TotalBlog' => $TotalBlog,'pricePlan' => $pricePlan, 'serviceCategory' => $serviceCategory, 'service' => $service, 'blog' => $blog, 'partner' => $partner, 'team' => $team, 'testimonial' => $testimonial, 'faq' => $faq, 'website' => $website]);
 
 
     }

@@ -51,9 +51,36 @@
 
 <!-- dropify -->
 <link rel="stylesheet" href="{{ asset('backend') }}/dropify/dropify.min.css">
-{{-- <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css"> --}}
-
 
   <!-- Custom CSS -->
    <link rel="stylesheet" href="{{ asset('backend') }}/dist/css/style.css">
+
+   <style>
+         :root {
+         --pxa-light-primary: {{ $website->primary_color }};
+         --pxa-primary: {{ $website->primary_color }};
+         --pxa-secondary: #000000;
+         --pxa-body-color: #f9f7fd;
+         --pxa-title-color: {{ $website->title_color }};
+         --pxa-text-color: #797979;
+         --pxa-white-color: #ffffff;
+         --pxa-gray-color: #FAFAFA;
+         --pxa-border-color: #E8E8E8;
+         --all-transition: all 0.3s;
+         --transition: all 0.3s ease-in-out;
+         --pxa-header-background: #ffffff;
+         --pxa-header-text: #797979;
+         --pxa-footer-backgournd: #000000;
+         --pxa-footer-text: #ffffff;
+         --pxa-danger: #e81a46;
+         --pxa-success: #6ca329;
+         --pxa-sec-body-color: #F7F2FF;
+         }
+
+         /* $table->string('primary_color');
+            $table->string('secondary_color');
+            $table->string('title_color');
+            $table->string('text_color');
+            $table->string('body_color'); */
+      </style>
 </head>

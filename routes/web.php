@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\admin\ContactController;
@@ -11,10 +12,10 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashBoardController;
 use App\Http\Controllers\admin\PricePlanController;
 use App\Http\Controllers\admin\TeamMemberController;
-use App\Http\Controllers\admin\TestimonialController;
-use App\Http\Controllers\admin\WebsiteSettingController;
-use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\frontend\WebsiteController;
+use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\frontend\FrontendController;
+use App\Http\Controllers\admin\WebsiteSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,6 +149,27 @@ Route::group(['prefix' => 'admin'], function () {
     //Mail Setting
     Route::get('setting/mail-setting', [WebsiteSettingController::class, 'mailsetting'])->name('setting.mail-setting');
 
+    route::get('model-create', [WebsiteController::class, 'ModelCreate'])->name('model-create');
+    route::post('model-store', [WebsiteController::class, 'ModelStore'])->name('model-store');
+
+    route::get('clear',function(){
+        // Artisan::call('php artisan r:l');
+        $folder = "user";
+        $createName = $folder. "/" ."Emon";
+
+        // if($createName){
+
+        // }
+        // else{
+
+        // }
+        $list = Artisan::call("make:model". " " .$createName);
+        // dd(Artisan::output());
+        // return response($list)->json('create',"Model create success");
+        return response()->json(['success' => 'Model Create '.$list.' Success']);
+
+    })->name('admin.clear');
+
 
 });
 
@@ -180,6 +202,10 @@ Route::group(['prefix' => 'website'], function () {
     Route::get('/privacy-policy', [FrontendController::class, 'PrivacyPolicy'])->name('website.privacy-policy'); 
 
     Route::get('/terms-and-conditions', [FrontendController::class, 'TermsCondition'])->name('website.terms-and-conditions');
+
+    
+
 });
 
 #  ============= Frontend Route =============
+
