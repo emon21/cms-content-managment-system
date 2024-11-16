@@ -1,22 +1,39 @@
-.dropdown-menu.dropdown-menu-lg.dropdown-menu-right.show {
-   margin-top: 10px;
+
+.icon-menu {
+   margin-right: 10px;
+   display: inline-block;
+}
+
+.icon-menu svg {
+   height: 24px;
+   width: 24px;
+   fill: var(--nav-iconsColor);
+}
+
+.menu-text {
+   font-size: 16px;
+   padding-top: 6px;
 }
 
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
 .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
-   background-color: #097267;
+   background-color: rgba(255, 255, 255, .1);
+   /* color: #fff; */
+   border-right: 5px solid rgb(229, 229, 235);
+}
+
+
+
+/* [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, */
+.nav-sidebar>.nav-item>.nav-link:focus {
+   /* background-color: rgba(255,255,255,.1); */
    color: #fff;
 }
 
-ion-icon {
-  font-size: 35px;
-  color:tomato;
-}
-
-.icon{
-   background-color: blue;
-   color:white
-}
-img{
-color: blue
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+   color: #fcfdff;
+   background-color: #d50f0f;
+   border-color: #dee2e6 #dee2e6 #fff;
 }

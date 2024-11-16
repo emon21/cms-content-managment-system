@@ -28,12 +28,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title pt-2"><i class="fas fa-plus pr-2"></i>Create Blog</h3>
-                                <a href="{{ route('blog.index') }}" class="btn btn-success float-right" ><i class="fas fa-list pr-2"></i>All Blog</a>
+                                <a href="{{ route('admin.blog.index') }}" class="btn btn-success float-right" ><i class="fas fa-list pr-2"></i>All Blog</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
 

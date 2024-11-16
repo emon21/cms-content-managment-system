@@ -83,8 +83,7 @@
                                                     @method('DELETE')
                                                     {{-- <input type="hidden" value="DELETE" name="_method"> --}}
                                                     {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> --}}
-                                                    <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')"
+                                                    <button type="submit" onclick="DeleteConfirm(event)"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>

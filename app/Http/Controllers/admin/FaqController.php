@@ -102,11 +102,8 @@ class FaqController extends Controller
     public function destroy(Faq $faq)
     {
         
-        // $faq->delete();
-        // Faq::destroy($faq->id);
-        $faq->destroy($faq->id);
-
-
+        $faq->delete();
+       
         $notification = array(
             'message' => 'FAQ Deleted successfully',
             'alert-type' => 'error',

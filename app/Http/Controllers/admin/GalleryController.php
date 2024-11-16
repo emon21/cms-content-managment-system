@@ -97,28 +97,16 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         # If You want to change the OLD Image and Keep the NEW Image on Update
-
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-
-        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
-        //     $destinationPath = public_path('uploads/gallery');
-        //     $image->move($destinationPath, $image_name);
-        //     $url = 'uploads/gallery/' . $image_name;
-        //     $gallery->image = $url;
-        // }
-
-
-        #Old image delete and new image upload
-
-        if (File::exists($gallery->image)) {
-            File::delete($gallery->image);
-        }
-
-
-        # Image Upload
-
+        
         if ($request->hasFile('image')) {
+            
+            #Old image delete and new image upload
+            
+            if (File::exists($gallery->image)) {
+                File::delete($gallery->image);
+            }
+            
+            # Image Upload
             $image = $request->file('image');
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('uploads/gallery');
@@ -126,16 +114,6 @@ class GalleryController extends Controller
             $url = 'uploads/gallery/' . $image_name;
             $gallery->image = $url;
         }
-
-
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image');
-        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
-        //     $destinationPath = public_path('uploads/gallery');
-        //     $image->move($destinationPath, $image_name);
-        //     $url = 'uploads/gallery/' . $image_name;
-        //     $gallery->image = $url;
-        // }
         
         $gallery->title = $request->title;
         $gallery->type = $request->type;

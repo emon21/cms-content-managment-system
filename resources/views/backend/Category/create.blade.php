@@ -30,7 +30,7 @@
                             <h3 class="card-title pt-2">
                                 <i class="fas fa-plus"></i>
                                 Create Category</h3>
-                            <a href="{{ route('category') }}"
+                            <a href="{{ route('admin.category') }}"
                                 class="btn btn-outline-success float-right d-flex gap-3 align-item-center">
                                 <i class="fas fa-list pt-1 pr-1"></i>
                                 Category List
@@ -39,7 +39,7 @@
                         
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="CategoryName">Category Name:</label>

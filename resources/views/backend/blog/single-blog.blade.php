@@ -28,7 +28,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title pt-2">Single Blog</h3>
-                            <a href="{{ route('blog.index') }}" class="btn btn-outline-success float-right">
+                            <a href="{{ route('admin.blog.index') }}" class="btn btn-outline-success float-right">
                                 <i class="fas fa-list"></i> Blog List
                             </a>
                         </div>

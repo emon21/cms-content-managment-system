@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Models\Faq;
 use App\Models\Blog;
+use App\Models\Gallery;
 use App\Models\Partner;
 use App\Models\Service;
 use App\Models\Category;
@@ -22,36 +23,9 @@ class FrontendController extends Controller
 
     public function index()
     {
-        //
-
-        $service = Service::latest()->take(4)->get();
-        $blog = Blog::all();
-        $partner = Partner::all();
-        $team = TeamMember::all();
-        $pricePlan = PricePlan::all();
-        $testimonial = Testimonial::all();
-        $faq = Faq::all();
-
-        $category = \App\Models\Category::get();
-
-
-        $data = [
-            'service' => $service,
-            'blog' => $blog,
-            'partner' => $partner,
-            'team' => $team,
-            'pricePlan' => $pricePlan,
-            'testimonial' => $testimonial,
-            'faq' => $faq,
-            'category' => $category
-        ];
-        // return $data['service'];
-        // return $fag;
-
-        // return view('pages.frontend',['data' => $data]);
-
-        // return view('pages.frontend',compact('data'));
-        return view('pages.frontend')->with($data);
+       
+        // return view('pages.frontend');
+        return view('pages.frontend');
     }
 
     /**
@@ -60,7 +34,7 @@ class FrontendController extends Controller
     public function about()
     {
         //
-        return view('frontend.pages.about');
+        return view('website.about');
     }
 
     /**
@@ -73,37 +47,23 @@ class FrontendController extends Controller
 
         $search = $request->search_keyword;
 
-        // return $search;
-
         # search
 
         $blog = Blog::where('title', 'like', "%$search%")
             ->orWhere('tags', 'like', "%$search%")
             ->get();
 
-
-
-        //
-        // return $category;
-
-        // $blogList = Blog::when($requset->status,function($q) use($requset){
-        //     $q->where('status',$requset->status);
-        // });
-
-        # Query String
-        // advance clouses
-        // $blog = Blog::when($request->category,function($query, $category){
-        //     // $q->where('status',$requset->status);
-        //      $query->where('cat_id', $category);
-        // })->get();
-
-        // return $blogList;
-
         $cat = Category::with('blogs')->get();
         // return $cat;
 
 
         $category = $request->get('category');
+        // $invitee = Request::input('invitee'); // $request->has('invitee').
+        // return $category;
+
+
+        $list = Blog::where('cat_id', $request->get('category'))->get();
+        // return $list;
 
         if (!$category) {
 
@@ -113,24 +73,10 @@ class FrontendController extends Controller
             $blog = Blog::where('cat_id', $category)->with('category')->simplePaginate(6);
         }
 
-        // return $blog;
-
-
-        // $blog = Blog::when($request->category,function($query, $category){
-        //     $query->where('cat_id', $category);
-        // })->get();
-
-        // return $request->category;
-
-        // $cat =  $request->input('category'); 
-        // $blog = Blog::where('cat_id', $cat)->get();
-        // return $blog;
-
-
-        $category = \App\Models\Category::get();
+        $category = Category::get();
         // $blog = \App\Models\Blog::get();
         // return $blog;
-        return view('frontend.pages.blog', compact('cat', 'category', 'blog'));
+        return view('website.blog.blog', compact('cat', 'category', 'blog'));
     }
 
 
@@ -139,14 +85,13 @@ class FrontendController extends Controller
 
 
         // Blog::where('cat_id',$blog->cat_id)->inRandomOrder()->get();
-
         $blogList = Blog::inRandomOrder()->latest()->take(4)->get();
 
         // return $blog;
 
         $category = Category::all();
         // $blog = Blog::all();
-        return view('frontend.pages.blog-details', compact('category', 'blog', 'blogList'));
+        return view('website.blog.blog-details', compact('category', 'blog', 'blogList'));
     }
 
     /**
@@ -155,32 +100,11 @@ class FrontendController extends Controller
 
     public function gallery()
     {
-        //
+      
+        $categoryList = Category::with('gallery')->get();
+        $gallery = Gallery::with('category')->get();
 
-
-        $categoryList = \App\Models\Category::with('gallery')->get();
-        // $categoryList = DB::table('categories')->inRandomOrder()->take(2)->limit(1)->get();
-        // $categoryList = DB::table('categories')->where('id', $gallery->cat_id)->first();
-        // $gallery = \App\Models\Gallery::where('cat_id', $categoryList->id)->inRandomOrder()->take(2)->limit(1)->get();
-
-        // // $categoryID= $categoryList->type;
-        // return $categoryList;
-
-        // // return $randCat = \App\Models\Category::where('cat_id', $categoryList->id)->inRandomOrder()->first();
-
-        // $randCat = \App\Models\Gallery::where('cat_id', $categoryList->id)->inRandomOrder()->first();
-        // return $randCat;
-
-        // $gallery = \App\Models\Gallery::where('cat_id', $categoryList->id)->with('category')->get();
-        $gallery = \App\Models\Gallery::with('category')->get();
-
-        //Random Data Show
-
-
-
-        // return $gallery;
-
-        return view('frontend.pages.gallery', compact('categoryList', 'gallery'));
+        return view('website.gallery', compact('categoryList', 'gallery'));
     }
 
     /**
@@ -190,13 +114,12 @@ class FrontendController extends Controller
     public function contact()
     {
         //
-        return view('frontend.pages.contact');
+        return view('website.contact');
     }
 
     public function service(Request $request,Service $service)
     {
-        //
-       
+               
         // return $service;
         // $category = Category::all();
         $category = Category::with('services')->get();
@@ -232,7 +155,7 @@ class FrontendController extends Controller
         // return $service;
 
 
-        return view('frontend.pages.service', compact('serviceList', 'category'));
+        return view('website.service.service', compact('serviceList', 'category'));
 
     }
     function ServiceDetails(Service $service)  {
@@ -244,7 +167,7 @@ class FrontendController extends Controller
         $category = Category::all();
         // $serviceList =Service::all();
 
-        return view('frontend.pages.service-details',compact('service', 'pricePlan','category'));
+        return view('website.service.service-details',compact('service', 'pricePlan','category'));
         
     }
 
@@ -252,14 +175,14 @@ class FrontendController extends Controller
     public function PrivacyPolicy()
     {
         
-        return view('frontend.pages.privacy-policy');
+        return view('website.privacy-policy');
 
     }
 
     public function TermsCondition()
     {
         //
-        return view('frontend.pages.terms-and-conditions');
+        return view('website.terms-and-conditions');
 
     }
 }

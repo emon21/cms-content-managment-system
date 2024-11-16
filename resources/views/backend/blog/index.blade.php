@@ -12,7 +12,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('admin.dashboard') }}">Home</a>
+                            </li>
                             <li class="breadcrumb-item active">Blog</li>
                         </ol>
                     </div>
@@ -36,7 +38,7 @@
                                 Add item
                             </button> --}}
 
-                            <a href="{{ route('blog.create') }}" class="btn btn-success float-right">
+                            <a href="{{ route('admin.blog.create') }}" class="btn btn-success float-right">
                                 <i class="fas fa-plus pr-2"></i>Create Blog</a>
 
                         </div>
@@ -74,12 +76,12 @@
                                                 @endif
                                             </td>
                                             <td class="d-flex justify-content-between">
-                                                <a href="{{ route('blog.show', $item->slug) }}"
+                                                <a href="{{ route('admin.blog.show', $item->slug) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                 </a>
 
-                                                <a href="{{ route('blog.edit', $item->slug) }}" class="btn btn-info btn-sm">
+                                                <a href="{{ route('admin.blog.edit', $item->slug) }}" class="btn btn-info btn-sm">
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
@@ -87,15 +89,12 @@
                                               <i class="fas fa-trash-alt"></i>
                                                </a> --}}
 
-
-
-                                                <form action="{{ route('blog.destroy', $item->id) }}" method="POST">
+                                                <form action="{{ route('admin.blog.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     {{-- <input type="hidden" value="DELETE" name="_method"> --}}
                                                     {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> --}}
-                                                    <button type="submit"
-                                                        onclick="return confirm('Are you sure you want to delete this item?')"
+                                                    <button type="submit" onclick="DeleteConfirm(event)"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>

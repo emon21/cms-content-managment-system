@@ -17,6 +17,7 @@ class Gallery extends Model
         'image',
     ];
 
+
     // Relationship
 
     public function category()

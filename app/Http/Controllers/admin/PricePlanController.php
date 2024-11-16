@@ -63,7 +63,7 @@ class PricePlanController extends Controller
         $notification = array(
             'message' => 'Price Plan Created successfully',
             'alert-type' => 'success',
-            "success" => true
+            'data' => 'Created',
         );
 
         return redirect()->route('price-plan.index')->with($notification);
@@ -126,7 +126,7 @@ class PricePlanController extends Controller
         $notification = array(
             'message' => 'Price Plan Deleted successfully',
             'alert-type' => 'error',
-            'delete' => 'Deleted'
+            'data' => 'Deleted',
           
         );
         

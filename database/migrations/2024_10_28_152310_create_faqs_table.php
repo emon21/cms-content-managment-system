@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('faqs', function (Blueprint $table) {
+
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->enum('status',['publish','draft'])->default('publish');
             $table->text('description')->nullable();
+            // $table->enum('status',['show','hide'])->nullable();
             $table->timestamps();
         });
     }

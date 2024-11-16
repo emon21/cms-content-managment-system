@@ -28,7 +28,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title pt-2">
-                                    <i class="fas fa-edit pr-1"></i> Faq Edit</h3>
+                                    <i class="fas fa-edit pr-1"></i> Faq Edit
+                                </h3>
                                 <a href="{{ route('faq.index') }}" class="btn btn-success float-right">
                                     <i class="fas fa-list pr-1"></i> Faq List</a>
                             </div>
@@ -59,6 +60,27 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div>
+                                        <label for="">Status :</label>
+
+
+
+                                        {{-- <input type="radio" value="active">
+                                        <label for="">Active</label>
+                                        <input type="radio" value="inactive">
+                                        <label for="">Inactive</label> --}}
+                                    </div>
+
+                                    {{-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary btn-toggle active">
+                                            <input type="radio" name="status" id="option1" autocomplete="off" checked>
+                                            Active
+                                        </label>
+                                        <label class="btn btn-outline-primary btn-toggle">
+                                            <input type="radio" name="status" id="option2" autocomplete="off"> Inactive
+                                        </label>
+
+                                    </div> --}}
 
                                     <div class="form-group">
                                         <label for="tags">Description:</label>

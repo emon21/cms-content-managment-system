@@ -71,7 +71,6 @@
                                                 </a>
 
 
-
                                                 <form action="{{ route('faq.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

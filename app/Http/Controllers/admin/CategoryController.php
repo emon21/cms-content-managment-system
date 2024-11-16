@@ -90,7 +90,7 @@ class CategoryController extends Controller
             'alert-type' => 'success',
             'data' => 'Created',
         );
-        return redirect()->route('category')->with($notification);
+        return redirect()->route('admin.category')->with($notification);
 
         // $data = [];
 
@@ -113,6 +113,8 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
 
+        // return $id;
+
         $category = Category::find($id);
         return view('backend.category.edit', compact('category'));
     }
@@ -123,6 +125,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
 
         $request->validate(
             [
@@ -186,7 +189,7 @@ class CategoryController extends Controller
             'data' => 'Update',
         );
 
-        return redirect()->route('category')->with($notification);
+        return redirect()->route('admin.category')->with($notification);
 
     }
 
@@ -213,7 +216,7 @@ class CategoryController extends Controller
             'data' => 'Delete',
         );
 
-        return redirect()->route('category')->with($notification);
+        return redirect()->route('admin.category')->with($notification);
 
 
         // return redirect()->route('category')->with('delete', 'Category Delete Successfully ... !!');

@@ -3,6 +3,7 @@
 namespace App\Helper;
 
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Storage;
  * @param string $path
  * @return string
  */
-
 
 
 # Image Upload
@@ -84,5 +84,18 @@ function ToasterNotification(){
 
 
 }
+
+// const LIMIT = 50;
+
+// // public function limit()
+
+// //     {
+// //         // return Str::limit($this->description);
+// //         return Str::limit();
+// //     }
+  
+// function limit(){
+//     return Str::limit(LIMIT);
+// }
 
 

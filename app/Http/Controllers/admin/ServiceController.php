@@ -175,7 +175,7 @@ class ServiceController extends Controller
         Service::destroy($Service->id);
         $notification = array(
                 'message' => 'Service Deleted successfully',
-                'alert-type' => 'success',
+                'alert-type' => 'error',
                 'data' => 'Deleted',
             );
         return redirect()->route('service.index')->with($notification);

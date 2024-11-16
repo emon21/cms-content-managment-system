@@ -30,7 +30,7 @@
                             <h3 class="card-title pt-2">
                                 
                                 Single Category</h3>
-                            <a href="{{ route('category') }}" class="btn btn-outline-success float-right">
+                            <a href="{{ route('admin.category') }}" class="btn btn-outline-success float-right">
                                 <i class="fas fa-list"></i> Category List
                            </a>
                         </div>

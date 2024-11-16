@@ -23,8 +23,6 @@ class CategorySeeder extends Seeder
         // Create Category
 
 
-
-
         // Category::Create([
         //     'name' => 'Laravel Development',
         //     'slug' => Str::slug('Laravel Development'),
@@ -34,8 +32,10 @@ class CategorySeeder extends Seeder
 
         // ]);
 
+
         $randID = rand(1, 100);
         $category = [
+            
             [
                 'name' => 'Business',
                 'slug' => Str::slug('Business'),
@@ -43,6 +43,7 @@ class CategorySeeder extends Seeder
                 'status' => 'publish',
                 'image' => 'https://picsum.photos/id/' . $randID . '/200/300/'
             ],
+
             [
                 'name' => 'Business',
                 'slug' => Str::slug('Business'),
@@ -51,6 +52,7 @@ class CategorySeeder extends Seeder
                 'image' => 'https://picsum.photos/id/' . $randID . '/200/300/',
 
             ],
+
             [
                 'name' => 'Entertainment',
                 'slug' => Str::slug('Entertainment'),
@@ -59,14 +61,7 @@ class CategorySeeder extends Seeder
                 'image' => 'https://picsum.photos/id/' . $randID . '/200/300/',
 
             ],
-            [
-                'name' => 'Entertainment',
-                'slug' => Str::slug('Entertainment'),
-                'type' => 'service',
-                'status' => 'publish',
-                'image' => 'https://picsum.photos/id/' . $randID . '/200/300/',
 
-            ],
             [
                 'name' => 'Art and Creativity',
                 'slug' => Str::slug('Art and Creativity'),
@@ -115,14 +110,7 @@ class CategorySeeder extends Seeder
                 'image' => 'https://picsum.photos/id/' . $randID . '/200/300/',
 
             ],
-            [
-                'name' => 'Creative Expression',
-                'slug' => Str::slug('Creative Expression'),
-                'type' => 'blog',
-                'status' => 'publish',
-                'image' => 'https://picsum.photos/id/' . $randID . '/200/300/',
-
-            ],
+            
             [
                 'name' => 'Creative Expression',
                 'slug' => Str::slug('Creative Expression'),

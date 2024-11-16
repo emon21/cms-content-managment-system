@@ -28,12 +28,13 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title pt-2"><i class="fas fa-plus pr-2"></i>Edit Blog</h3>
-                                <a href="{{ route('blog.index') }}" class="btn btn-success float-right" ><i class="fas fa-list pr-2"></i>All Blog</a>
+                                <a href="{{ route('admin.blog.index') }}" class="btn btn-success float-right"><i
+                                        class="fas fa-list pr-2"></i>All Blog</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <form action="{{ route('blog.update', $blog->id) }}" method="POST"
+                                <form action="{{ route('admin.blog.update', $blog->id) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -130,27 +131,27 @@
                                     </div>
                                     <!-- Page Seo  -->
 
-                                    <div class="d-flex justify-content-between align-item-center">
+                                    <div class="">
                                         <div class="form-group col-sm-4">
                                             <label for="image">Image:</label>
                                             <input type="file" class="form-control" name="FileUpload"
                                                 onchange="previewImage(event);">
-                                           <div class="form-group mt-2">
-                                              <label for="previewImg" class="col-form-label pt-0">Preview Image</label>
-                                            <img class="rounded img-fluid"
-                                                @if ($blog->image) src="{{ asset($blog->image) }}" @else src="https://cdn.vectorstock.com/i/500p/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg" @endif
-                                                alt="" width="320px" id="previewImg">
-                                           </div>
-
-
                                         </div>
 
                                     </div>
 
-
+                                    <div>
+                                        <label for="previewImg" class="form-label">Preview Image :</label>
+                                        <div class="form-group">
+                                            <img class="rounded"
+                                                @if ($blog->image) src="{{ asset($blog->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
+                                                alt="" width="200px" height="200px" id="previewImg">
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-edit pr-2"></i>Update</button>
+                                        <button type="submit" class="btn btn-success"><i
+                                                class="fas fa-edit pr-2"></i>Update</button>
                                     </div>
                                 </form>
                             </div>

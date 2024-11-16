@@ -59,8 +59,6 @@ class ServiceFactory extends Factory
             'meta_keywords' => $this->faker->sentence(),
             // 'image' => $this->faker->imageUrl(),
             'image' => 'https://picsum.photos/id/' . $id . '/200/300/',
-            
-
 
         ];
 

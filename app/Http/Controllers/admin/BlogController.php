@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Symfony\Component\Console\Helper\ProgressBar;
 
 class BlogController extends Controller
 {
@@ -87,9 +88,10 @@ class BlogController extends Controller
         $notification = array(
             'message' => 'Blog Created Successfully Done..!!',
             'alert-type' => 'success',
+            'data' =>'Created'
         );
 
-        return redirect()->route('blog.index')->with($notification);
+        return redirect()->route('admin.blog.index')->with($notification);
     }
 
     /**
@@ -171,9 +173,11 @@ class BlogController extends Controller
         $notification = array(
             'message' => 'Blog Updated Successfully Done..!!',
             'alert-type' => 'success',
+            'data' => 'Updated',
+
         );
 
-        return redirect()->route('blog.index')->with($notification);
+        return redirect()->route('admin.blog.index')->with($notification);
     }
 
     /**
@@ -189,11 +193,14 @@ class BlogController extends Controller
 
         Blog::whereId($blog->id)->delete();
 
+        
         $notification = array(
             'message' => 'Blog Deleted Successfully',
             'alert-type' => 'error',
+            'data' => 'Deleted',
+           
         );
 
-        return redirect()->route('blog.index')->with($notification);
+        return redirect()->route('admin.blog.index')->with($notification);
     }
 }

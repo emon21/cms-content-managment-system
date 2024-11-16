@@ -35,7 +35,7 @@
                                 Add Category
                             </button> --}}
 
-                            <a href="{{ route('category.create') }}" class="btn btn-success float-right">
+                            <a href="{{ route('admin.category.create') }}" class="btn btn-success float-right">
                                 <i class="fas fa-plus pt-1 pr-1"></i>
                                 Create Category
                             </a>
@@ -60,10 +60,12 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $category->name }}</td>
                                             <td>{{ $category->type }}</td>
+                                            
                                             <td>
                                                 <img @if ($category->image) src="{{ asset($category->image) }}" @else src="{{ asset('uploads/category/no-image.png') }}" @endif
                                                     width="120" height="80">
                                             </td>
+
                                             <td>
                                                 @if ($category->status == 'publish')
                                                     <span class="badge bg-success">Publish</span>
@@ -72,18 +74,19 @@
                                                 @endif
                                             </td>
                                             <td class="d-flex justify-content-between">
-                                                <a href="{{ route('category.show', $category->id) }}"
+
+                                                <a href="{{ route('admin.category.show', $category->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                 </a>
 
-                                                <a href="{{ route('category.edit', $category->id) }}"
+                                                <a href="{{ route('admin.category.edit', $category->id) }}"
                                                     class="btn btn-info btn-sm">
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
-                                                <a href="{{ route('category.destroy', $category->id) }}"
-                                                    class="btn btn-danger btn-sm" onclick="confirmationDelete(event)">
+                                                <a href="{{ route('admin.category.destroy', $category->id) }}"
+                                                    class="btn btn-danger btn-sm" onclick="confirmDelete(event)">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
 

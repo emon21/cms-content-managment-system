@@ -98,7 +98,7 @@
                                                 <form action="{{ route('price-plan.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button onclick="confirmation(event)" type="submit"
+                                                    <button onclick="DeleteConfirm(event)" type="submit"
                                                         class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>

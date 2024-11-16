@@ -11,4 +11,6 @@ class DashBoardController extends Controller
     function index(){
         return view('pages.admin-dashboard');
     }
+    
+    
 }

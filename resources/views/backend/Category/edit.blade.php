@@ -33,7 +33,7 @@
                                 <i class="fas fa-edit pr-1"></i>
                                 Edit Category
                             </h3>
-                            <a href="{{ route('category') }}"
+                            <a href="{{ route('admin.category') }}"
                                 class="btn btn-success 
                             {{-- {{ $color }} --}}
                             float-right">
@@ -46,7 +46,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="{{ route('category.update', $category->id) }}" method="POST"
+                            <form action="{{ route('admin.category.update', $category->id) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
