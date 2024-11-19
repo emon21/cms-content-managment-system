@@ -40,7 +40,7 @@ class WebsiteSettingSeeder extends Seeder
         $website->secondary_color = "#FFFFFF";
         $website->title_color = "#333333";
         $website->text_color = "#ee4500";
-        $website->body_color = "red";
+        $website->body_color = "#ff00ff";
         $website->primary_font = "Arial, sans-serif";
         $website->secondary_font = "Arial, sans-serif";
         $website->tertiary_font = "tttt";

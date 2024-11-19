@@ -38,6 +38,7 @@ class ServiceSeeder extends Seeder
         // }
 
         $service = [
+
             [
                 'title' => 'Tech Solutions Hub',
                 'slug' => Str::slug('Tech Solutions Hub'),
@@ -46,7 +47,7 @@ class ServiceSeeder extends Seeder
                 'cat_id' => 3,
                 'plan_id' => 1,
                 'status' => 'publish',
-                'icon' => 'demo',
+                'icon' => 'fab fa-accusoft',
                 'description' => "Typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
                 'meta_title' => 'Category of services',
                 'meta_keywords' => 'Professional , Financial  , Information',
@@ -61,7 +62,7 @@ class ServiceSeeder extends Seeder
                 'cat_id' => 4,
                 'plan_id' => 1,
                 'status' => 'publish',
-                'icon' => 'demo',
+                'icon' => 'fab fa-affiliateth',
                 'description' => "Typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
                 'meta_title' => 'Category of services',
                 'meta_keywords' => 'Professional , Financial  , Information',
@@ -76,7 +77,7 @@ class ServiceSeeder extends Seeder
                 'cat_id' => 13,
                 'plan_id' => 1,
                 'status' => 'publish',
-                'icon' => 'demo',
+                'icon' => 'fab fa-adversal',
                 'description' => "Typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
                 'meta_title' => 'Category of services',
                 'meta_keywords' => 'Professional , Financial  , Information',
@@ -89,9 +90,9 @@ class ServiceSeeder extends Seeder
                 'heading' => 'Amet minim mollit non deserunt ullamco est sit aliqua dolordo amet sint.
                 Velit officia consequat duis enim velit mollit Exercitation.',
                 'cat_id' => 15,
-                'plan_id' => 1,
+                'plan_id' => 2,
                 'status' => 'publish',
-                'icon' => 'demo',
+                'icon' => 'fab fa-adn',
                 'description' => "Typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
                 'meta_title' => 'Category of services',
                 'meta_keywords' => 'Professional , Financial  , Information',
@@ -104,9 +105,9 @@ class ServiceSeeder extends Seeder
                 'heading' => 'Amet minim mollit non deserunt ullamco est sit aliqua dolordo amet sint.
                 Velit officia consequat duis enim velit mollit Exercitation.',
                 'cat_id' => 14,
-                'plan_id' => 1,
+                'plan_id' => 3,
                 'status' => 'publish',
-                'icon' => 'demo',
+                'icon' => 'fab fa-apple',
                 'description' => "Typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
                 'meta_title' => 'Category of services',
                 'meta_keywords' => 'Professional , Financial  , Information',
@@ -120,9 +121,9 @@ class ServiceSeeder extends Seeder
                 'heading' => 'Amet minim mollit non deserunt ullamco est sit aliqua dolordo amet sint.
                 Velit officia consequat duis enim velit mollit Exercitation.',
                 'cat_id' => 2,
-                'plan_id' => 1,
+                'plan_id' => 2,
                 'status' => 'publish',
-                'icon' => 'demo',
+                'icon' => 'fab fa-app-store',
                 'description' => "Typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
                 'meta_title' => 'Category of services',
                 'meta_keywords' => 'Professional , Financial  , Information',

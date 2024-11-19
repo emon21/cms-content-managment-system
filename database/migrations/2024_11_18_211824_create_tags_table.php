@@ -11,10 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_hasibs', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
+
+        // Schema::create('service_tags', function (Blueprint $table) {
+        //     $table->integer('service_id');
+        //     $table->integer('tag_id');
+        // });
+
+    
     }
 
     /**
@@ -22,6 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_hasibs');
+        Schema::dropIfExists('tags');
+        // Schema::dropIfExists('service_tags');
     }
 };

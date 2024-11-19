@@ -1,7 +1,10 @@
+
 <!-- jQuery -->
 <script src="{{ asset('backend') }}/plugins/jquery/jquery.min.js"></script>
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
+{{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> --}}
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('backend') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -275,200 +278,436 @@
     })
 
     //Colorpicker
-    $('.colorpicker1').colorpicker()
+    $('#color1,#color2,#color3,#color4,#color5,#color6,.my-colorpicker2').colorpicker()
+    // $('.colorpicker1').colorpicker()
     //color picker with addon
-    $('.my-colorpicker2').colorpicker()
+    // $('.my-colorpicker2').colorpicker()
 
     $('.my-colorpicker2').on('colorpickerChange', function(event) {
         $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
     })
+
+//      $(function () {
+//     $('#cp2, #cp3a, #cp3b').colorpicker();
+//     const color = $('#cp4').data('color');
+
+//     $('#cp4').colorpicker({"color": "#16813D"});
+//   });
+
+    // # Color Picker with Alpha Channel
+
+
+    // $('#cp2, #cp3a, #cp3b').colorpicker();
 </script>
 
 <script src="{{ asset('Backend') }}/dist/js/custom.js"></script>
 <script>
-  $(function () {
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
+    $(function() {
+        /* ChartJS
+         * -------
+         * Here we will create a few charts using ChartJS
+         */
 
-    //--------------
-    //- AREA CHART -
-    //--------------
+        //--------------
+        //- AREA CHART -
+        //--------------
 
-    // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+        // Get context with jQuery - using jQuery's .get() method.
+        var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
-    var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label               : 'Digital Goods',
-          backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
-          pointRadius          : false,
-          pointColor          : '#3b8bba',
-          pointStrokeColor    : 'rgba(60,141,188,1)',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
-        },
-        {
-          label               : 'Electronics',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
-          pointRadius         : false,
-          pointColor          : 'rgba(210, 214, 222, 1)',
-          pointStrokeColor    : '#c1c7d1',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
-        },
-      ]
-    }
-
-    var areaChartOptions = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }],
-        yAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }]
-      }
-    }
-
-    // This will get the first returned node in the jQuery collection.
-    new Chart(areaChartCanvas, {
-      type: 'line',
-      data: areaChartData,
-      options: areaChartOptions
-    })
-
-    //-------------
-    //- LINE CHART -
-    //--------------
-    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-    var lineChartOptions = $.extend(true, {}, areaChartOptions)
-    var lineChartData = $.extend(true, {}, areaChartData)
-    lineChartData.datasets[0].fill = false;
-    lineChartData.datasets[1].fill = false;
-    lineChartOptions.datasetFill = false
-
-    var lineChart = new Chart(lineChartCanvas, {
-      type: 'line',
-      data: lineChartData,
-      options: lineChartOptions
-    })
-
-    //-------------
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    var donutData        = {
-      labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
-      ],
-      datasets: [
-        {
-          data: [700,500,400,600,300,100],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        var areaChartData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                    label: 'Digital Goods',
+                    backgroundColor: 'rgba(60,141,188,0.9)',
+                    borderColor: 'rgba(60,141,188,0.8)',
+                    pointRadius: false,
+                    pointColor: '#3b8bba',
+                    pointStrokeColor: 'rgba(60,141,188,1)',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(60,141,188,1)',
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                },
+                {
+                    label: 'Electronics',
+                    backgroundColor: 'rgba(210, 214, 222, 1)',
+                    borderColor: 'rgba(210, 214, 222, 1)',
+                    pointRadius: false,
+                    pointColor: 'rgba(210, 214, 222, 1)',
+                    pointStrokeColor: '#c1c7d1',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(220,220,220,1)',
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+            ]
         }
-      ]
-    }
-    var donutOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions
+
+        var areaChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false,
+                    }
+                }]
+            }
+        }
+
+        // This will get the first returned node in the jQuery collection.
+        new Chart(areaChartCanvas, {
+            type: 'line',
+            data: areaChartData,
+            options: areaChartOptions
+        })
+
+        //-------------
+        //- LINE CHART -
+        //--------------
+        var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+        var lineChartOptions = $.extend(true, {}, areaChartOptions)
+        var lineChartData = $.extend(true, {}, areaChartData)
+        lineChartData.datasets[0].fill = false;
+        lineChartData.datasets[1].fill = false;
+        lineChartOptions.datasetFill = false
+
+        var lineChart = new Chart(lineChartCanvas, {
+            type: 'line',
+            data: lineChartData,
+            options: lineChartOptions
+        })
+
+        //-------------
+        //- DONUT CHART -
+        //-------------
+        // Get context with jQuery - using jQuery's .get() method.
+        var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+        var donutData = {
+            labels: [
+                'Chrome',
+                'IE',
+                'FireFox',
+                'Safari',
+                'Opera',
+                'Navigator',
+            ],
+            datasets: [{
+                data: [700, 500, 400, 600, 300, 100],
+                backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+            }]
+        }
+        var donutOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+        }
+        //Create pie or douhnut chart
+        // You can switch between pie and douhnut using the method below.
+        new Chart(donutChartCanvas, {
+            type: 'doughnut',
+            data: donutData,
+            options: donutOptions
+        })
+
+        //-------------
+        //- PIE CHART -
+        //-------------
+        // Get context with jQuery - using jQuery's .get() method.
+        var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+        var pieData = donutData;
+        var pieOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+        }
+        //Create pie or douhnut chart
+        // You can switch between pie and douhnut using the method below.
+        new Chart(pieChartCanvas, {
+            type: 'pie',
+            data: pieData,
+            options: pieOptions
+        })
+
+        //-------------
+        //- BAR CHART -
+        //-------------
+        var barChartCanvas = $('#barChart').get(0).getContext('2d')
+        var barChartData = $.extend(true, {}, areaChartData)
+        var temp0 = areaChartData.datasets[0]
+        var temp1 = areaChartData.datasets[1]
+        barChartData.datasets[0] = temp1
+        barChartData.datasets[1] = temp0
+
+        var barChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            datasetFill: false
+        }
+
+        new Chart(barChartCanvas, {
+            type: 'bar',
+            data: barChartData,
+            options: barChartOptions
+        })
+
+        //---------------------
+        //- STACKED BAR CHART -
+        //---------------------
+        var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+        var stackedBarChartData = $.extend(true, {}, barChartData)
+
+        var stackedBarChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            }
+        }
+
+        new Chart(stackedBarChartCanvas, {
+            type: 'bar',
+            data: stackedBarChartData,
+            options: stackedBarChartOptions
+        })
     })
-
-    //-------------
-    //- PIE CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-    var pieData        = donutData;
-    var pieOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: pieData,
-      options: pieOptions
-    })
-
-    //-------------
-    //- BAR CHART -
-    //-------------
-    var barChartCanvas = $('#barChart').get(0).getContext('2d')
-    var barChartData = $.extend(true, {}, areaChartData)
-    var temp0 = areaChartData.datasets[0]
-    var temp1 = areaChartData.datasets[1]
-    barChartData.datasets[0] = temp1
-    barChartData.datasets[1] = temp0
-
-    var barChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      datasetFill             : false
-    }
-
-    new Chart(barChartCanvas, {
-      type: 'bar',
-      data: barChartData,
-      options: barChartOptions
-    })
-
-    //---------------------
-    //- STACKED BAR CHART -
-    //---------------------
-    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-    var stackedBarChartData = $.extend(true, {}, barChartData)
-
-    var stackedBarChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
-    }
-
-    new Chart(stackedBarChartCanvas, {
-      type: 'bar',
-      data: stackedBarChartData,
-      options: stackedBarChartOptions
-    })
-  })
 </script>
+
+<!-- iconpicker JS -->
+{{-- fontawesome-iconpicker.js --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.min.js"> --}}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.js"></script> --}}
+
+
+<!-- Font Awesome iconpicker CSS -->
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js"></script> --}}
+
+<script>
+// $(function(){
+
+//   $('.iconpicker').iconpicker();
+  
+//   $('.demo').iconpicker();
+
+// });
+
+$('.demo').iconpicker();
+
+
+  $('.iconpicker').iconpicker();
+
+// $('#target').iconpicker();
+
+
+    // $('.iconpicker').iconpicker({
+    //     arrowClass: 'btn-danger',
+    //     arrowPrevIconClass: 'fas fa-angle-left',
+    //     arrowNextIconClass: 'fas fa-angle-right',
+    //     cols: 10,
+    //     footer: true,
+    //     header: true,
+    //     icon: 'fas fa-bomb',
+    //     iconset: 'fontawesome5',
+    //     labelHeader: '{0} of {1} pages',
+    //     labelFooter: '{0} - {1} of {2} icons',
+    //     placement: 'bottom',
+    //     rows: 5,
+    //     search: true,
+    //     searchText: 'Search',
+    //     selectedClass: 'btn-success',
+    //     unselectedClass: ''
+    // });
+
+    // Default options
+    // $('#target').iconpicker();
+
+    // Custom options
+    // $('#target').iconpicker({
+    //     align: 'center', // Only in div tag
+    //     arrowClass: 'btn-danger',
+    //     // arrowPrevIconClass: 'fas fa-angle-left',
+    //     // arrowNextIconClass: 'fas fa-angle-right',
+    //     cols: 10,
+    //     footer: true,
+    //     // header: true,
+    //     // icon: 'fas fa-bomb',
+    //     iconset: 'fontawesome5',
+    //     // labelHeader: '{0} of {1} pages',
+    //     labelFooter: '{0} - {1} of {2} icons',
+    //     placement: 'bottom', // Only in button tag
+    //     rows: 6,
+    //     // search: true,
+    //     searchText: 'Search',
+    //     selectedClass: 'btn-success',
+    //     unselectedClass: ''
+    // });
+
+//     $('.iconpicker').iconpicker({
+
+//   // Icon picker title
+
+//   title:false,
+
+//   // Selected icon on init
+
+//   selected:false,
+
+//   // Default icon
+
+//   defaultValue:false,
+
+//   // inline
+
+//   // topLeftCorner
+
+//   // topLeft
+
+//   // top (center)
+
+//   // topRight
+
+//   // topRightCorner
+
+//   // rightTop
+
+//   // right (center)
+
+//   // rightBottom
+
+//   // bottomRightCorner
+
+//   // bottomRight
+
+//   // bottom (center)
+
+//   // bottomLeft
+
+//   // bottomLeftCorner
+
+//   // leftBottom
+
+//   // left (center)
+
+//   // leftTop
+
+//   placement:"bottom",
+
+//   // Determine whether to re-position the icon picker
+
+//   collision:"none",
+
+//   // Enable animation
+
+//   animation:true,
+
+//   // Hide the icon picker on select
+
+//   hideOnSelect:false,
+
+//   // Show popover footer
+
+//   showFooter:false,
+
+//   // Place the search filed in the footer
+
+//   searchInFooter:false,
+
+//   // Pick the icon when click the accept button in the footer
+
+//   mustAccept:false,
+
+//   // CSS class for the selected icon
+
+//   selectedCustomClass:"bg-primary",
+
+//   // List of icon objects
+
+//   icons: [],
+
+//   // Custom class formatter
+
+//   fullClassFormatter:function (e) {
+
+//     return e;
+
+//   },
+
+//   // Input selector
+
+//   input:"input,.iconpicker-input",
+
+//   // Determine whether to use this the input as a search box
+
+//   inputSearch:false,
+
+//   // Append the icon picker to a specific element
+
+//   container:false,
+
+//   // Default selector
+
+//   component:".input-group-addon,.iconpicker-component",
+
+//   // Customize the template here
+
+//   templates: {
+
+//     popover:'<div class="iconpicker-popover popover" role="tooltip"><div class="arrow"></div>' +'<div class="popover-title"></div><div class="popover-content"></div></div>',
+
+//     footer:'<div class="popover-footer"></div>',
+
+//     buttons:'<button class="iconpicker-btn iconpicker-btn-cancel btn btn-default btn-sm">Cancel</button>' +' <button class="iconpicker-btn iconpicker-btn-accept btn btn-primary btn-sm">Accept</button>',
+
+//     search:'<input type="search" class="form-control iconpicker-search" placeholder="Type to filter" />',
+
+//     iconpicker:'<div class="iconpicker"><div class="iconpicker-items"></div></div>',
+
+//     iconpickerItem:'<a role="button" href="javascript:;" class="iconpicker-item"><i></i></a>'
+
+//   }
+
+// });
+
+
+    // $('#convert_example_1').iconpicker({
+    //     arrowClass: 'btn-danger',
+    //     arrowPrevIconClass: 'fas fa-angle-left',
+    //     arrowNextIconClass: 'fas fa-angle-right',
+    //     cols: 10,
+    //     footer: true,
+    //     header: true,
+    //     icon: 'fas fa-bomb',
+    //     iconset: 'fontawesome5',
+    //     labelHeader: '{0} of {1} pages',
+    //     labelFooter: '{0} - {1} of {2} icons',
+    //     placement: 'bottom',
+    //     rows: 5,
+    //     search: true,
+    //     searchText: 'Search',
+    //     selectedClass: 'btn-success',
+    //     unselectedClass: ''
+    // });
+
+    // $('#target').on('change', function(e) {
+    //     console.log(e.icon);
+    // });
+     
+</script>
+
+
 
 </body>
 

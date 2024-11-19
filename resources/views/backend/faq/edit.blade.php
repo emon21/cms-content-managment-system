@@ -42,13 +42,13 @@
                                     @method('PUT')
 
                                     <div class="d-flex ga-4 align-item-center">
-                                        <div class="form-group col-sm-9">
+                                        <div class="form-group col-sm-8">
                                             <label for="title">Title:</label>
                                             <input type="text" name="title" class="form-control"
                                                 placeholder="Enter Title..." id="title" value="{{ $faq->title }}">
                                         </div>
-                                        <div class="form-group col-sm-3">
-                                            <label for="status">Status:</label>
+                                        <div class="form-group col-sm-2">
+                                            <label for="status">Publish:</label>
                                             <select name="status" id="status" class="form-control">
                                                 <option value=""> >> chouse Status<< </option>
                                                         {{-- <option value="publish" @if ($faq->status == 'publish') selected @endif>Publish</option> --}}
@@ -59,28 +59,25 @@
                                                 </option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="status">Status:</label>
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label
+                                                    class="btn btn-outline-primary btn-toggle {{ $faq->FaqStatus == 'active' ? 'active' : '' }}">
+                                                    <input type="radio" name="FaqStatus" id="option1" autocomplete="off"
+                                                        value="active" {{ $faq->FaqStatus == 'active' ? 'checked' : '' }}>
+                                                    Active
+                                                </label>
+                                                <label
+                                                    class="btn btn-outline-primary btn-toggle {{ $faq->FaqStatus == 'active' ? '' : 'active' }} ">
+                                                    <input type="radio" name="FaqStatus" id="option2" autocomplete="off"
+                                                        value="deactive"
+                                                        {{ $faq->FaqStatus == 'active' ? '' : 'checked' }}> Inactive
+                                                </label>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label for="">Status :</label>
-
-
-
-                                        {{-- <input type="radio" value="active">
-                                        <label for="">Active</label>
-                                        <input type="radio" value="inactive">
-                                        <label for="">Inactive</label> --}}
-                                    </div>
-
-                                    {{-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-outline-primary btn-toggle active">
-                                            <input type="radio" name="status" id="option1" autocomplete="off" checked>
-                                            Active
-                                        </label>
-                                        <label class="btn btn-outline-primary btn-toggle">
-                                            <input type="radio" name="status" id="option2" autocomplete="off"> Inactive
-                                        </label>
-
-                                    </div> --}}
 
                                     <div class="form-group">
                                         <label for="tags">Description:</label>

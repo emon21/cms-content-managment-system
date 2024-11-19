@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Models\backend;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Hasib extends Model
+class Tag extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }

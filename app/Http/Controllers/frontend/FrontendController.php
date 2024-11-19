@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Models\Faq;
 use App\Models\Blog;
+use App\Models\Contact;
 use App\Models\Gallery;
 use App\Models\Partner;
 use App\Models\Service;
@@ -160,14 +161,18 @@ class FrontendController extends Controller
     }
     function ServiceDetails(Service $service)  {
 
-        // return $service->slug;
+        // return $service->plan_id;
+        // return $service;
 
         $pricePlan = PricePlan::all();
         // return $pricePlan;
         $category = Category::all();
-        // $serviceList =Service::all();
 
-        return view('website.service.service-details',compact('service', 'pricePlan','category'));
+        $serviceList = Service::where('plan_id', $service->plan_id)->with('plan')->get();
+        // $serviceList = Service::with('category', 'plan')->get();
+        // return $serviceList;
+
+        return view('website.service.service-details',compact('service', 'pricePlan','category','serviceList'));
         
     }
 
@@ -183,6 +188,23 @@ class FrontendController extends Controller
     {
         //
         return view('website.terms-and-conditions');
+
+    }
+
+    // Mail Send By Admin
+
+    public function MailSend(Request $request){
+
+        Contact::create([
+
+            'name' => $request->input('name'),
+            'email' =>$request->input('email'),
+            'subject' =>$request->input('subject'),
+            'message' =>$request->input('message'),
+           
+        ]);
+        
+        return redirect()->route('website.contact-us');
 
     }
 }

@@ -12,7 +12,7 @@ class Blog extends Model
         'title',
         'slug',
         'cat_id',
-        'tags',
+        'tag_id',
         'description',
         'author',
         'meta_title',

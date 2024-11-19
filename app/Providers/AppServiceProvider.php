@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
          if (!app()->runningInConsole() || app()->runningUnitTests()) {
             // $general_setting = DB::table('categories')->latest()->first();
             //...
-        }
+      
 
        
         // $serviceCategory = Service::latest()->take(4)->with('category')->get();
@@ -100,7 +100,6 @@ class AppServiceProvider extends ServiceProvider
         // View::share(['data' => $data]);
 
         View::share(['category' => $category, 'TotalBlog' => $TotalBlog,'pricePlan' => $pricePlan, 'serviceCategory' => $serviceCategory, 'service' => $service, 'blog' => $blog, 'partner' => $partner, 'team' => $team, 'testimonial' => $testimonial, 'faq' => $faq, 'website' => $website]);
-
-
+        }
     }
 }

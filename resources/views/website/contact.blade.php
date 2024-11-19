@@ -35,7 +35,8 @@
                 <h3 class="">Hello, Welcome Back!</h3>
                 <h4 class="">Enter your details below to continue.</h4>
               </div>
-              <form id="frmContactUs" class="pxa_formBox pxa-marTop30" method="POST">
+              <form id="frmContactUs" class="pxa_formBox pxa-marTop30" action="{{ route('mail.send') }}"method="POST">
+                @csrf
                 <div class="row">
                   <div class="col-md-6 col-12">
                     <div class="pxa_main_input">
@@ -46,7 +47,7 @@
                   <div class="col-md-6 col-12">
                     <div class="pxa_main_input">
                       <label class="">Email</label>
-                      <input type="email" id="pxa-email" name="email" class="pxa_custom_input" placeholder="Enter Email Here...">
+                      <input type="text" id="pxa-email" name="email" class="pxa_custom_input" placeholder="Enter Email Here...">
                     </div>
                   </div>
                 </div>

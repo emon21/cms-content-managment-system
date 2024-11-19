@@ -82,7 +82,7 @@
                         <div class="pxa_services_item">
                             <div class="pxa_services_itemBox">
                                 <div class="pxa_services_iconbox">
-                                    <i class="fas fa-hubspot" aria-hidden="true"></i>
+                                    <i class="{{ $item->icon }}" aria-hidden="true"></i>
                                 </div>
                                 <h2 class="pxa_srv_title">{{ $item->title }}</h2>
                                 <p class="pxa_srv_heading">{{ $item->heading }}</p>
@@ -408,36 +408,14 @@
                     amet sint. Velit officia consequat duis enim velit mollit Exercitation.</p>
             </div>
 
-
-
-
-            {{-- <div class="accordion accordion-flush" id="accordionFlushExample">
-
-                @foreach ($faq as $item)
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                                data-bs-target="#" aria-expanded="false" aria-controls="flush-collapseOne">
-                                {{ $item->title }}
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse"
-                            data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">{{ $item->description }}</div>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div> --}}
-
             <div class="accordion" id="faq_data" data-visible="true" style="">
 
                 @foreach ($faq as $key => $item)
                     {{-- @if ($key == 0) ? 'show' : '' --}}
-                    @php
+                    {{-- @php
                         $value = $key == 2 ? 'show' : '';
-                    @endphp
-
+                    @endphp --}}
+                                
                     <div class="accordion-item accordion-section-wr">
                         <h2 class="accordion-header" id="heading{{ $item->id }}">
                             <button class="accordion-button @if ($item->id > 0) ? 'collapsed' : '' @endif"
@@ -450,13 +428,15 @@
                                 </span>
                             </button>
                         </h2>
-                        <div id="collapse{{ $item->id }}" class="accordion-collapse collapse {{ $value }}"
+
+                        <div id="collapse{{ $item->id }}" class="accordion-collapse collapse {{ ($item->FaqStatus == 'active') ? 'show' : 'hide' }}"
                             aria-labelledby="heading{{ $item->id }}" data-bs-parent="#faq_data">
                             <div class="accordion-body">
                                 <p class="pxa_faq_ans">{!! $item->description !!}</p>
                             </div>
                         </div>
                     </div>
+                    
                 @endforeach
 
             </div>

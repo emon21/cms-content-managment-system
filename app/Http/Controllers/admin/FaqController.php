@@ -81,6 +81,8 @@ class FaqController extends Controller
     public function update(Request $request, Faq $faq)
     {
         //
+         $faq->FaqStatus = $request->FaqStatus;
+
         $faq->title = $request->title;
         $faq->slug = Str::slug($request->title);
         $faq->status = $request->status;

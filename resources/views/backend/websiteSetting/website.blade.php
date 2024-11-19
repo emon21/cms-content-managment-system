@@ -158,17 +158,24 @@
                                                             <div class="form-group col-sm-3">
                                                                 <label>Primary Color:</label>
 
-                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                <div id="color1"
+                                                                    class="input-group my-colorpicker2 colorpicker-element"
                                                                     data-colorpicker-id="2">
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" class="form-control input-lg"
                                                                         data-original-title="" placeholder="Chouse Color"
                                                                         name="primary_color"
                                                                         value="{{ $website->primary_color }}">
 
-                                                                    <div class="input-group-append">
-                                                                        <span class="input-group-text"><i
-                                                                                class="fas fa-square"></i></span>
-                                                                    </div>
+                                                                    {{-- <div class="input-group-append">
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon">
+                                                                            <i class="fas fa-square"></i>
+                                                                        </span>
+                                                                    </div> --}}
+                                                                    <span class="input-group-append">
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon"><i></i></span>
+                                                                    </span>
                                                                 </div>
                                                                 <!-- /.input group -->
                                                             </div>
@@ -176,7 +183,8 @@
                                                             <div class="form-group col-sm-3">
                                                                 <label>Secondary Color:</label>
 
-                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                <div id="color2"
+                                                                    class="input-group my-colorpicker2 colorpicker-element"
                                                                     data-colorpicker-id="2">
                                                                     <input type="text" class="form-control"
                                                                         data-original-title="" placeholder="Chouse Color"
@@ -184,8 +192,8 @@
                                                                         value="{{ $website->secondary_color }}">
 
                                                                     <div class="input-group-append">
-                                                                        <span class="input-group-text"><i
-                                                                                class="fas fa-square"></i></span>
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon"><i></i></span>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.input group -->
@@ -194,7 +202,8 @@
                                                             <div class="form-group col-sm-3">
                                                                 <label>Title Color:</label>
 
-                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                <div id="color3"
+                                                                    class="input-group my-colorpicker2 colorpicker-element"
                                                                     data-colorpicker-id="2">
                                                                     <input type="text" class="form-control"
                                                                         data-original-title="" placeholder="Chouse Color"
@@ -202,8 +211,8 @@
                                                                         value="{{ $website->title_color }}">
 
                                                                     <div class="input-group-append">
-                                                                        <span class="input-group-text"><i
-                                                                                class="fas fa-square"></i></span>
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon"><i></i></span>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.input group -->
@@ -212,7 +221,8 @@
                                                             <div class="form-group col-sm-3">
                                                                 <label>Text Color:</label>
 
-                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                <div id="color4"
+                                                                    class="input-group my-colorpicker2 colorpicker-element"
                                                                     data-colorpicker-id="2">
                                                                     <input type="text" class="form-control"
                                                                         data-original-title="" placeholder="Chouse Color"
@@ -220,8 +230,8 @@
                                                                         value="{{ $website->text_color }}">
 
                                                                     <div class="input-group-append">
-                                                                        <span class="input-group-text"><i
-                                                                                class="fas fa-square"></i></span>
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon"><i></i></span>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.input group -->
@@ -233,10 +243,90 @@
                                                         <div class="d-flex">
                                                             <div class="form-group col-sm-3">
                                                                 <label>Body Color:</label>
-                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                <div id="color5"
+                                                                    class="input-group my-colorpicker2 colorpicker-element"
                                                                     data-colorpicker-id="2">
                                                                     <input type="text" class="form-control"
                                                                         data-original-title="" placeholder="Chouse Color"
+                                                                        name="body_color"
+                                                                        value="{{ $website->body_color }}">
+
+                                                                    <div class="input-group-append">
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon"><i></i></span>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /.input group -->
+                                                            </div>
+
+                                                             <div class="form-group col-sm-3">
+                                                                <label>Body Font:</label>
+                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                    data-colorpicker-id="2">
+
+                                                                    <input type="text" class="form-control"
+                                                                        data-original-title="" placeholder="Chouse Color"
+                                                                        name="body_color"
+                                                                        value="{{ $website->body_color }}">
+
+
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text"><i
+                                                                                class="fas fa-square"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="form-group col-sm-3">
+                                                                <label>Primary Font:</label>
+                                                                <div id="color6"
+                                                                    class="input-group my-colorpicker2 colorpicker-element"
+                                                                    data-colorpicker-id="2">
+                                                                    <input type="text" class="form-control"
+                                                                        data-original-title="" placeholder="Chouse Color"
+                                                                        name="primary_font"
+                                                                        value="{{ $website->primary_font }}">
+
+                                                                    <div class="input-group-append">
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon"><i></i></span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                             <div class="form-group col-sm-3">
+                                                                <label>Secondary Font:</label>
+                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                    data-colorpicker-id="2">
+
+                                                                    <input type="text" class="form-control"
+                                                                        data-original-title="" placeholder="Chouse Color"
+                                                                        name="secondary_font"
+                                                                        value="{{ $website->secondary_font }}">
+
+
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text"><i
+                                                                                class="fas fa-square"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        {{-- <div class="d-flex">
+                                                            <div class="form-group col-sm-3">
+                                                                <label>Body Color:</label>
+                                                                <div class="input-group my-colorpicker2 colorpicker-element"
+                                                                    >
+                                                                    <input type="text" class="form-control"
+                                                                       data-original-title="" placeholder="Chouse Color"
                                                                         name="body_color"
                                                                         value="{{ $website->body_color }}">
 
@@ -265,6 +355,24 @@
                                                                     </div>
                                                                 </div>
 
+                                                            </div> 
+
+                                                             <div class="form-group col-sm-3">
+                                                                <label>Primary Font:</label>
+                                                                <div id="color6"
+                                                                    class="input-group my-colorpicker2 colorpicker-element"
+                                                                    data-colorpicker-id="2">
+                                                                    <input type="text" class="form-control"
+                                                                        data-original-title="" placeholder="Chouse Color"
+                                                                        name="primary_font"
+                                                                        value="{{ $website->primary_font }}">
+
+                                                                    <div class="input-group-append">
+                                                                        <span
+                                                                            class="input-group-text colorpicker-input-addon"><i></i></span>
+                                                                    </div>
+                                                                </div>
+
                                                             </div>
 
                                                             <div class="form-group col-sm-3">
@@ -287,7 +395,7 @@
 
                                                             </div>
 
-                                                        </div>
+                                                        </div> --}}
 
 
 

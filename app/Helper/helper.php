@@ -2,7 +2,8 @@
 
 namespace App\Helper;
 
-
+use DateTime;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -98,4 +99,27 @@ function ToasterNotification(){
 //     return Str::limit(LIMIT);
 // }
 
+
+// function DateTime(){
+
+//     $current = Carbon::now();
+// }
+
+# Date Time
+
+
+function CurrentTime(){
+
+//    $current = Carbon::now();
+    // $mytime = Carbon\Carbon::now();
+    $mytime = Carbon::now();
+    echo $mytime->toDateTimeString();
+
+}
+
+function formatDate($dateString, $format = 'Y-m-d')
+{
+    $date = new DateTime($dateString);
+    return $date->format($format);
+}
 

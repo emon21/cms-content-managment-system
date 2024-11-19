@@ -63,40 +63,38 @@
                                                     Please Select Category << </option>
                                                         @foreach ($category as $item)
                                                             {{-- <option value="{{ $item->id }}">{{ ($item->name == '') ? $item->name : ucfirst($item->name) }}</option> --}}
-                                                           
 
                                                             @if ($item->type == 'service')
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}"
+                                                    {{ $item->id == $service->cat_id ? 'selected' : '' }}>
+                                                    {{ $item->name }}</option>
                                                 @endif
 
                                                 {{-- <option value="{{ $item->id }}"  {{ $item->id == $service->cat_id ? 'selected' : '' }}>{{ $item->name }}</option> --}}
                                                 @endforeach
 
                                             </select>
+
+                                            {{-- {{ $item->id == $blog->cat_id ? 'selected' : '' }} --}}
                                         </div>
 
-                                        <div class="form-group col-sm-3">
+                                        <div class="form-group col-sm-2">
                                             <label for="type">Select Plan:</label>
                                             <select name="plan" id="type" class="form-control">
                                                 <option value=""> >>
                                                     Chouse Plan << </option>
                                                         @foreach ($plan as $item)
-                                                <option value="{{ $item->id }}"
-                                                    
-                                                    {{-- @if ($item->id == $service->plan_id) selected
+                                                <option value="{{ $item->id }}" {{-- @if ($item->id == $service->plan_id) selected
                                                     
                                                 @endif --}}
-                                                
-                                                {{ $item->id == $service->plan_id ? 'selected' : '' }}
-                                                
-                                                
-                                                >{{ $item->title }}</option>
+                                                    {{ $item->id == $service->plan_id ? 'selected' : '' }}>
+                                                    {{ $item->title }}</option>
                                                 @endforeach
 
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-sm-3">
+                                        <div class="form-group col-sm-2">
                                             <label for="status">Status:</label>
                                             <select name="status" id="status" class="form-control">
                                                 <option value=""> >> Chouse Type << </option>
@@ -108,31 +106,28 @@
 
                                         </div>
 
-                                        <div class="form-group col-sm-3">
-                                            <label for="type">Icon:</label>
-                                            <select name="icon" id="type" class="form-control">
-                                                <option value=""> >>
-                                                    Chouse Icon << </option>
-                                                        @foreach ($category as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-
-                                            </select>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="d-flex">
-                                        <div class="form-group col-sm-8">
-                                            <label for="tags">Description:</label>
-                                            <textarea name="description" id="summernote" class="form-control" cols="30" rows="10">{{ $service->description }}</textarea>
-                                        </div>
-
                                         <div class="form-group col-sm-4">
                                             <label for="tags">Image:</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
+                                        <div class="form-group col-sm-1">
+                                            <label for="type">Icon:</label>
+
+                                            <div>
+                                                <button class="btn btn-default iconpicker" data-icon="{{ $service->icon }}"
+                                                    name="icon_picker" role="iconpicker">
+                                                    Icon
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
+
+
+                                    <div class="form-group">
+                                        <label for="tags">Description:</label>
+                                        <textarea name="description" id="summernote" class="form-control" cols="30" rows="10">{{ $service->description }}</textarea>
+                                    </div>
+
 
                                     <!-- Page Seo  -->
                                     <div class="d-flex">
@@ -156,9 +151,9 @@
 
                                     <div class="form-group">
                                         <label for="meta_description">Meta Description:</label>
-                                        <input type="text" name="meta_description" class="form-control"
-                                            placeholder="Enter Meta Description..." id="meta_description"
-                                            value="{{ $service->meta_description }}">
+
+                                        <textarea name="meta_description" id="sumernote" class="form-control @error('meta_description') is-invalid @enderror"
+                                            placeholder="Enter Meta Description..." cols="30" rows="10" value="{{ $service->meta_description }}">{{ $service->meta_description }}</textarea>
                                     </div>
                                     <!-- Page Seo  -->
 

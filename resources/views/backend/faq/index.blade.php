@@ -41,6 +41,7 @@
                                         <th># Sl No</th>
                                         <th>Title</th>
                                         <th>Description</th>
+                                        <th>Publish</th>
                                         <th>Status</th>
                                         <th>Ation</th>
 
@@ -57,6 +58,13 @@
                                                     <span class="badge bg-success">Publish</span>
                                                 @else
                                                     <span class="badge bg-danger">Draft</span>
+                                                @endif
+                                            </td>
+                                             <td>
+                                                @if ($item->FaqStatus == 'active')
+                                                    <span class="badge bg-success">Enable</span>
+                                                @else
+                                                    <span class="badge bg-danger">Disable</span>
                                                 @endif
                                             </td>
 

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models\user;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Emon extends Model
+class Post extends Model
 {
     use HasFactory;
+    protected $guarded =[];
 }

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
-            $table->enum('status',['publish','draft'])->default('publish');
+            $table->enum('status', ['publish', 'draft'])->default('publish');
             $table->text('description')->nullable();
-            // $table->enum('status',['show','hide'])->nullable();
+            $table->enum('FaqStatus', ['active', 'deactive'])->default('deactive');
             $table->timestamps();
         });
     }

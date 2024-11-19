@@ -30,7 +30,10 @@
       <link rel="stylesheet" href="use.fontawesome.com/releases/v5.3.1/css/all.css" />
      
       
-      <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      {{-- <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> --}}
+
+      <!-- Font Awesome CDN -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
      
 
       <link rel="stylesheet" href="{{ asset('frontend') }}/public/common/css/buttonLoader.css" />

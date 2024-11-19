@@ -39,6 +39,7 @@
                                 <thead>
                                     <tr>
                                         <th># Sl No</th>
+                                        <th>Icon</th>
                                         <th>Title</th>
                                         <th>Ctegory</th>
                                         <th>Plan</th>
@@ -52,6 +53,9 @@
                                     @forelse ($service as  $item)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
+                                            <td class="text-center">
+                                                <i class="{{ $item->icon }}"></i>
+                                            </td>
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->category->name }}</td>
                                             <td>{{ $item->plan->title }}</td>

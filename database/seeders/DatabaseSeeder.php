@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Post;
 use App\Models\Contact;
-use App\Models\PricePlan;
 use App\Models\Service;
+use App\Models\PricePlan;
 use App\Models\WebsiteSetting;
 use Illuminate\Database\Seeder;
 
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategorySeeder::class,
+            TagSeeder::class,
             BlogSeeder::class,
             FaqSeeder::class,
             GallerySeeder::class,
@@ -37,10 +39,12 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             WebsiteSettingSeeder::class,
             ServiceSeeder::class,
+          
 
         ]);
 
         Contact::factory()->count(5)->create();
         // Service::factory()->count(5)->create();
+        Post::factory()->count(5)->create();
     }
 }

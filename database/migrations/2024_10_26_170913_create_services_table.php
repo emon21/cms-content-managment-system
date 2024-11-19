@@ -12,25 +12,30 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('services', function (Blueprint $table) {
+           
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->string('heading')->nullable();
-            $table->unsignedBigInteger('cat_id');
-            $table->unsignedBigInteger('plan_id');
-            $table->enum('status',['publish','draft'])->default('publish');
+            $table->unsignedBigInteger('cat_id')->nullable();
+            $table->unsignedBigInteger('plan_id')->nullable();
+            $table->enum('status', ['publish', 'draft'])->default('publish');
             $table->string('icon')->nullable();
             $table->text('description')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
             $table->string('image')->nullable();
+            $table->unsignedBigInteger('tag_id')->nullable();
 
             //Relationship
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('plan_id')->references('id')->on('price_plans')->onDelete('cascade');
+            //  $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
             $table->timestamps();
         });
+
+       
     }
 
     /**
@@ -39,5 +44,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('services');
+       
     }
 };

@@ -151,6 +151,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     route::get('model-create', [WebsiteController::class, 'ModelCreate'])->name('model-create');
     route::post('model-store', [WebsiteController::class, 'ModelStore'])->name('model-store');
+    
 
     route::get('clear',function(){
         // Artisan::call('php artisan r:l');
@@ -195,13 +196,16 @@ Route::group(['prefix' => 'website'], function () {
     Route::get('/service', [FrontendController::class, 'service'])->name('website.service');
     Route::get('/service/details/{service:slug}', [FrontendController::class, 'ServiceDetails'])->name('website.service.details');
 
-    Route::get('/contact-us', [FrontendController::class, 'contact'])->name('website.contact-us');
 
     // Route::post('/send-message', [FrontendController::class, 'SendMessage'])->name('website.send-message');
 
     Route::get('/privacy-policy', [FrontendController::class, 'PrivacyPolicy'])->name('website.privacy-policy'); 
 
     Route::get('/terms-and-conditions', [FrontendController::class, 'TermsCondition'])->name('website.terms-and-conditions');
+
+    Route::get('/contact-us', [FrontendController::class, 'contact'])->name('website.contact-us');
+
+Route::post('/mail-send', [FrontendController::class, 'MailSend'])->name('mail.send');
 
     
 

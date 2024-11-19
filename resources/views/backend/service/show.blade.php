@@ -42,7 +42,7 @@
                                     <tr>
                                         <th>Title</th>
                                         <th>:</th>
-                                        <td>{{ $Service->title }}</td>
+                                        <td>{{ $Service->title }} <i class="{{ $Service->icon }}"></i></td>
                                     </tr>
                                     <tr>
                                         <th>Heading</th>

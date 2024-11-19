@@ -95,7 +95,7 @@
                                                 <h4>{{ $item->title }}</h4>
                                                 <p>{{ Str::limit($item->description, 45, '...') }}</p>
                                                 <div class="pxa_allBlog_btn pxa_btn_wr">
-                                                    <a href="{{ route('website.blog.details', $item->slug) }}"
+                                                    <a href="{{ route('website.service.details', $item->slug) }}"
                                                         class="pxa_btn">Read More
                                                         <svg width="13" height="10" viewBox="0 0 13 10"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Tag;
 use App\Models\Blog;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 class BlogController extends Controller
@@ -30,7 +31,8 @@ class BlogController extends Controller
     {
 
         $category = Category::all();
-        return view('backend.blog.create', compact('category'));
+        $tags = Tag::all();
+        return view('backend.blog.create', compact('category','tags'));
     }
 
     /**
@@ -52,7 +54,10 @@ class BlogController extends Controller
         $data['title'] = $request->title;
         $data['slug'] = Str::slug($request->title);
         $data['cat_id'] = $request->cat_id;
-        $data['tags'] = $request->tags;
+        $tag = implode(',', $request->tags);
+        // dd($tag);
+        $data['tag_id'] = $tag;
+
         $data['description'] = $request->description;
         $data['author'] = $request->author;
         $data['publish_date'] = $request->publish_date;
@@ -80,9 +85,9 @@ class BlogController extends Controller
 
         // create Blog
 
-        DB::table('blogs')->insert($data);
+        // DB::table('blogs')->insert($data);
         // DB::table('blogs')->create($data);
-        // Blog::create($data);
+        Blog::create($data);
 
 
         $notification = array(
@@ -100,6 +105,7 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         
+
         $blogList = Blog::where('cat_id', $blog->cat_id)->get();
         return view('backend.blog.single-blog', compact('blog'));
     }
