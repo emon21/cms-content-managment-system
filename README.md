@@ -1,6 +1,6 @@
 
 
-## About Laravel
+## About Project
 
 CMS – a robust script meticulously developed on the Laravel Framework, seamlessly fusing the elegance of Laravel with advanced content management capabilities. Whether you’re an experienced developer, a digital entrepreneur, or an organization in search of an efficient and customizable CMS, PixaCMS is poised to elevate your web experience.
 
