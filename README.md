@@ -53,10 +53,14 @@ Explore the potential of PixaCMS, where simplicity meets sophistication, providi
 
 # Frontend Demo
 
- <img src="public/demo/screencapture-127-0-0-1-8000-website-2024-11-22-02_57_12.png" alt="Build Status">
- <img src="public/demo/127.0.0.1_8000_website_blog.png" alt="Build Status">
- <img src="public/demo/127.0.0.1_8000_website_contact-us.png" alt="Build Status">
- <img src="public/demo/127.0.0.1_8000_website_gallery.png" alt="Build Status">
- <img src="public/demo/127.0.0.1_8000_website_service.png" alt="Build Status">
+ <img src="public/demo/screencapture-127-0-0-1-8000-website-2024-11-22-02_57_12.png">
+ - Blog
+ <img src="public/demo/127.0.0.1_8000_website_blog.png">
+ - Contact US
+ <img src="public/demo/127.0.0.1_8000_website_contact-us.png">
+ - Gallery
+ <img src="public/demo/127.0.0.1_8000_website_gallery.png">
+ - Service
+ <img src="public/demo/127.0.0.1_8000_website_service.png">
 
 # Backend Demo
