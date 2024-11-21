@@ -78,20 +78,35 @@
                                             {{-- {{ $item->id == $blog->cat_id ? 'selected' : '' }} --}}
                                         </div>
 
-                                        <div class="form-group col-sm-2">
+                                        {{-- <div class="form-group col-sm-2">
                                             <label for="type">Select Plan:</label>
                                             <select name="plan" id="type" class="form-control">
                                                 <option value=""> >>
                                                     Chouse Plan << </option>
                                                         @foreach ($plan as $item)
-                                                <option value="{{ $item->id }}" {{-- @if ($item->id == $service->plan_id) selected
+                                                <option value="{{ $item->id }}"  @if ($item->id == $service->plan_id) selected
                                                     
-                                                @endif --}}
+                                                @endif
                                                     {{ $item->id == $service->plan_id ? 'selected' : '' }}>
                                                     {{ $item->title }}</option>
                                                 @endforeach
-
+<select class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;" data-select2-id="15" tabindex="-1" aria-hidden="true">
                                             </select>
+                                        </div> --}}
+
+                                        <div class="form-group col-sm-3">
+                                            <label>Select Plan</label>
+                                            <select class="select2" name="plans[]" multiple  style="width: 100%; aria-hidden="true" data-select2-id="7" data-placeholder="Select a Plan">
+                                                {{-- <option value="" data-placeholder="Select a Plan"> >> Chouse Plan << </option> --}}
+                                                        @foreach ($plan as $price)
+                                                <option value="{{ $price->id }}"
+                                                    @foreach ($service->plans as $pp)
+                                                    @if ($pp->id == $price->id) selected @endif @endforeach>
+                                                    {{ $price->title }}</option>
+                                                @endforeach
+                                            </select>
+
+
                                         </div>
 
                                         <div class="form-group col-sm-2">
@@ -106,7 +121,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-3">
                                             <label for="tags">Image:</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>

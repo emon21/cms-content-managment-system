@@ -168,8 +168,10 @@ class FrontendController extends Controller
         // return $pricePlan;
         $category = Category::all();
 
-        $serviceList = Service::where('plan_id', $service->plan_id)->with('plan')->get();
+
+        // $serviceList = Service::where('plan_id', $service->plan_id)->with('plan')->get();
         // $serviceList = Service::with('category', 'plan')->get();
+        $serviceList = Service::with('category')->get();
         // return $serviceList;
 
         return view('website.service.service-details',compact('service', 'pricePlan','category','serviceList'));

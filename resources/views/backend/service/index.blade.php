@@ -58,7 +58,31 @@
                                             </td>
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->category->name }}</td>
-                                            <td>{{ $item->plan->title }}</td>
+                                            <td>
+
+                                                @foreach ($plan as $pp)
+                                                    @foreach ($item->plans as $price)
+                                                        @if ($pp->id == $price->id)
+                                                            <span class=" badge badge-success">{{ $price->title }}</span>
+                                                       
+                                                        @endif
+                                                    @endforeach
+
+
+
+
+                                                    {{-- {{ $item->title }} --}}
+                                                @endforeach
+                                                {{-- @foreach ($service->plans as $plan)
+                                                <span>{{ $plans->title }}</span>
+
+                                                 @endforeach --}}
+                                                {{-- @foreach ($service->plans as $plan)
+                                                    {{ $plan->id }}
+                                                @endforeach --}}
+
+                                                {{-- {{ $service->plans()->title }} $service->plans as $plan --}}
+                                            </td>
 
                                             <td>
                                                 <img @if ($item->image) src="{{ asset($item->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif

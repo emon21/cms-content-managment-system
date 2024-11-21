@@ -25,9 +25,11 @@ class ServiceController extends Controller
     {
         // $service = Service::find(1);
 
-        $service = Service::all();
-        return view('backend.service.index', compact('service'));
+          $service = Service::all();
+         $plan = PricePlan::all();
 
+        //  $service = Service::all();
+        return view('backend.service.index', compact('service', 'plan'));
     }
 
     /**
@@ -46,123 +48,48 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+
+        // $service = new Service();
         // return $service;
-
-        $service = new Service();
-
-        // $input = $request->all();
-        // // $planList = $request->plan;
-        // $plan = $input['plans'];
-
-        // $input['plan_id'] = implode(",", $plan);
-        // // $service->fill($input)->save();
-        // // $service->save();
-        // Service::create($input);
-        // return response()->json(['success' => 'Data Added successfully.']);
-        // exit;
-
-
-       
-        // $plan = implode(',', $planList);
-        // return $request->icon_picker;
-   // dd($request->all());
-        // $request->attach('plans', $request->plan);
-
-          // $array = array($request->plan);
-        // array_push($array);
-        // return $a;
-
-        //   return $planList = array_push($request->plan);
-
-        // $planList = $plan[$request->plan];
-        // $plan = implode(', ', $request->plan);
-
-        // return array_slice(',',$request->plan);
-
-        // $service->plan_id = $request->except('plan');
-
-        // $array_request = $request->get('plan');
-        // $array = array_chunk($array_request, 1);
-
-        // $string = implode(",", $request->plan);
-
-        //  $service->plan_id = $string;
-
-        // $collection = collect([$request->plan]);
-
-        // $collection = collect([
-        //     ['plan_id' => 1, 'product' => 'Desk'],
-        //     ['plan_id' => 2, 'product' => 'Chair'],
-        // ]);
-
-        // return $collection->implode(',');
-
-        // $myString = implode(',', array_column($myArray, 'name'));
-
-        // $string = implode(",", $your_array);
-
-        // $collection->implode('product', ', ');
-
-
-
-        //    $service->plan_id = array_merge($request->plan);
-
-
-        // $output = implode(',', $request->plans);
-
-        // dd($output);
-        // json_encode($request->plan);
-
-        // $service->plan_id = $request->attach('plans');
-        // $service->plan_id = $service->plan()->attach($request->plans);
-        // $service->plan_id = $service->plan()->attach($request->plans);
-
-
-    //    $service->plan_id = json_encode($output);
-        // return $request->plans;
- // foreach (request()->plans as $plan) {
-        //     $service->plan()->attach($plan);
-        // }
-
-
-        // $service->plans()->attach($request->plans);
-
-        // if ($request->has('plans')) {
-        // }
-
-
-
-
-        // $service= Service::where()->with('category')->get();
-
-
-        //validation
-        // $request->validate([
-        //     'title' => 'required',
-        //     'heading' => 'required',
-        //     'cat_id' => 'required',
-        //     'plan' => 'required',
-        //     'status' => 'required',
-        //     'icon' => 'required',
-        //     'description' => 'required',
-        //     'meta_title' => 'required',
-        //     'meta_keywords' => 'required',
-        //     'meta_description' => 'required',
-        // ]);
-
-
-     
-
-        $service->title = $request->title;
-        $service->slug = Str::slug($request->title);
-        $service->heading = $request->heading;
-        $service->cat_id = $request->cat_id;
         
-        $service->status = $request->status;
-        $service->icon = $request->icon_picker;
-        $service->description = $request->description;
+        // $service->title = $request->title;
+        // $service->slug = Str::slug($request->title);
+        // $service->heading = $request->heading;
+        // $service->cat_id = $request->cat_id;
 
-       
+        // $service->plan_id  = implode(',', $request->plans);
+
+        // $service->status = $request->status;
+        // $service->icon = $request->icon_picker;
+        // $service->description = $request->description;
+        // $service->plans()->attach([$request->plans]);
+
+        // $title = $request->input('title');
+        // $slug = Str::slug($title);
+
+        // dd($service);
+
+        // $service->plans()->attach([1, 2, 3]);
+        // $service->meta_title = $request->meta_title;
+        // $service->meta_keywords = $request->meta_keywords;
+        // $service->meta_description = $request->meta_description;
+        // $service->save();
+
+        $service = Service::create([
+            'title' => $request->title,
+            'slug' => Str::slug('-', $request->title),
+            'heading' => $request->heading,
+            'cat_id' => $request->cat_id,
+            'status' => $request->status,
+            'icon' => $request->icon_picker,
+            'description' => $request->description,
+            'meta_title' => $request->meta_title,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
+        ]);
+
+        $service->plans()->attach($request->plans);
+
 
         if ($request->hasFile('image')) {
 
@@ -171,19 +98,14 @@ class ServiceController extends Controller
             $service->image = $url;
         }
 
-
-        $service->meta_title = $request->meta_title;
-        $service->meta_keywords = $request->meta_keywords;
-        $service->meta_description = $request->meta_description;
-
-        $service->save();
-
+        // Service::create($service);
 
         $notification = array(
             'message' => 'Service Created successfully',
             'alert-type' => 'success',
             'data' => 'Created',
         );
+
         return redirect()->route('service.index')->with($notification);
     }
 
@@ -194,7 +116,8 @@ class ServiceController extends Controller
     {
         //
         // return $Service;
-        return view('backend.service.show', compact('Service'));
+        $plan = PricePlan::all();
+        return view('backend.service.show', compact('Service','plan'));
     }
 
     /**
@@ -222,7 +145,9 @@ class ServiceController extends Controller
         $Service->slug = Str::slug($request->title);
         $Service->heading = $request->heading;
         $Service->cat_id = $request->cat_id;
-        $Service->plan_id = $request->plan;
+        // $Service->plan_id = $request->plan;
+        $Service->plans()->sync($request->plans);
+
         $Service->status = $request->status;
         // $Service->icon = $request->icon;
         $Service->icon = $request->icon_picker;
@@ -271,6 +196,7 @@ class ServiceController extends Controller
             'alert-type' => 'error',
             'data' => 'Deleted',
         );
+        
         return redirect()->route('service.index')->with($notification);
     }
 }

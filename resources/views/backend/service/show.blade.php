@@ -37,12 +37,12 @@
                             <img @if ($Service->image) src="{{ asset($Service->image) }}" @else src="{{ asset('uploads/no-image.png') }}" @endif
                                 width="250px" height="180px" class="mb-4">
                             <table class="table table-bordered table-striped table-hover">
-                               
+
                                 <tbody>
                                     <tr>
                                         <th>Title</th>
                                         <th>:</th>
-                                        <td>{{ $Service->title }} <i class="{{ $Service->icon }}"></i></td>
+                                        <td>{{ $Service->title }} </td>
                                     </tr>
                                     <tr>
                                         <th>Heading</th>
@@ -74,8 +74,8 @@
                                         <th>:</th>
                                         <td>{{ $Service->meta_keywords }}</td>
                                     </tr>
-                                    
-                                   
+
+
                                     <tr>
                                         <th>Category</th>
                                         <th>:</th>
@@ -84,7 +84,32 @@
                                     <tr>
                                         <th>Plan</th>
                                         <th>:</th>
-                                        <td>{{ $Service->plan->title }}</td>
+                                        {{-- <td>{{ $Service->plan->title }}</td> --}}
+                                        <td>
+
+                                            @foreach ($plan as $item)
+                                                @foreach ($Service->plans as $price)
+                                                    @if ($item->id == $price->id)
+                                                        <span class=" badge badge-success">{{ $price->title }}</span>
+                                                    @endif
+                                                @endforeach
+
+                                                {{-- {{ $item->title }} --}}
+
+                                            @endforeach
+
+                                            {{-- @foreach ($service->plans as $plan)
+                                                <span>{{ $plans->title }}</span>
+
+                                                 @endforeach --}}
+                                            {{-- @foreach ($service->plans as $plan)
+                                                    {{ $plan->id }}
+                                                @endforeach --}}
+
+                                            {{-- {{ $service->plans()->title }} $service->plans as $plan --}}
+                                            
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Status</th>

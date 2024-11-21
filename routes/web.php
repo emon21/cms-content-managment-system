@@ -112,8 +112,8 @@ Route::group(['prefix' => 'admin'], function () {
     # Team Member Route API
 
     Route::resource('/team-member', TeamMemberController::class);
-   
-   
+
+
     # Contract US Route API
 
     Route::resource('/contact', ContactController::class);
@@ -151,12 +151,12 @@ Route::group(['prefix' => 'admin'], function () {
 
     route::get('model-create', [WebsiteController::class, 'ModelCreate'])->name('model-create');
     route::post('model-store', [WebsiteController::class, 'ModelStore'])->name('model-store');
-    
 
-    route::get('clear',function(){
+
+    route::get('clear', function () {
         // Artisan::call('php artisan r:l');
         $folder = "user";
-        $createName = $folder. "/" ."Emon";
+        $createName = $folder . "/" . "Emon";
 
         // if($createName){
 
@@ -164,14 +164,11 @@ Route::group(['prefix' => 'admin'], function () {
         // else{
 
         // }
-        $list = Artisan::call("make:model". " " .$createName);
+        $list = Artisan::call("make:model" . " " . $createName);
         // dd(Artisan::output());
         // return response($list)->json('create',"Model create success");
-        return response()->json(['success' => 'Model Create '.$list.' Success']);
-
+        return response()->json(['success' => 'Model Create ' . $list . ' Success']);
     })->name('admin.clear');
-
-
 });
 
 
@@ -199,17 +196,14 @@ Route::group(['prefix' => 'website'], function () {
 
     // Route::post('/send-message', [FrontendController::class, 'SendMessage'])->name('website.send-message');
 
-    Route::get('/privacy-policy', [FrontendController::class, 'PrivacyPolicy'])->name('website.privacy-policy'); 
+    Route::get('/privacy-policy', [FrontendController::class, 'PrivacyPolicy'])->name('website.privacy-policy');
 
     Route::get('/terms-and-conditions', [FrontendController::class, 'TermsCondition'])->name('website.terms-and-conditions');
 
     Route::get('/contact-us', [FrontendController::class, 'contact'])->name('website.contact-us');
 
-Route::post('/mail-send', [FrontendController::class, 'MailSend'])->name('mail.send');
-
-    
-
+    //frontend contact page send mail to admin
+    Route::post('/mail-send', [FrontendController::class, 'MailSend'])->name('mail.send');
 });
 
 #  ============= Frontend Route =============
-

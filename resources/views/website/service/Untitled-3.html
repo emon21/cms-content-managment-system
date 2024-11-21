@@ -1,0 +1,75 @@
+ @if ($service->plan_id)
+                    {{-- {{ $service->plan->title }} --}}
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 ">
+                        {{-- {{ $plan->status == 'publish' ? '' : 'draft' }} --}}
+                        {{-- Status : {{ $plan->status }} --}}
+
+                        {{-- <div class="pxa_pricingPlan_item {{ $plan->type == 'yearly' ? 'bg-success' : '' }}"> --}}
+                        <div class="pxa_pricingPlan_item">
+                            <h2 class="">{{ $service->plan->title }}</h2>
+                            <h3>{{ $service->plan->price }} <span>/Per {{ $service->plan->type }}</span></h3>
+
+                            <div class="pxa_profile_check">
+                                <div class="pxa_profile_Q">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="pxa_pricingPlan_points">
+                                    <p>amet. Duis aute irure dolor</p>
+
+                                </div>
+                            </div>
+
+                            <div class="pxa_profile_check">
+                                <div class="pxa_profile_Q">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="pxa_pricingPlan_points">
+                                    <p>ullamco est sit aliqua dolor do</p>
+                                </div>
+                            </div>
+
+                            <div class="pxa_profile_check">
+                                <div class="pxa_profile_Q">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="pxa_pricingPlan_points">
+                                    <p>amet sint. Velit officia consequat</p>
+                                </div>
+                            </div>
+
+                            <div class="pxa_profile_check">
+                                <div class="pxa_profile_Q pxa_nonecheck">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="pxa_pricingPlan_points">
+                                    <p>duis enim velit mollit. Exercitation</p>
+                                </div>
+                            </div>
+
+                            <div class="pxa_profile_check">
+                                <div class="pxa_profile_Q pxa_nonecheck">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="pxa_pricingPlan_points">
+                                    <p>veniam consequat sunt nostrud</p>
+                                </div>
+                            </div>
+
+                            <div class="pxa_profile_check">
+                                <div class="pxa_profile_Q pxa_nonecheck">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="pxa_pricingPlan_points">
+                                    <p>amet. Duis aute irure dolor</p>
+                                </div>
+                            </div>
+
+                            <div class="pxa_btn_wr">
+                                <a href="#" class="pxa_btn">Choose Plan</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        @else
+            <span>No data Found</span>
+            @endif

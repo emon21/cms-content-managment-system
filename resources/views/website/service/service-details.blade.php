@@ -67,23 +67,15 @@
                     enim velit mollit Exercitation.</p>
             </div>
             <div class="row align-items-center pxa_pricingPlan_wr">
-                {{-- @foreach ($serviceList as $plan)
+                @foreach ($service->plans as $plan)
                     
-
-                    
-                    
-                    @endforeach --}}
-
-                @if ($service->plan_id)
+                @if ($plan->id)
                     {{-- {{ $service->plan->title }} --}}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 ">
-                        {{-- {{ $plan->status == 'publish' ? '' : 'draft' }} --}}
-                        {{-- Status : {{ $plan->status }} --}}
-
-                        {{-- <div class="pxa_pricingPlan_item {{ $plan->type == 'yearly' ? 'bg-success' : '' }}"> --}}
+                       
                         <div class="pxa_pricingPlan_item">
-                            <h2 class="">{{ $service->plan->title }}</h2>
-                            <h3>{{ $service->plan->price }} <span>/Per {{ $service->plan->type }}</span></h3>
+                            <h2 class="">{{ $plan->title }}</h2>
+                            <h3>{{ $plan->price }} <span>/Per {{ $plan->type }}</span></h3>
 
                             <div class="pxa_profile_check">
                                 <div class="pxa_profile_Q">
@@ -145,10 +137,11 @@
                             </div>
                         </div>
                     </div>
+                    @else
+                        <span>No data Found</span>
+                        @endif
+                        @endforeach
             </div>
-        @else
-            <span>No data Found</span>
-            @endif
         </div>
     </section>
 @endsection

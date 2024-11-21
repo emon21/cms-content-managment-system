@@ -12,6 +12,7 @@ class Service extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'heading',
         'cat_id',
         'plan_id',
@@ -22,7 +23,7 @@ class Service extends Model
         'meta_description',
         'meta_keywords',
         'image',
-        'tag_id',
+
 
     ];
 
@@ -35,7 +36,7 @@ class Service extends Model
     //     // return Str::limit($this->description, self::LIMIT, '...');
     //     return Str::limit($this->description,Service::LIMIT);
     // }
-   
+
 
 
     // Relationship
@@ -45,13 +46,19 @@ class Service extends Model
     }
 
     //child model -> belongsTo
-    public function plan() // plan_id => PricePlan model
-    {
-        return $this->belongsTo(PricePlan::class, 'plan_id');
-    }
+    // public function plan() // plan_id => PricePlan model
+    // {
+    //     return $this->belongsTo(PricePlan::class, 'plan_id');
+    // }
 
     // public function plan() // plan_id => PricePlan model
     // {
     //     return $this->hasMany(PricePlan::class,'plan_id');
     // }
-} 
+
+    public function plans()
+    {
+        return $this->belongsToMany(PricePlan::class, 'plan_service', 'service_id', 'plan_id');
+        // return $this->belongsToMany(PricePlan::class);
+    }
+}

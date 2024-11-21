@@ -19,12 +19,19 @@ class PricePlan extends Model
     ];
 
     //RelationShip
-    public function category(){
-        return $this->belongsTo(Category::class,'cat_id');
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'cat_id');
     }
 
     // Parent model -> hasMany
-    public function service(){ // plan_id => Service Model
-        return $this->hasMany(Service::class);
+    // public function service(){ // plan_id => Service Model
+    //     return $this->hasMany(Service::class);
+    // }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'plan_service', 'plan_id', 'service_id');
+        // return $this->belongsToMany(Service::class);
     }
 }
