@@ -1,16 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank">
-<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions">
-<img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework">
-<img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework">
-<img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework">
-<img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
 ## About Laravel
 
@@ -22,45 +10,77 @@ Manage and organize media assets seamlessly with the gallery management feature,
 
 Explore the potential of PixaCMS, where simplicity meets sophistication, providing a streamlined solution for website creation and management. Transform your digital presence effortlessly with PixaCMS – your gateway to dynamic and visually captivating websites.
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
+ 
+# Content Management System
 
-### Premium Partners
+Welcome to our CMS (Content Management System)
 
--   **[Vehikl](https://vehikl.com/)**
+## Getting Started
+
+To get started with the CMS, follow these steps:
+
+git clone https://github.com/emon21/Contact-management-App/tree/master
+
+# Install composer dependency
+
+composer install
+
+# Install node modules
+
+npm install / yarn
+
+# Copy environment file
+
+cp .env.example .env
+
+# Set the Application key
+
+php artisan key:generate
+
+# setup the database credentials and migrate database
+
+php artisan migrate
+
+# Damy data Insert with Seeder && Factory
+
+php artisan migrate:fresh --seed
+
 
 ### [ Feature List ]
 
--   Features of the script
-
 -   Content Management System
--   Generate Landing Page from Open AI
--   Multipage Website Builder
 -   User Friendly Admin Dashboard
--   Drag and Drop Website Builder
--   Pixabay and Unsplash Integrated
--   Pages Management
 -   Category Management
 -   Blog Management
 -   Service Management
 -   Gallery Management
--   Testimonial
+-   Testimonial Management
 -   Pricing Plans
--   FAQ
+-   FAQ Management
+-   Team Management
 -   Site Settings
--   Supports Multiple Language
--   Easy to Use
--   Cross Browser Compatible
+-   Changes Color on Website
 
-# Frontend Demo
+# [ Plugins ]
+
+- Fontawsome icon
+- Bootstarp Icon
+- ColorPiker
+- Dropify Image Upload
+- Selete2
+- Sweet Alert 2
+- Toastr Notification
+-  Data Table
+ 
+# Frontend
 
  <img src="public/demo/screencapture-127-0-0-1-8000-website-2024-11-22-02_57_12.png">
- - Blog
+# Blog Page
  <img src="public/demo/127.0.0.1_8000_website_blog.png">
- - Contact US
- <img src="public/demo/127.0.0.1_8000_website_contact-us.png">
- - Gallery
- <img src="public/demo/127.0.0.1_8000_website_gallery.png">
- - Service
+# Service Page
  <img src="public/demo/127.0.0.1_8000_website_service.png">
+# Gallery Page
+ <img src="public/demo/127.0.0.1_8000_website_gallery.png">
+ # Contact Page
+ <img src="public/demo/127.0.0.1_8000_website_contact-us.png">
 
-# Backend Demo
