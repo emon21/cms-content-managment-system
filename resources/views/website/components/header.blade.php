@@ -5,7 +5,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="csrf-token" content="gTLshIospmgWRPo8AGfiHKY9mnEmgzs5l9HuQ9IB">
-      <title>Build Your Website With Dynamic Modules</title>
+      <title>@yeild('title','Build Your Website With Dynamic Modules')</title>
       <meta name="keywords" content="Page Builder  Unleash creativity   Dynamic Modules" />
       <meta name="description"
          content="Empower your online presence with dynamic modules and an intuitive page builder. Unleash creativity to design your unique website effortlessly. Start now!" />
@@ -40,8 +40,7 @@
       <link rel="stylesheet" href="{{ asset('frontend') }}/public/common/css/swiper-bundle.css">
       
       <link rel="stylesheet" href="{{ asset('frontend') }}/public/common/css/style.css" />
-     
-      
+           
       <!-- page css -->
     <link rel="stylesheet" href="{{ asset('frontend') }}/public/pages/assets/css/section-style.css" />
     <link rel="stylesheet" href="{{ asset('frontend') }}/public/pages/assets/css/common.css" />

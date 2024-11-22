@@ -64,7 +64,6 @@
                                                         @csrf
 
                                                         <div class="d-flex">
-
                                                             <div class="form-group col-sm-6">
                                                                 <label for="site_name">Site Name :</label>
                                                                 <input type="text" name="site_name" class="form-control"
@@ -109,6 +108,30 @@
                                                                     cols="10" rows="8">{{ $website->site_description }}</textarea>
                                                             </div>
                                                         </div>
+
+                                                        <div class="form-group col-sm-12">
+                                                            <label for="">Google Map :</label>
+                                                            {{-- https://maps.app.goo.gl/8pXmtD3hhtdMhtTz6 --}}
+                                                            {{-- <textarea name="site_map" id="" cols="30" rows="10">{{ $website->site_map }}</textarea> --}}
+
+                                                            {{-- <div id="map"></div> --}}
+
+                                                            <div id="googleMap" style="width:auto;height:650px;"></div>
+                                                            
+
+                                                            <input type="hidden" id="la" name="la">
+                                                            <input type="hidden" id="lo" name="lo">
+                                                        </div>
+
+
+
+
+                                                        {{-- <iframe src="{{ $website->site_map }}" width="600"
+                                                            height="450" style="border:0;" allowfullscreen=""
+                                                            loading="lazy"
+                                                            referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
+
+
 
                                                         <div class="d-flex">
                                                             <div class="form-group col-sm-6">
@@ -259,7 +282,7 @@
                                                                 <!-- /.input group -->
                                                             </div>
 
-                                                             <div class="form-group col-sm-3">
+                                                            <div class="form-group col-sm-3">
                                                                 <label>Body Font:</label>
                                                                 <div class="input-group my-colorpicker2 colorpicker-element"
                                                                     data-colorpicker-id="2">
@@ -297,7 +320,7 @@
 
                                                             </div>
 
-                                                             <div class="form-group col-sm-3">
+                                                            <div class="form-group col-sm-3">
                                                                 <label>Secondary Font:</label>
                                                                 <div class="input-group my-colorpicker2 colorpicker-element"
                                                                     data-colorpicker-id="2">
@@ -402,7 +425,7 @@
 
                                                         <button type="submit" class="btn btn-success">
                                                             <i class="fas fa-save pr-1"></i>Update
-                                                            </button>
+                                                        </button>
 
                                                     </form>
 
@@ -420,50 +443,48 @@
                                             <div class="card">
                                                 <div class="card-header bg-success">Images Setting</div>
                                                 <div class="card-body">
-                                                     <form action="{{ route('image.update', $website) }}" method="POST" enctype="multipart/form-data">
+                                                    <form action="{{ route('image.update', $website) }}" method="POST"
+                                                        enctype="multipart/form-data">
                                                         @csrf
 
-                                                         {{-- <input type="file" name="site_logo"
+                                                        {{-- <input type="file" name="site_logo"
                                                                 class="form-control dropify" data-image="{{$website->site_log}}"
                                                                 data-default-file="{{ asset($website->site_log) }}"
                                                                 data-min-height="200" id="logo"
                                                                 value="{{ $website->site_logo }}"> data-default-file="{{ asset($product->image) }}" data-image="{{$website->site_logo}}" --}}
 
-                                                    <!-- img -->
-                                                    <div class="d-flex gap-2">
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="logo">Site Logo :</label>
-                                                            <input type="file"  name="site_logo"
-                                                                class="form-control dropify" data-default-file="{{asset($website->site_logo)}}"
-                                                                
-                                                                data-min-height="200" id="logo"
-                                                                >
+                                                        <!-- img -->
+                                                        <div class="d-flex gap-2">
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="logo">Site Logo :</label>
+                                                                <input type="file" name="site_logo"
+                                                                    class="form-control dropify"
+                                                                    data-default-file="{{ asset($website->site_logo) }}"
+                                                                    data-min-height="200" id="logo">
+                                                            </div>
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="favicon">White Logo :</label>
+                                                                <input type="file" name="white_logo"
+                                                                    class="form-control dropify"
+                                                                    data-default-file="{{ asset($website->site_WhiteLogo) }}"
+                                                                    data-min-height="200" id="favicon">
+                                                            </div>
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="favicon">Favicon :</label>
+                                                                <input type="file" name="favicon"
+                                                                    class="form-control dropify"
+                                                                    data-default-file="{{ asset($website->site_favicon) }}"
+                                                                    data-min-height="200" id="favicon">
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="favicon">White Logo :</label>
-                                                            <input type="file" name="white_logo"
-                                                                class="form-control dropify"
-                                                                data-default-file="{{ asset($website->site_WhiteLogo) }}"
-                                                                data-min-height="200" id="favicon"
-                                                                >
-                                                        </div>
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="favicon">Favicon :</label>
-                                                            <input type="file" name="favicon"
-                                                                class="form-control dropify"
-                                                                data-default-file="{{ asset($website->site_favicon) }}"
-                                                                data-min-height="200" id="favicon"
-                                                                >
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <button type="submit" class="btn btn-success">
-                                                            <i class="fas fa-save pr-1"></i>
-                                                            Update
-                                                        </button>
-                                                    </div>
-                                                </form>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success">
+                                                                <i class="fas fa-save pr-1"></i>
+                                                                Update
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
 
@@ -476,79 +497,80 @@
                                             <div class="card">
                                                 <div class="card-header bg-success">Seo Setting</div>
                                                 <div class="card-body">
-                                                     <form action="{{ route('seo.update', $website) }}" method="POST">
+                                                    <form action="{{ route('seo.update', $website) }}" method="POST">
                                                         @csrf
 
-                                                    <div class="d-flex">
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="meta_title">Meta Title :</label>
-                                                            <input type="text" name="meta_title" class="form-control"
-                                                                id="meta_title" value="{{ $website->meta_title }}">
-                                                        </div>
+                                                        <div class="d-flex">
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="meta_title">Meta Title :</label>
+                                                                <input type="text" name="meta_title"
+                                                                    class="form-control" id="meta_title"
+                                                                    value="{{ $website->meta_title }}">
+                                                            </div>
 
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="meta_description">Meta Description :</label>
-                                                            <input type="text" name="meta_description"
-                                                                class="form-control" id="meta_description"
-                                                                value="{{ $website->meta_description }}">
-                                                        </div>
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="meta_description">Meta Description :</label>
+                                                                <input type="text" name="meta_description"
+                                                                    class="form-control" id="meta_description"
+                                                                    value="{{ $website->meta_description }}">
+                                                            </div>
 
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="meta_keywords">Meta Keywords :</label>
-                                                            <input type="text" name="meta_keywords"
-                                                                class="form-control" id="meta_keywords"
-                                                                value="{{ $website->meta_keywords }}">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="d-flex">
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="site_facebook">Facebook URL Link :</label>
-                                                            <input type="text" name="site_facebook"
-                                                                class="form-control" id="site_facebook"
-                                                                value="{{ $website->site_facebook }}">
-                                                        </div>
-
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="site_twitter">Twitter URL Link :</label>
-                                                            <input type="text" name="site_twitter"
-                                                                class="form-control" id="site_twitter"
-                                                                value="{{ $website->site_twitter }}">
-                                                        </div>
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="site_linkedin">Linkedin URL Link :</label>
-                                                            <input type="text" name="site_linkedin"
-                                                                class="form-control" id="site_linkedin"
-                                                                value="{{ $website->site_linkedin }}">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex">
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="site_instagram">Instagram URL Link :</label>
-                                                            <input type="text" name="site_instagram"
-                                                                class="form-control" id="site_instagram"
-                                                                value="{{ $website->site_instagram }}">
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="meta_keywords">Meta Keywords :</label>
+                                                                <input type="text" name="meta_keywords"
+                                                                    class="form-control" id="meta_keywords"
+                                                                    value="{{ $website->meta_keywords }}">
+                                                            </div>
                                                         </div>
 
 
+                                                        <div class="d-flex">
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="site_facebook">Facebook URL Link :</label>
+                                                                <input type="text" name="site_facebook"
+                                                                    class="form-control" id="site_facebook"
+                                                                    value="{{ $website->site_facebook }}">
+                                                            </div>
 
-                                                        <div class="form-group col-sm-4">
-                                                            <label for="site_youtube">Youtube URL Link :</label>
-                                                            <input type="text" name="site_youtube"
-                                                                class="form-control" id="site_youtube"
-                                                                value="{{ $website->site_youtube }}">
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="site_twitter">Twitter URL Link :</label>
+                                                                <input type="text" name="site_twitter"
+                                                                    class="form-control" id="site_twitter"
+                                                                    value="{{ $website->site_twitter }}">
+                                                            </div>
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="site_linkedin">Linkedin URL Link :</label>
+                                                                <input type="text" name="site_linkedin"
+                                                                    class="form-control" id="site_linkedin"
+                                                                    value="{{ $website->site_linkedin }}">
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <button type="submit" class="btn btn-success">
-                                                            <i class="fas fa-save pr-1"></i>Update
-                                                        </button>
-                                                    </div>
+                                                        <div class="d-flex">
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="site_instagram">Instagram URL Link :</label>
+                                                                <input type="text" name="site_instagram"
+                                                                    class="form-control" id="site_instagram"
+                                                                    value="{{ $website->site_instagram }}">
+                                                            </div>
 
-                                                     </form>
+
+
+                                                            <div class="form-group col-sm-4">
+                                                                <label for="site_youtube">Youtube URL Link :</label>
+                                                                <input type="text" name="site_youtube"
+                                                                    class="form-control" id="site_youtube"
+                                                                    value="{{ $website->site_youtube }}">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success">
+                                                                <i class="fas fa-save pr-1"></i>Update
+                                                            </button>
+                                                        </div>
+
+                                                    </form>
                                                 </div>
                                             </div>
 
@@ -573,5 +595,16 @@
         </section>
         <!-- /.content -->
     </div>
+
+
+
+
+
+
+
+
+
+
+
 
 @endsection

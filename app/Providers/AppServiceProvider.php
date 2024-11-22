@@ -7,10 +7,12 @@ use App\Models\Blog;
 use App\Models\Partner;
 use App\Models\Service;
 use App\Models\Category;
+use App\Models\MailSetting;
 use App\Models\PricePlan;
 use App\Models\TeamMember;
 use App\Models\Testimonial;
 use App\Models\WebsiteSetting;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -78,6 +80,27 @@ class AppServiceProvider extends ServiceProvider
         
         $serviceCategory = Service::where('cat_id', 17)->with('category')->get();
 
+        # Mail Setting
+        $mailSetting = MailSetting::first();
+
+        if(!empty($mailSetting)){
+
+            $data_mail = [
+                'drive' => $mailSetting->mail_driver,
+                'host' => $mailSetting->mail_host,
+                'port' => $mailSetting->mail_port,
+                'encryption' => $mailSetting->mail_encryption,
+                'username' => $mailSetting->mail_username,
+                'password' => $mailSetting->mail_password,
+                'form' => [
+                    'address' => $mailSetting->mail_form_address,
+                    'name' => $mailSetting->mail_form_name,
+                ]  
+            ];
+
+            Config::set('mail',$data_mail);
+        }
+
         $data = [
             'serviceCategory' => $serviceCategory,
             'service' => $service,
@@ -99,7 +122,7 @@ class AppServiceProvider extends ServiceProvider
 
         // View::share(['data' => $data]);
 
-        View::share(['category' => $category, 'TotalBlog' => $TotalBlog,'pricePlan' => $pricePlan, 'serviceCategory' => $serviceCategory, 'service' => $service, 'blog' => $blog, 'partner' => $partner, 'team' => $team, 'testimonial' => $testimonial, 'faq' => $faq, 'website' => $website]);
+        View::share(['category' => $category, 'TotalBlog' => $TotalBlog,'pricePlan' => $pricePlan, 'serviceCategory' => $serviceCategory, 'service' => $service, 'blog' => $blog, 'partner' => $partner, 'team' => $team, 'testimonial' => $testimonial, 'faq' => $faq, 'website' => $website, 'mailSetting' => $mailSetting]);
         }
     }
 }

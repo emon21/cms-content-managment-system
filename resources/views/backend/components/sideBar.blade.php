@@ -226,12 +226,12 @@
                             </a>
                         </li> --}}
 
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('setting.mail-setting') }}" class="nav-link {{ request()->routeIs('setting.mail-setting') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mail Setting</p>
                             </a>
-                        </li> --}}
+                        </li>
 
                     </ul>
                 </li>

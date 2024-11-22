@@ -1,4 +1,3 @@
-
 <!-- jQuery -->
 <script src="{{ asset('backend') }}/plugins/jquery/jquery.min.js"></script>
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> --}}
@@ -287,12 +286,12 @@
         $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
     })
 
-//      $(function () {
-//     $('#cp2, #cp3a, #cp3b').colorpicker();
-//     const color = $('#cp4').data('color');
+    //      $(function () {
+    //     $('#cp2, #cp3a, #cp3b').colorpicker();
+    //     const color = $('#cp4').data('color');
 
-//     $('#cp4').colorpicker({"color": "#16813D"});
-//   });
+    //     $('#cp4').colorpicker({"color": "#16813D"});
+    //   });
 
     // # Color Picker with Alpha Channel
 
@@ -487,7 +486,8 @@
 {{-- fontawesome-iconpicker.js --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.min.js"> --}}
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js">
+</script>
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.bundle.min.js"></script> --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/js/bootstrap-iconpicker.js"></script> --}}
 
@@ -496,20 +496,20 @@
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js"></script> --}}
 
 <script>
-// $(function(){
+    // $(function(){
 
-//   $('.iconpicker').iconpicker();
-  
-//   $('.demo').iconpicker();
+    //   $('.iconpicker').iconpicker();
 
-// });
+    //   $('.demo').iconpicker();
 
-$('.demo').iconpicker();
+    // });
+
+    $('.demo').iconpicker();
 
 
-  $('.iconpicker').iconpicker();
+    $('.iconpicker').iconpicker();
 
-// $('#target').iconpicker();
+    // $('#target').iconpicker();
 
 
     // $('.iconpicker').iconpicker({
@@ -555,131 +555,131 @@ $('.demo').iconpicker();
     //     unselectedClass: ''
     // });
 
-//     $('.iconpicker').iconpicker({
+    //     $('.iconpicker').iconpicker({
 
-//   // Icon picker title
+    //   // Icon picker title
 
-//   title:false,
+    //   title:false,
 
-//   // Selected icon on init
+    //   // Selected icon on init
 
-//   selected:false,
+    //   selected:false,
 
-//   // Default icon
+    //   // Default icon
 
-//   defaultValue:false,
+    //   defaultValue:false,
 
-//   // inline
+    //   // inline
 
-//   // topLeftCorner
+    //   // topLeftCorner
 
-//   // topLeft
+    //   // topLeft
 
-//   // top (center)
+    //   // top (center)
 
-//   // topRight
+    //   // topRight
 
-//   // topRightCorner
+    //   // topRightCorner
 
-//   // rightTop
+    //   // rightTop
 
-//   // right (center)
+    //   // right (center)
 
-//   // rightBottom
+    //   // rightBottom
 
-//   // bottomRightCorner
+    //   // bottomRightCorner
 
-//   // bottomRight
+    //   // bottomRight
 
-//   // bottom (center)
+    //   // bottom (center)
 
-//   // bottomLeft
+    //   // bottomLeft
 
-//   // bottomLeftCorner
+    //   // bottomLeftCorner
 
-//   // leftBottom
+    //   // leftBottom
 
-//   // left (center)
+    //   // left (center)
 
-//   // leftTop
+    //   // leftTop
 
-//   placement:"bottom",
+    //   placement:"bottom",
 
-//   // Determine whether to re-position the icon picker
+    //   // Determine whether to re-position the icon picker
 
-//   collision:"none",
+    //   collision:"none",
 
-//   // Enable animation
+    //   // Enable animation
 
-//   animation:true,
+    //   animation:true,
 
-//   // Hide the icon picker on select
+    //   // Hide the icon picker on select
 
-//   hideOnSelect:false,
+    //   hideOnSelect:false,
 
-//   // Show popover footer
+    //   // Show popover footer
 
-//   showFooter:false,
+    //   showFooter:false,
 
-//   // Place the search filed in the footer
+    //   // Place the search filed in the footer
 
-//   searchInFooter:false,
+    //   searchInFooter:false,
 
-//   // Pick the icon when click the accept button in the footer
+    //   // Pick the icon when click the accept button in the footer
 
-//   mustAccept:false,
+    //   mustAccept:false,
 
-//   // CSS class for the selected icon
+    //   // CSS class for the selected icon
 
-//   selectedCustomClass:"bg-primary",
+    //   selectedCustomClass:"bg-primary",
 
-//   // List of icon objects
+    //   // List of icon objects
 
-//   icons: [],
+    //   icons: [],
 
-//   // Custom class formatter
+    //   // Custom class formatter
 
-//   fullClassFormatter:function (e) {
+    //   fullClassFormatter:function (e) {
 
-//     return e;
+    //     return e;
 
-//   },
+    //   },
 
-//   // Input selector
+    //   // Input selector
 
-//   input:"input,.iconpicker-input",
+    //   input:"input,.iconpicker-input",
 
-//   // Determine whether to use this the input as a search box
+    //   // Determine whether to use this the input as a search box
 
-//   inputSearch:false,
+    //   inputSearch:false,
 
-//   // Append the icon picker to a specific element
+    //   // Append the icon picker to a specific element
 
-//   container:false,
+    //   container:false,
 
-//   // Default selector
+    //   // Default selector
 
-//   component:".input-group-addon,.iconpicker-component",
+    //   component:".input-group-addon,.iconpicker-component",
 
-//   // Customize the template here
+    //   // Customize the template here
 
-//   templates: {
+    //   templates: {
 
-//     popover:'<div class="iconpicker-popover popover" role="tooltip"><div class="arrow"></div>' +'<div class="popover-title"></div><div class="popover-content"></div></div>',
+    //     popover:'<div class="iconpicker-popover popover" role="tooltip"><div class="arrow"></div>' +'<div class="popover-title"></div><div class="popover-content"></div></div>',
 
-//     footer:'<div class="popover-footer"></div>',
+    //     footer:'<div class="popover-footer"></div>',
 
-//     buttons:'<button class="iconpicker-btn iconpicker-btn-cancel btn btn-default btn-sm">Cancel</button>' +' <button class="iconpicker-btn iconpicker-btn-accept btn btn-primary btn-sm">Accept</button>',
+    //     buttons:'<button class="iconpicker-btn iconpicker-btn-cancel btn btn-default btn-sm">Cancel</button>' +' <button class="iconpicker-btn iconpicker-btn-accept btn btn-primary btn-sm">Accept</button>',
 
-//     search:'<input type="search" class="form-control iconpicker-search" placeholder="Type to filter" />',
+    //     search:'<input type="search" class="form-control iconpicker-search" placeholder="Type to filter" />',
 
-//     iconpicker:'<div class="iconpicker"><div class="iconpicker-items"></div></div>',
+    //     iconpicker:'<div class="iconpicker"><div class="iconpicker-items"></div></div>',
 
-//     iconpickerItem:'<a role="button" href="javascript:;" class="iconpicker-item"><i></i></a>'
+    //     iconpickerItem:'<a role="button" href="javascript:;" class="iconpicker-item"><i></i></a>'
 
-//   }
+    //   }
 
-// });
+    // });
 
 
     // $('#convert_example_1').iconpicker({
@@ -704,9 +704,52 @@ $('.demo').iconpicker();
     // $('#target').on('change', function(e) {
     //     console.log(e.icon);
     // });
-     
 </script>
 
+{{-- <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxtHTPuxfqGKDeyp0d-N-EmE7Luy9ELJA&callback=initMap&v=weekly"></script> --}}
+
+ 
+<script>
+   
+
+     function initMap() {
+
+          const myLatLng = { lat:23.0626318, lng: 89.8829389 };
+
+          const map = new google.maps.Map(document.getElementById("googleMap"), {
+
+            zoom: 10,
+
+            center: myLatLng,
+
+          });
+
+  
+
+          new google.maps.Marker({
+
+            position: myLatLng,
+
+            map,
+
+            title: "Hello Rajkot!",
+
+          });
+
+        }
+
+  
+
+        window.initMap = initMap;
+
+</script>
+
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap&v=weekly"
+      defer
+    ></script>
 
 
 </body>

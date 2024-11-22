@@ -18,8 +18,8 @@ class WebsiteSettingSeeder extends Seeder
 
         # Site Name
 
-        $website->site_name = "Your Company Name";
-        $website->site_title = "Your Company Website";
+        $website->site_name = "CMS";
+        $website->site_title = "CMS For Website";
 
         // Site Logo
 
@@ -31,9 +31,12 @@ class WebsiteSettingSeeder extends Seeder
         $website->site_email = "info@mail.com";
         $website->site_phone = "0123456789";
         $website->site_address = "123 Main St, Anytown USA";
-        $website->site_description = "This is the description of your website.";
-        $website->site_map = "demo map";
-        $website->site_copyright = "Copyright &copy; 2023 Your Company Name";
+        $website->site_description = "Amet minim mollit non deserunt ullamco sit aliqua dolor amet.
+        officia consequat enim velit mollit.";
+
+        $website->site_map = "https://www.google.com/maps/place/Bangladesh/@23.4260355,89.0699506,7z/data=!4m6!3m5!1s0x30adaaed80e18ba7:0xf2d28e0c4e1fc6b!8m2!3d23.684994!4d90.356331!16zL20vMDE2MmI?entry=ttu&g_ep=EgoyMDI0MTExOC4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D";
+
+        $website->site_copyright = "Copyright &copy;" . date('Y') . "Your Company Name";
 
         // Theme Color
         $website->primary_color = "#007BFF";
@@ -43,12 +46,11 @@ class WebsiteSettingSeeder extends Seeder
         $website->body_color = "#ff00ff";
         $website->primary_font = "Arial, sans-serif";
         $website->secondary_font = "Arial, sans-serif";
-        $website->tertiary_font = "tttt";
 
         // Seo Tag
-        $website->meta_title = " meta title";
-        $website->meta_description = "ttweyy";
-        $website->meta_keywords = "yeyryet y ";
+        $website->meta_title = " Build Your Website With Dynamic Modules";
+        $website->meta_keywords = "Page Builder  Unleash creativity   Dynamic Modules";
+        $website->meta_description = "Empower your online presence with dynamic modules and an intuitive page builder. Unleash creativity to design your unique website effortlessly. Start now!";
 
         $website->meta_author = "yyyy";
 

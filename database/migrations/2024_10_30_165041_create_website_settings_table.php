@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('site_email');
             $table->string('site_phone');
             $table->string('site_address');
-            $table->string('site_description');
-            $table->string('site_map');
+            $table->text('site_description');
+            $table->longText('site_map');
             $table->string('site_copyright');
 
             # Color Settings
@@ -32,17 +32,15 @@ return new class extends Migration
             $table->string('text_color');
             $table->string('body_color');
 
-
             # Font Settings
             $table->string('primary_font');
             $table->string('secondary_font');
-            $table->string('tertiary_font');
 
             # Theme Settings
             
             # SEO Settings
             $table->string('meta_title');
-            $table->string('meta_description');
+            $table->longText('meta_description');
             $table->string('meta_keywords');
             $table->string('meta_author'); 
             
@@ -65,3 +63,4 @@ return new class extends Migration
         Schema::dropIfExists('website_settings');
     }
 };
+ 

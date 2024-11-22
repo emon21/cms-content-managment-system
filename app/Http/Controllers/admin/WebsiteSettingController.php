@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\WebsiteSetting;
 use App\Http\Controllers\Controller;
+use App\Models\MailSetting;
 
 use function App\Helper\uploadImage;
 
@@ -86,6 +87,7 @@ class WebsiteSettingController extends Controller
         $website->site_phone = $request->input('site_phone');
         $website->site_address = $request->input('site_address');
         $website->site_description = $request->input('site_description');
+        $website->site_map = $request->input('site_map');
         $website->meta_author = $request->input('meta_author');
         $website->site_copyright = $request->input('site_copyright');
 
@@ -259,5 +261,44 @@ class WebsiteSettingController extends Controller
 
 
         return view('backend.websiteSetting.mailsetting');
+    }
+
+    public function mailUpdate(Request $request, MailSetting $MailSetting){
+
+        // return $MailSetting;
+
+        $MailSetting->mail_driver = $request->mail_driver ;
+        $MailSetting->mail_host = $request->mail_host ;
+        $MailSetting->mail_port = $request->mail_port ;
+        $MailSetting->mail_encryption = $request->mail_encryption ;
+        $MailSetting->mail_username = $request->mail_username ;
+        $MailSetting->mail_password = $request->mail_password ;
+
+        $MailSetting->save();
+
+        $notification = array(
+            'alert-type' => 'success',
+            'message' => 'Mail Setting Updated Successfully',
+        );
+
+        return redirect()->route('setting.mail-setting')->with($notification);
+
+    }
+    
+    public function BasiMailUpdate(Request $request, MailSetting $MailSetting){
+
+
+        $MailSetting->mail_form_name = $request->mail_form_name ;
+        $MailSetting->mail_form_address = $request->mail_form_address ;
+        $MailSetting->mail_reply_email_address = $request->mail_reply_email_address ;
+        $MailSetting->save();
+
+        $notification = array(
+            'alert-type' => 'success',
+            'message' => 'Basic Mail Setting Updated Successfully',
+        );
+
+        return redirect()->route('setting.mail-setting')->with($notification);
+
     }
 }

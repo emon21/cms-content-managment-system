@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             WebsiteSettingSeeder::class,
             ServiceSeeder::class,
+            MailSettingSeeder::class,
           
 
         ]);

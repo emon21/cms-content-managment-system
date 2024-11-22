@@ -148,6 +148,12 @@ Route::group(['prefix' => 'admin'], function () {
 
     //Mail Setting
     Route::get('setting/mail-setting', [WebsiteSettingController::class, 'mailsetting'])->name('setting.mail-setting');
+    Route::post('setting/mail/update/{MailSetting}', [WebsiteSettingController::class, 'mailUpdate'])->name('setting.mail.update');
+
+    // Basic Email Setting
+    Route::get('setting/basic-mail', [WebsiteSettingController::class, 'BasiMail'])->name('setting.basic-mail');
+    Route::post('setting/basic-mail/update/{MailSetting}', [WebsiteSettingController::class, 'BasiMailUpdate'])->name('setting.basic-mail.update');
+
 
     route::get('model-create', [WebsiteController::class, 'ModelCreate'])->name('model-create');
     route::post('model-store', [WebsiteController::class, 'ModelStore'])->name('model-store');
@@ -169,6 +175,7 @@ Route::group(['prefix' => 'admin'], function () {
         // return response($list)->json('create',"Model create success");
         return response()->json(['success' => 'Model Create ' . $list . ' Success']);
     })->name('admin.clear');
+    
 });
 
 
